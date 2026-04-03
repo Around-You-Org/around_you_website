@@ -49,13 +49,14 @@ function ContactSection() {
             { icon: "phone", color: "#3EC6C8", bg: "rgba(62,198,200,0.1)", title: "Phone", val: "+234 907 1037 946", url: "tel:+2349071037946" },
             { icon: "map-pin", color: "#6EE7A8", bg: "rgba(110,231,168,0.1)", title: "Office", val: "Asaba, Nigeria" },
           ].map(({ icon, color, bg, title, val, url }) => (
-            <a href= {url} ><div key={title} className="bg-white rounded-2xl p-6 text-center" style={{ border: "1px solid #f0f0f0" }}>
-              <div className="w-12 h-12 rounded-xl flex items-center justify-center mx-auto mb-3" style={{ background: bg }}>
-                <Icon name={icon} size={22} color={color} />
+            <a key={title} href={url || "#"} className="block">
+              <div className="bg-white rounded-2xl p-6 text-center" style={{ border: "1px solid #f0f0f0" }}>
+                <div className="w-12 h-12 rounded-xl flex items-center justify-center mx-auto mb-3" style={{ background: bg }}>
+                  <Icon name={icon} size={22} color={color} />
+                </div>
+                <h4 className="font-semibold text-sm text-[#0B1D3A]">{title}</h4>
+                <p className="text-sm text-gray-500 mt-1">{val}</p>
               </div>
-              <h4 className="font-semibold text-sm text-[#0B1D3A]">{title}</h4>
-              <p className="text-sm text-gray-500 mt-1">{val}</p>
-            </div>
             </a>
           ))}
         </div>

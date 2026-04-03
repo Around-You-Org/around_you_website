@@ -19,6 +19,11 @@ function useScrollReveal() {
 
 function AboutPage() {
   useScrollReveal();
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, []);
+
   return (
     <div>
       {/* Hero */}
@@ -36,6 +41,31 @@ function AboutPage() {
           <p className="mt-6 text-lg text-gray-300 max-w-2xl mx-auto">
             AroundYou was born from a simple idea: everyone deserves fast, reliable access to skilled professionals nearby. We're making that a reality across Nigeria.
           </p>
+        </div>
+      </section>
+
+      {/* About Us */}
+      <section className="py-20 px-6 scroll-reveal opacity-0 translate-y-8 transition-all duration-700" style={{ background: "#f8fafb" }}>
+        <div className="max-w-6xl mx-auto text-center">
+          <span className="inline-block px-4 py-1.5 rounded-full text-xs font-semibold mb-4" style={{ background: "rgba(62,198,200,0.1)", color: "#0D6B6E" }}>About Us</span>
+          <h2 className="text-3xl font-bold text-[#0B1D3A]" style={{ fontFamily: "'Sora', sans-serif" }}>Our story, mission, and vision</h2>
+          <p className="mt-5 text-gray-500 max-w-3xl mx-auto leading-relaxed">
+            At AroundYou, we started with the belief that local talent should not be hidden. Our story is rooted in community, our mission is to connect people with trusted service providers, and our vision is an Africa where every person can access the services they need, right around the corner.
+          </p>
+          <div className="mt-10 grid md:grid-cols-3 gap-6">
+            <div className="bg-white rounded-2xl p-6 text-center shadow-sm hover:shadow-lg transition-shadow" style={{ border: "1px solid #e8f3f4" }}>
+              <h3 className="text-lg font-semibold text-[#0B1D3A]">Our Story</h3>
+              <p className="text-sm text-gray-500 mt-2">Born from a desire to make local services simple, we launched with grassroots connections in Nigeria.</p>
+            </div>
+            <div className="bg-white rounded-2xl p-6 text-center shadow-sm hover:shadow-lg transition-shadow" style={{ border: "1px solid #e8f3f4" }}>
+              <h3 className="text-lg font-semibold text-[#0B1D3A]">Our Mission</h3>
+              <p className="text-sm text-gray-500 mt-2">Empower professionals and customers through trust, transparency, and affordable access.</p>
+            </div>
+            <div className="bg-white rounded-2xl p-6 text-center shadow-sm hover:shadow-lg transition-shadow" style={{ border: "1px solid #e8f3f4" }}>
+              <h3 className="text-lg font-semibold text-[#0B1D3A]">Our Vision</h3>
+              <p className="text-sm text-gray-500 mt-2">A connected network of thriving local communities across every city in Africa.</p>
+            </div>
+          </div>
         </div>
       </section>
 

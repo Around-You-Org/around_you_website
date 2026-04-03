@@ -134,7 +134,9 @@ function PhoneMockup() {
 
 function HomePage() {
   useScrollReveal();
-  
+    useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, []);
   return (
     <>
     {/* HERO SECTION */}
