@@ -14,7 +14,7 @@ function Footer() {
               {[
                 { name: "twitter", url: "https://twitter.com/aroundyou" },
                 { name: "instagram", url: "https://instagram.com/aroundyou" },
-                { name: "linkedin", url: "https://linkedin.com/company/aroundyou" },
+                { name: "linkedin", url: "https://www.linkedin.com/company/around-you26/" },
                 { name: "facebook", url: "https://facebook.com/aroundyou" }
               ].map(({ name, url }) => (
                 <a key={name} href={url} target="_blank" rel="noopener noreferrer" className="w-8 h-8 rounded-full flex items-center justify-center bg-white/10 hover:bg-white/20 transition-colors">
