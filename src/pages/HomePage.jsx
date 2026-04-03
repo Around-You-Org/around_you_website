@@ -153,10 +153,10 @@ function HomePage() {
       <div className="relative z-10 max-w-7xl mx-auto px-6 pt-32 pb-24 md:pt-44 md:pb-28 flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
         {/* Text */}
         <div className="flex-1 text-center lg:text-left animate-[fadeUp_0.7s_ease-out_both]">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full mb-6"
+          <div className="inline-flex items-center gap-3 px-6 py-2.5 rounded-full mb-6"
             style={{ background: "rgba(255,255,255,0.08)", border: "1px solid rgba(255,255,255,0.12)" }}>
-            <div className="w-2 h-2 rounded-full bg-[#6EE7A8]" />
-            <span className="text-xs font-medium text-white/80">Coming soon....</span>
+            <div className="w-3 h-3 rounded-full bg-[#6EE7A8]" />
+            <span className="text-base font-semibold text-white/90">Coming soon....</span>
           </div>
 
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight"
@@ -165,7 +165,7 @@ function HomePage() {
             <span style={{ color: "#3EC6C8" }}>Right Around You</span>
           </h1>
           <p className="mt-6 text-lg md:text-xl text-gray-300 max-w-xl mx-auto lg:mx-0">
-            Instantly connect with trusted artisans, drivers, cleaners, handymen, and more — all GPS-matched and ready to help.
+            Instantly connect with trusted artisans, drivers, cleaners, handymen, and more. All GPS-matched and ready to help.
           </p>
 
           <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">

@@ -1,5 +1,5 @@
 import Icon from "../components/Icon";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 function useScrollReveal() {
   useEffect(() => {
@@ -19,6 +19,37 @@ function useScrollReveal() {
 
 function AboutPage() {
   useScrollReveal();
+  const [formStatus, setFormStatus] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    setIsSubmitting(true);
+    setFormStatus("");
+
+    const formData = new FormData(event.target);
+    try {
+      const response = await fetch("https://formspree.io/f/xlgoppdo", {
+        method: "POST",
+        headers: {
+          Accept: "application/json",
+        },
+        body: formData,
+      });
+
+      if (response.ok) {
+        setFormStatus("Thank you! We received your message.");
+        event.target.reset();
+      } else {
+        const data = await response.json();
+        setFormStatus(data.error || "Oops! Something went wrong. Please try again.");
+      }
+    } catch (error) {
+      setFormStatus("Network error. Please try again later.");
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -36,7 +67,7 @@ function AboutPage() {
             style={{ background: "rgba(255,255,255,0.1)", color: "#6EE7A8" }}>Our Story</span>
           <h1 className="text-4xl md:text-5xl font-bold leading-tight" style={{ fontFamily: "'Sora', sans-serif" }}>
             We're Building the Future<br />
-            <span style={{ color: "#3EC6C8" }}>of Local Services</span>
+            <span style={{ color: "#3EC6C8" }}>of Hyper Local Market Gig Platform</span>
           </h1>
           <p className="mt-6 text-lg text-gray-300 max-w-2xl mx-auto">
             AroundYou was born from a simple idea: everyone deserves fast, reliable access to skilled professionals nearby. We're making that a reality across Nigeria.
@@ -134,12 +165,12 @@ function AboutPage() {
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
             <span className="inline-block px-4 py-1.5 rounded-full text-xs font-semibold mb-4" style={{ background: "rgba(13,107,110,0.08)", color: "#0D6B6E" }}>Team</span>
-            <h2 className="text-3xl font-bold text-[#0B1D3A]" style={{ fontFamily: "'Sora', sans-serif" }}>Meet the leaders driving AroundYou</h2>
+            <h2 className="text-3xl font-bold text-[#0B1D3A]" style={{ fontFamily: "'Sora', sans-serif" }}>Meet the team driving AroundYou</h2>
             <p className="mt-3 text-gray-500 max-w-2xl mx-auto">Our core team brings product, operations, and technology experience built to scale across cities.</p>
           </div>
           <div className="grid lg:grid-cols-4 md:grid-cols-2 gap-6">
             {[
-              { name: "Odali Wisdom", role: "Founder/CEO", image: "/team/wisdom.jpeg", linkedin: "https://www.linkedin.com/in/odali-wisdom-92118b3bb/", icon:"linkedin", bio: "Tech founder with a track record in scalable marketplace products and community-centered growth." },
+              { name: "Odali Wisdom", role: "Founder/CEO", image: "/team/wisdom.jpeg", linkedin: "https://www.linkedin.com/in/odali-wisdom-92118b3bb/", icon:"linkedin", bio: "Founder and CEO building scalable marketplace solutions with a community-centered approach." },
               { name: "Esi Stephen", role: "COO", image: "/team/stephen.jpeg", linkedin: "https://www.linkedin.com/in/stephen-esi-890486368/", icon:"linkedin", bio: "Operations expert optimizing logistics and team performance across country-wide deployments." },
               { name: "Osadebe Nonso", role: "CTO", image: "/team/nonso.jpeg",linkedin: "https://www.linkedin.com/in/nonso-osadebe-73736936a/", icon:"linkedin", bio: "Technical architect focused on reliability, security, and a smooth user experience." },
               { name: "Chinedu David", role: "CMO", image: "/team/david.jpeg", linkedin: "https://www.linkedin.com/in/sirdaviddev/", icon:"linkedin", bio: "Brand and growth leader building trust and traction in local markets." },
@@ -159,9 +190,64 @@ function AboutPage() {
       {/* Join Us CTA */}
       <section className="py-20 px-6" style={{ background: "linear-gradient(135deg,#0B1D3A,#0D6B6E)" }}>
         <div className="max-w-6xl mx-auto text-center text-white">
-          <h2 className="text-3xl md:text-4xl font-bold" style={{ fontFamily: "'Sora', sans-serif" }}>Want to partner with us?</h2>
+          <h2 className="text-3xl md:text-4xl font-bold" style={{ fontFamily: "'Sora', sans-serif" }}>Right now, we are opened for partnership and investors</h2>
           <p className="mt-4 text-gray-300 max-w-2xl mx-auto">We're growing fast and inviting talent, partners and service providers to join our marketplace across Nigeria.</p>
-          <button className="mt-8 px-8 py-3.5 rounded-full font-semibold bg-linear-to-r from-teal to-aqua hover:shadow-lg transition-all">Become a Partner</button>
+          <form
+            onSubmit={handleSubmit}
+            className="mt-10 mx-auto max-w-3xl grid gap-4 text-left"
+          >
+            <input type="hidden" name="_subject" value="AroundYou partnership inquiry" />
+            <label className="block">
+              <span className="text-sm text-gray-200">Name</span>
+              <input
+                type="text"
+                name="name"
+                required
+                className="mt-2 w-full rounded-2xl border border-white/20 bg-white/10 px-4 py-3 text-white placeholder:text-gray-400 focus:border-[#3EC6C8] focus:outline-none"
+                placeholder="Your full name"
+              />
+            </label>
+            <label className="block">
+              <span className="text-sm text-gray-200">Email</span>
+              <input
+                type="email"
+                name="email"
+                required
+                className="mt-2 w-full rounded-2xl border border-white/20 bg-white/10 px-4 py-3 text-white placeholder:text-gray-400 focus:border-[#3EC6C8] focus:outline-none"
+                placeholder="you@example.com"
+              />
+            </label>
+            <label className="block">
+              <span className="text-sm text-gray-200">Profession</span>
+              <input
+                type="text"
+                name="profession"
+                required
+                className="mt-2 w-full rounded-2xl border border-white/20 bg-white/10 px-4 py-3 text-white placeholder:text-gray-400 focus:border-[#3EC6C8] focus:outline-none"
+                placeholder="What you do"
+              />
+            </label>
+            <label className="block">
+              <span className="text-sm text-gray-200">What can you offer AroundYou?</span>
+              <textarea
+                name="message"
+                rows="5"
+                required
+                className="mt-2 w-full rounded-2xl border border-white/20 bg-white/10 px-4 py-3 text-white placeholder:text-gray-400 focus:border-[#3EC6C8] focus:outline-none"
+                placeholder="Tell us how you can contribute to AroundYou"
+              />
+            </label>
+            <button
+              type="submit"
+              disabled={isSubmitting}
+              className="w-full rounded-full bg-linear-to-r from-teal-500 to-cyan-400 px-8 py-3.5 text-base font-semibold text-[#0B1D3A] transition-all hover:shadow-lg disabled:cursor-not-allowed disabled:opacity-60"
+            >
+              {isSubmitting ? "Sending…" : "Send inquiry"}
+            </button>
+            {formStatus && (
+              <p className="text-sm text-green-200 mt-2" aria-live="polite">{formStatus}</p>
+            )}
+          </form>
         </div>
       </section>
     </div>

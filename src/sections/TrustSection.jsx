@@ -20,7 +20,7 @@ function TrustSection() {
             <span className="inline-block px-4 py-1.5 rounded-full text-xs font-semibold mb-4"
               style={{ background: "rgba(110,231,168,0.15)", color: "#0D6B6E" }}>Trust & Safety</span>
             <h2 className="text-3xl md:text-4xl font-bold leading-tight text-[#0B1D3A]" style={{ fontFamily: "'Sora', sans-serif" }}>
-              Built on Trust,<br />Powered by <span style={{ color: "#0D6B6E" }}>Community</span>
+              Building on Trust,<br />Powered by <span style={{ color: "#0D6B6E" }}>Community</span>
             </h2>
             <p className="mt-4 text-gray-500 leading-relaxed">
               Every professional on AroundYou goes through identity verification, skill assessment, and background checks. Our rating system ensures only the best stay on the platform.
