@@ -4,7 +4,7 @@ function Footer() {
   return (
     <footer className="bg-[#0B1D3A] text-gray-300">
       <div className="max-w-7xl mx-auto px-6 py-14">
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-10">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-10">
           <div>
             <h3 className="text-xl font-bold text-white mb-3">AROUND<span className="text-teal">YOU</span></h3>
             <p className="text-sm text-gray-400 leading-relaxed">
@@ -24,16 +24,16 @@ function Footer() {
             </div>
           </div>
 
-          <div>
+          {/* <div>
             <h4 className="font-semibold text-white mb-4">Company</h4>
             <ul className="space-y-2.5">
               {['About Us', 'Careers', 'Press', 'Blog'].map((label) => (
-                <li key={label}>
-                  <button className="text-sm text-gray-400 hover:text-white transition-colors">{label}</button>
-                </li>
-              ))}
-            </ul>
-          </div>
+                    <li key={label}>
+                      <button className="text-sm text-gray-400 hover:text-white transition-colors">{label}</button>
+                    </li>
+                  ))}
+                </ul>
+          </div> */}
 
           <div>
             <h4 className="font-semibold text-white mb-4">Services</h4>
@@ -55,8 +55,11 @@ function Footer() {
         </div>
 
         <div className="mt-12 pt-6 flex flex-col md:flex-row items-center justify-between gap-4 border-t border-white/20">
-          <p className="text-xs text-gray-400">© 2025 AroundYou. All rights reserved.</p>
-          <p className="text-xs text-gray-400">Made with 💚 in Nigeria</p>
+          <p className="text-xs text-gray-400">© 2026 AroundYou. All rights reserved.</p>
+          <div className="flex gap-4">
+            <button className="text-sm text-gray-400 hover:text-white transition-colors">Privacy Policy</button>
+            <button className="text-sm text-gray-400 hover:text-white transition-colors">Terms of Service</button>
+          </div>
         </div>
       </div>
     </footer>

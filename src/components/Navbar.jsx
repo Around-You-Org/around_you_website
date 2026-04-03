@@ -29,13 +29,8 @@ function NavBar(){
       <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
 
         <Link to="/" className="flex items-center gap-2">
-          <svg width="40" height="24" viewBox="0 0 80 40" fill="none">
-            <path d="M20 20C20 12 26 6 34 6C38 6 41.5 8 44 11C46.5 8 50 6 54 6C62 6 68 12 68 20C68 28 62 34 54 34C50 34 46.5 32 44 29C41.5 32 38 34 34 34C26 34 20 28 20 20Z" stroke="#0D6B6E" strokeWidth="3.5" />
-            <path d="M34 20C34 16 37 13 40 11C43 13 46 16 46 20C46 24 43 27 40 29C37 27 34 24 34 20Z" fill="#3EC6C8" opacity="0.5" />
-            <circle cx="16" cy="10" r="3" fill="#6EE7A8" />
-            <circle cx="68" cy="32" r="2.5" fill="#6EE7A8" />
-          </svg>
-          <span className="font-heading font-bold text-xl text-navy">AROUND<span className="text-teal">YOU</span></span>
+              <img src="/logo.png" alt="aroundyou_logo" width="40" height="24" viewBox="0 0 80 40" fill="none"/> 
+          <span className="font-heading font-bold text-xl text-navy">AROUND<span className="text-teal-800">YOU</span></span>
         </Link>
 
         <div className="hidden md:flex items-center gap-8">
