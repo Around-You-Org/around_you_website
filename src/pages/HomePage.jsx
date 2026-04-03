@@ -154,7 +154,7 @@ function HomePage() {
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full mb-6"
             style={{ background: "rgba(255,255,255,0.08)", border: "1px solid rgba(255,255,255,0.12)" }}>
             <div className="w-2 h-2 rounded-full bg-[#6EE7A8]" />
-            <span className="text-xs font-medium text-white/80">Now available in Delta & Portharcourt</span>
+            <span className="text-xs font-medium text-white/80">Coming soon....</span>
           </div>
 
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight"
@@ -172,7 +172,7 @@ function HomePage() {
               <Icon name="download" size={18} color="white" />
               Join our Waitlist
             </button>
-            
+
             {/* <button className="px-8 py-3.5 rounded-full text-base font-semibold text-white flex items-center justify-center gap-2 transition-all hover:bg-white/10"
               style={{ background: "rgba(255,255,255,0.08)", border: "1px solid rgba(255,255,255,0.12)" }}>
               <Icon name="play-circle" size={18} color="white" />
