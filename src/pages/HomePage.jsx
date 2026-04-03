@@ -33,96 +33,87 @@ function PhoneMockup() {
   return (
     <div className="relative animate-[float_4s_ease-in-out_infinite]">
       <div
-        className="relative w-64 h-120 md:w-72 md:h-132.5 rounded-[2.5rem] p-3"
+        className="relative w-72 h-130 rounded-[2.5rem] p-3"
         style={{
-          background: "rgba(255,255,255,0.08)",
-          backdropFilter: "blur(12px)",
+          background: "rgba(255,255,255,0.12)",
+          backdropFilter: "blur(14px)",
           border: "2px solid rgba(62,198,200,0.3)",
         }}
       >
         <div
           className="w-full h-full rounded-4xl overflow-hidden"
-          style={{ background: "linear-gradient(180deg,#0B1D3A 0%,#0D6B6E 100%)" }}
+          style={{ background: "linear-gradient(180deg,#e8faf7 0%,#d3f4ec 50%,#bff1e6 100%)" }}
         >
-          <div className="p-5 pt-8">
-            {/* Header */}
-            <div className="flex items-center justify-between mb-6">
-              <div>
-                <p className="text-gray-400 text-xs">Good morning 👋</p>
-                <p className="text-white font-semibold text-sm mt-1">What do you need?</p>
-              </div>
-              <div className="w-9 h-9 rounded-full flex items-center justify-center" style={{ background: "rgba(62,198,200,0.2)" }}>
-                <Icon name="bell" size={16} color="#3EC6C8" />
-              </div>
-            </div>
-
-            {/* Search */}
-            <div className="rounded-xl p-3 mb-5 flex items-center gap-3" style={{ background: "rgba(255,255,255,0.08)" }}>
-              <Icon name="search" size={16} color="#6EE7A8" />
-              <span className="text-gray-400 text-xs">Search services...</span>
-            </div>
-
-            {/* Quick categories */}
-            <div className="grid grid-cols-3 gap-3 mb-5">
-              {[
-                { icon: "car", color: "#6EE7A8", bg: "rgba(110,231,168,0.2)", label: "Rides" },
-                { icon: "wrench", color: "#3EC6C8", bg: "rgba(62,198,200,0.2)", label: "Repair" },
-                { icon: "sparkles", color: "#6EE7A8", bg: "rgba(110,231,168,0.2)", label: "Clean" },
-              ].map(({ icon, color, bg, label }) => (
-                <div key={label} className="flex flex-col items-center gap-1.5 p-2 rounded-xl" style={{ background: bg + "33" }}>
-                  <div className="w-9 h-9 rounded-full flex items-center justify-center" style={{ background: bg }}>
-                    <Icon name={icon} size={16} color={color} />
-                  </div>
-                  <span className="text-white text-[10px]">{label}</span>
+          <div className="p-4">
+            <div className="flex items-center justify-between mb-5">
+              <div className="flex items-center gap-2">
+                <div className="w-9 h-9 rounded-full bg-white/80 flex items-center justify-center">
+                  <Icon name="user" size={16} color="#0D6B6E" />
                 </div>
+                <p className="text-sm font-bold text-[#0B1D3A]">Discover Services</p>
+              </div>
+              <div className="flex items-center gap-2 text-[#0D6B6E]">
+                <Icon name="bell" size={16} />
+                <Icon name="search" size={16} />
+              </div>
+            </div>
+
+            <div className="flex gap-2 mb-4 overflow-x-auto pb-1">
+              {[
+                { label: "Artisans", active: false },
+                { label: "Handymen", active: true },
+                { label: "Helpers", active: false },
+              ].map((item) => (
+                <button
+                  key={item.label}
+                  className={`rounded-full px-3 py-1.5 text-xs font-semibold ${item.active ? "bg-[#0D6B6E] text-white" : "bg-white/80 text-[#0D6B6E]"}`}
+                >
+                  {item.label}
+                </button>
               ))}
             </div>
 
-            {/* Nearby Pro */}
-            <div className="rounded-xl p-3" style={{ background: "rgba(255,255,255,0.06)" }}>
-              <div className="flex items-center justify-between mb-2">
-                <span className="text-white text-xs font-medium">Nearby Pro</span>
-                <span className="text-[10px] px-2 py-0.5 rounded-full" style={{ background: "rgba(110,231,168,0.2)", color: "#6EE7A8" }}>Online</span>
+            <div className="relative rounded-2xl h-64 mb-4 border border-white/30 shadow-inner bg-linear-to-b from-[#b1e9da] to-[#d8f5ee]">
+              <div className="absolute left-4 top-4 inline-flex items-center gap-1 text-xs text-[#0D6B6E] font-semibold">
+                <Icon name="map-pin" size={12} />
+                <span>0.8km away</span>
               </div>
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full flex items-center justify-center font-semibold text-sm text-white"
-                  style={{ background: "linear-gradient(135deg,#0D6B6E,#3EC6C8)" }}>
-                  AO
+              <div className="absolute left-10 top-20 w-8 h-8 bg-white rounded-full shadow-md flex items-center justify-center">
+                <Icon name="wrench" size={14} color="#0D6B6E" />
+              </div>
+              <div className="absolute right-10 top-14 w-8 h-8 bg-white rounded-full shadow-md flex items-center justify-center">
+                <Icon name="user" size={14} color="#0D6B6E" />
+              </div>
+              <div className="absolute left-20 top-10 w-8 h-8 bg-white rounded-full shadow-md flex items-center justify-center">
+                <Icon name="map-pin" size={14} color="#0D6B6E" />
+              </div>
+            </div>
+
+            <div className="rounded-2xl bg-white p-3 shadow-lg border border-white/50">
+              <div className="flex items-center gap-3 mb-2">
+                <div className="w-12 h-12 rounded-full bg-slate-300 overflow-hidden flex items-center justify-center">
+                  <span className="text-white font-bold">A</span>
                 </div>
-                <div className="flex-1">
-                  <p className="text-white text-xs font-medium">Adebayo O.</p>
-                  <p className="text-gray-400 text-[10px]">Electrician · ⭐ 4.9 · 0.3km</p>
+                <div>
+                  <p className="font-semibold text-[#0B1D3A]">Adebayo S.</p>
+                  <p className="text-xs text-gray-500">Professional Handyman</p>
                 </div>
-                <button className="px-3 py-1.5 rounded-full text-[10px] font-semibold text-white" style={{ background: "#0D6B6E" }}>
-                  Book
-                </button>
+                <span className="ml-auto inline-flex items-center gap-1 rounded-full bg-emerald-100 px-2 py-1 text-xs font-semibold text-emerald-700">
+                  <Icon name="star" size={12} color="#059669" />
+                  4.8
+                </span>
+              </div>
+              <div className="flex items-center gap-2 text-xs text-gray-500 mb-3">
+                <span>📍 0.8km away</span>
+                <span>·</span>
+                <span>Available Now</span>
+              </div>
+              <div className="flex gap-2">
+                <button className="flex-1 rounded-xl border border-[#0D6B6E] px-3 py-2 text-xs font-semibold text-[#0D6B6E]">View Profile</button>
+                <button className="flex-1 rounded-xl bg-[#0D6B6E] px-3 py-2 text-xs font-semibold text-white">Request Now</button>
               </div>
             </div>
           </div>
-        </div>
-      </div>
-
-      {/* Floating badges */}
-      <div
-        className="absolute -top-3 -right-4 rounded-xl px-3 py-2 animate-[float_4s_ease-in-out_0.5s_infinite]"
-        style={{ background: "rgba(255,255,255,0.08)", backdropFilter: "blur(12px)", border: "1px solid rgba(255,255,255,0.12)" }}
-      >
-        <div className="flex items-center gap-2">
-          <div className="w-6 h-6 rounded-full flex items-center justify-center" style={{ background: "rgba(110,231,168,0.3)" }}>
-            <Icon name="shield-check" size={12} color="#6EE7A8" />
-          </div>
-          <span className="text-white text-[10px] font-medium">Verified & Trusted</span>
-        </div>
-      </div>
-      <div
-        className="absolute -bottom-2 -left-6 rounded-xl px-3 py-2 animate-[float_6s_ease-in-out_infinite]"
-        style={{ background: "rgba(255,255,255,0.08)", backdropFilter: "blur(12px)", border: "1px solid rgba(255,255,255,0.12)" }}
-      >
-        <div className="flex items-center gap-2">
-          <div className="w-6 h-6 rounded-full flex items-center justify-center" style={{ background: "rgba(62,198,200,0.3)" }}>
-            <Icon name="map-pin" size={12} color="#3EC6C8" />
-          </div>
-          <span className="text-white text-[10px] font-medium">GPS Matched</span>
         </div>
       </div>
     </div>
