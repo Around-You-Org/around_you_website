@@ -139,15 +139,16 @@ function AboutPage() {
           </div>
           <div className="grid lg:grid-cols-4 md:grid-cols-2 gap-6">
             {[
-              { name: "Odali Wisdom", role: "Founder/CEO", image: "/wisdom.jpeg", linkedin: "https://www.linkedin.com/in/odali-wisdom", icon:"linkedin" },
-              { name: "Esi Stephen", role: "COO", image: "/stephen.jpeg", linkedin: "https://www.linkedin.com/in/stephen-esi", icon:"linkedin" },
-              { name: "Osadebe Nonso", role: "CTO", image: "/nonso.jpeg",linkedin: "https://www.linkedin.com/in/nonso-osadebe", icon:"linkedin" },
-              { name: "Chinedu David", role: "CMO", image: "/david.jpeg", linkedin: "https://www.linkedin.com/in/sirdaviddev", icon:"linkedin" },
-            ].map(({name,image,role,linkedin,icon}) => (
+              { name: "Odali Wisdom", role: "Founder/CEO", image: "/wisdom.jpeg", linkedin: "https://www.linkedin.com/in/odali-wisdom", icon:"linkedin", bio: "Tech founder with a track record in scalable marketplace products and community-centered growth." },
+              { name: "Esi Stephen", role: "COO", image: "/stephen.jpeg", linkedin: "https://www.linkedin.com/in/stephen-esi", icon:"linkedin", bio: "Operations expert optimizing logistics and team performance across country-wide deployments." },
+              { name: "Osadebe Nonso", role: "CTO", image: "/nonso.jpeg",linkedin: "https://www.linkedin.com/in/nonso-osadebe", icon:"linkedin", bio: "Technical architect focused on reliability, security, and a smooth user experience." },
+              { name: "Chinedu David", role: "CMO", image: "/david.jpeg", linkedin: "https://www.linkedin.com/in/sirdaviddev", icon:"linkedin", bio: "Brand and growth leader building trust and traction in local markets." },
+            ].map(({name,image,role,linkedin,icon,bio}) => (
               <div key={name} className="bg-white rounded-2xl p-6 text-center shadow-sm hover:shadow-lg transition-shadow">
                 <img src={image} alt={name} className="mx-auto w-32 h-32 rounded-full object-cover mb-4" />
                 <h3 className="font-semibold text-[#0B1D3A]">{name}</h3>
                 <p className="text-sm text-gray-500">{role}</p>
+                <p className="text-xs text-gray-500 mt-2">{bio}</p>
                 <a href={linkedin} className="mt-3 flex justify-center"><Icon name={icon} size={14} color="#3EC6C8"/></a>
               </div>
             ))}

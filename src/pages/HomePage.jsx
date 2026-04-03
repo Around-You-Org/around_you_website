@@ -182,15 +182,19 @@ function HomePage() {
             </button> */}
           </div>
 
-          {/* Stats */}
-          <div className="mt-10 flex items-center gap-8 justify-center lg:justify-start">
-            {[["50K+", "Active Users"], ["10K+", "Verified Pros"], ["4.8", "Avg Rating"]].map(([val, lbl], i) => (
-              <div key={lbl} className="flex items-center gap-8">
-                {i > 0 && <div className="w-px h-10" style={{ background: "rgba(255,255,255,0.15)" }} />}
-                <div className="text-center">
-                  <p className="text-2xl font-bold text-white" style={{ fontFamily: "'Sora', sans-serif" }}>{val}</p>
-                  <p className="text-xs text-gray-400 mt-1">{lbl}</p>
+          {/* Development status */}
+          <div className="mt-10 grid grid-cols-1 sm:grid-cols-3 gap-4 justify-items-center lg:justify-items-start">
+            {[
+              { title: "Alpha Stage", text: "Core functionality is being built and tested.", icon: "wrench" },
+              { title: "Beta Launch", text: "Early testers will help refine user flow.", icon: "user-check" },
+              { title: "Production Ready", text: "Full platform rollout expected soon.", icon: "rocket" },
+            ].map(({ title, text, icon }) => (
+              <div key={title} className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl px-5 py-5 w-full max-w-xs">
+                <div className="flex items-center justify-center gap-2 mb-3">
+                  <Icon name={icon} size={16} color="#6EE7A8" />
+                  <p className="text-xs text-white/80 uppercase tracking-wider">{title}</p>
                 </div>
+                <p className="text-sm md:text-base text-gray-200">{text}</p>
               </div>
             ))}
           </div>
