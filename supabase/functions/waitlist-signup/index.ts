@@ -336,6 +336,7 @@ function buildWaitlistEmailHtml(signup: {
   const waitlistUrl = `${aroundYouSiteUrl.replace(/\/$/, '')}/waitlist?referral_source=${encodeURIComponent(
     'Friend or family',
   )}`
+  const logoUrl = `${aroundYouSiteUrl.replace(/\/$/, '')}/IMG_5222.JPG`
 
   return `<!DOCTYPE html>
 <html lang="en">
@@ -353,6 +354,7 @@ function buildWaitlistEmailHtml(signup: {
           <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="max-width:640px;border-radius:32px;overflow:hidden;background:#FFFFFF;box-shadow:0 24px 70px rgba(11,29,58,0.18);">
             <tr>
               <td bgcolor="#0B1D3A" style="background:#0B1D3A;background-image:linear-gradient(135deg,#0B1D3A 0%,#0D6B6E 55%,#0B1D3A 100%);padding:40px 32px 32px;">
+                <img src="${logoUrl}" width="72" height="72" alt="AroundYou" style="display:block;width:72px;height:72px;border-radius:20px;border:1px solid rgba(255,255,255,0.24);object-fit:cover;margin:0 0 24px;" />
                 <p style="margin:0;font-size:13px;letter-spacing:0.22em;text-transform:uppercase;color:#6EE7A8 !important;font-weight:700;-webkit-text-fill-color:#6EE7A8;">
                   <span style="color:#6EE7A8 !important;-webkit-text-fill-color:#6EE7A8;">AROUNDYOU WAITLIST</span>
                 </p>
