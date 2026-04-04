@@ -7,9 +7,34 @@ import ServicesSection from "../sections/ServicesSection";
 import TrustSection from "../sections/TrustSection";
 
 const steps = [
-  { icon: "map-pin", color: "#0D6B6E", bg: "rgba(13,107,110,0.1)", num: "1", numBg: "#0D6B6E", title: "Share Location", desc: "Open the app and let GPS find verified professionals near you instantly." },
-  { icon: "user-check", color: "#3EC6C8", bg: "rgba(62,198,200,0.1)", num: "2", numBg: "#3EC6C8", title: "Pick a Pro", desc: "Browse ratings, reviews, and pricing. Choose the best match for your need." },
-  { icon: "check-circle", color: "#6EE7A8", bg: "rgba(110,231,168,0.1)", num: "3", numBg: "#6EE7A8", numColor: "#0B1D3A", title: "Get It Done", desc: "Track arrival in real-time, chat in-app, and pay securely when done." },
+  {
+    icon: "map-pin",
+    color: "#0D6B6E",
+    bg: "rgba(13,107,110,0.1)",
+    num: "1",
+    numBg: "#0D6B6E",
+    title: "Share Location",
+    desc: "Open the app and let GPS find verified professionals near you instantly.",
+  },
+  {
+    icon: "user-check",
+    color: "#3EC6C8",
+    bg: "rgba(62,198,200,0.1)",
+    num: "2",
+    numBg: "#3EC6C8",
+    title: "Pick a Pro",
+    desc: "Browse ratings, reviews, and pricing. Choose the best match for your need.",
+  },
+  {
+    icon: "check-circle",
+    color: "#6EE7A8",
+    bg: "rgba(110,231,168,0.1)",
+    num: "3",
+    numBg: "#6EE7A8",
+    numColor: "#0B1D3A",
+    title: "Get It Done",
+    desc: "Track arrival in real-time, chat in-app, and pay securely when done.",
+  },
 ];
 
 function useScrollReveal() {
@@ -21,7 +46,7 @@ function useScrollReveal() {
           if (e.isIntersecting) e.target.classList.add("revealed");
         });
       },
-      { threshold: 0.1 }
+      { threshold: 0.1 },
     );
     els.forEach((el) => observer.observe(el));
     return () => observer.disconnect();
@@ -29,7 +54,8 @@ function useScrollReveal() {
 }
 
 // ── Mobile Dashboard HTML ───────────────────────────────────────────────────────
-const MobiledashboardHTML = `<!DOCTYPE html>
+const MobiledashboardHTML = `
+<!DOCTYPE html>
 <html class="light" lang="en">
 <head>
   <meta charset="utf-8" />
@@ -789,7 +815,6 @@ const DesktopdashboardHTML = `
     </section>
   </main>
 </body>
-
 </html>
 `;
 
@@ -888,8 +913,7 @@ function DeviceMockup() {
             style={{
               width: "100%",
               height: "8px",
-              background:
-                "linear-gradient(180deg,rgba(0,0,0,0.4),transparent)",
+              background: "linear-gradient(180deg,rgba(0,0,0,0.4),transparent)",
               borderRadius: "0 0 50% 50%",
             }}
           />
@@ -1006,7 +1030,6 @@ function DeviceMockup() {
     </>
   );
 }
-
 
 function HomePage() {
   useScrollReveal();
@@ -1189,7 +1212,7 @@ function HomePage() {
                     {desc}
                   </p>
                 </div>
-              )
+              ),
             )}
           </div>
         </div>
