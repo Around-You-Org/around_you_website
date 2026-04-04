@@ -1,4 +1,8 @@
 import {
+  AlertCircle,
+  ArrowRight,
+  BriefcaseBusiness,
+  Clock3,
   Download,
   PlayCircle,
   MapPin,
@@ -17,8 +21,12 @@ import {
   Mail,
   Phone,
   Bell,
+  LoaderCircle,
+  Rocket,
   Search,
+  Share2,
   Menu,
+  UserRound,
   X,
 } from "lucide-react";
 
@@ -47,6 +55,10 @@ const FacebookIcon = ({ size, color }) => (
 );
 
 const iconMap = {
+  "alert-circle": AlertCircle,
+  "arrow-right": ArrowRight,
+  briefcase: BriefcaseBusiness,
+  "clock-3": Clock3,
   download: Download,
   "play-circle": PlayCircle,
   "map-pin": MapPin,
@@ -65,8 +77,12 @@ const iconMap = {
   mail: Mail,
   phone: Phone,
   bell: Bell,
+  "loader-circle": LoaderCircle,
+  rocket: Rocket,
   search: Search,
+  "share-2": Share2,
   menu: Menu,
+  "user-round": UserRound,
   x: X,
   twitter: TwitterIcon,
   instagram: InstagramIcon,

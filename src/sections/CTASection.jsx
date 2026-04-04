@@ -1,18 +1,5 @@
 import Icon from "../components/Icon";
-
-
-
-  const scrollAndNavigate = (id) => {
-    if (location.pathname !== '/') {
-      navigate('/')
-      setTimeout(() => {
-        document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' })
-      }, 120)
-    } else {
-      document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' })
-    }
-    setOpen(false)
-  }
+import { Link } from "react-router-dom";
 
 function CTASection() {
   return (
@@ -31,18 +18,20 @@ function CTASection() {
             Join thousands of Nigerians already using AroundYou to get things done faster, safer, and smarter.
           </p>
           <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
-            <a href="">
-            <button className="px-8 py-3.5 rounded-full text-base font-semibold text-white flex items-center justify-center gap-2 transition-all hover:-translate-y-0.5 hover:shadow-lg"
+            <Link
+              to="/waitlist?role=customer"
+              className="px-8 py-3.5 rounded-full text-base font-semibold text-white flex items-center justify-center gap-2 transition-all hover:-translate-y-0.5 hover:shadow-lg"
               style={{ background: "#3EC6C8" }}>
               <Icon name="smartphone" size={18} color="white" />
               Join our Waitlist
-            </button>
-            </a>
+            </Link>
             
-            <button onClick={() => scrollAndNavigate('contact-section')} className="px-8 py-3.5 rounded-full text-base font-semibold text-white flex items-center justify-center gap-2 transition-all hover:bg-white/10"
+            <Link
+              to="/waitlist?role=worker"
+              className="px-8 py-3.5 rounded-full text-base font-semibold text-white flex items-center justify-center gap-2 transition-all hover:bg-white/10"
               style={{ background: "rgba(255,255,255,0.08)", border: "1px solid rgba(255,255,255,0.12)" }}>
               Become a Provider
-            </button>
+            </Link>
             
           </div>
         </div>

@@ -1,18 +1,35 @@
-# React + Vite
+# AroundYou Website
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+React + Vite marketing site for AroundYou with a production waitlist flow powered by Supabase and Brevo.
 
-Currently, two official plugins are available:
+## Local Development
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+1. Copy `.env.example` to `.env.local` and fill in the frontend Supabase values.
+2. Install dependencies and run the dev server:
 
-## React Compiler
+```bash
+npm install
+npm run dev
+```
 
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
+## Waitlist Backend
 
-Note: This will impact Vite dev & build performances.
+Apply the Supabase migration and deploy the Edge Function:
 
-## Expanding the ESLint configuration
+```bash
+supabase db push
+supabase functions deploy waitlist-signup
+supabase secrets set \
+  BREVO_API_KEY="your-brevo-api-key" \
+  BREVO_LIST_ID="123" \
+  WAITLIST_RATE_LIMIT_SALT="replace-with-a-long-random-secret"
+```
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Brevo Retry Sync
+
+If Brevo is temporarily unavailable, failed contacts remain in Supabase with `brevo_synced = false`.
+Run the retry script after setting `SUPABASE_URL`, `SUPABASE_SERVICE_ROLE_KEY`, `BREVO_API_KEY`, and `BREVO_LIST_ID` in `.env` or `.env.local`:
+
+```bash
+npm run waitlist:retry-brevo
+```

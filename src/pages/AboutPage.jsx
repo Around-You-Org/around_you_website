@@ -44,7 +44,7 @@ function AboutPage() {
         const data = await response.json();
         setFormStatus(data.error || "Oops! Something went wrong. Please try again.");
       }
-    } catch (error) {
+    } catch {
       setFormStatus("Network error. Please try again later.");
     } finally {
       setIsSubmitting(false);

@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { Link } from "react-router-dom";
 import Icon from "../components/Icon";
 import CTASection from "../sections/CTASection";
 import ContactSection from "../sections/ContactSection";
@@ -1065,7 +1066,8 @@ function HomePage() {
             </p>
 
             <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-              <button
+              <Link
+                to="/waitlist?role=customer"
                 className="px-8 py-3.5 rounded-full text-base font-semibold text-white flex items-center justify-center gap-2 transition-all hover:-translate-y-0.5 hover:shadow-xl"
                 style={{
                   background: "linear-gradient(135deg,#0D6B6E,#3EC6C8)",
@@ -1073,7 +1075,7 @@ function HomePage() {
               >
                 <Icon name="download" size={18} color="white" />
                 Join our Waitlist
-              </button>
+              </Link>
             </div>
 
             {/* Development status */}
