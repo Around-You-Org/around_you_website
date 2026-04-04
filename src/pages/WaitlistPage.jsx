@@ -35,6 +35,7 @@ const REFERRAL_SOURCES = [
 const INITIAL_FORM_STATE = {
   name: '',
   email: '',
+  phone: '',
   role: 'customer',
   services: [],
   otherServiceRequest: '',
@@ -149,6 +150,7 @@ function WaitlistPage() {
     const result = await submitWaitlistSignup({
       name: formState.name,
       email: formState.email,
+      phone: formState.phone,
       role: formState.role,
       services: selectedServices,
       location: formState.location,
@@ -429,6 +431,25 @@ function WaitlistPage() {
               <div className="grid gap-5 md:grid-cols-2">
                 <label className="block">
                   <span className="text-sm font-medium text-[#0B1D3A]">
+                    Phone Number *
+                  </span>
+                  <input
+                    type="tel"
+                    name="phone"
+                    required
+                    value={formState.phone}
+                    onChange={(event) =>
+                      updateField('phone', event.target.value)
+                    }
+                    autoComplete="tel"
+                    inputMode="tel"
+                    placeholder="+234 801 234 5678"
+                    className="mt-2 w-full rounded-2xl border border-gray-200 bg-[#F8FAFB] px-4 py-3 text-sm text-[#0B1D3A] outline-none transition-all focus:border-[#3EC6C8] focus:ring-2 focus:ring-[#3EC6C8]/30"
+                  />
+                </label>
+
+                <label className="block">
+                  <span className="text-sm font-medium text-[#0B1D3A]">
                     City / Location *
                   </span>
                   <input
@@ -444,7 +465,7 @@ function WaitlistPage() {
                   />
                 </label>
 
-                <label className="block">
+                <label className="block md:col-span-2">
                   <span className="text-sm font-medium text-[#0B1D3A]">
                     Referral Source
                   </span>

@@ -3,11 +3,17 @@ import { createClient } from 'https://esm.sh/@supabase/supabase-js@2.45.4'
 
 const RATE_LIMIT_PER_MINUTE = 10
 const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+const PHONE_PATTERN = /^\+?[1-9]\d{6,14}$/
 
 const supabaseUrl = Deno.env.get('SUPABASE_URL') || ''
 const serviceRoleKey = Deno.env.get('SUPABASE_SERVICE_ROLE_KEY') || ''
 const brevoApiKey = Deno.env.get('BREVO_API_KEY') || ''
 const brevoListId = Number(Deno.env.get('BREVO_LIST_ID') || '')
+const brevoSenderEmail =
+  Deno.env.get('BREVO_SENDER_EMAIL') || 'a71d92001@smtp-brevo.com'
+const brevoSenderName = Deno.env.get('BREVO_SENDER_NAME') || 'AroundYou'
+const aroundYouSiteUrl =
+  Deno.env.get('AROUNDYOU_SITE_URL') || 'https://aroundyou.ng'
 const rateLimitSalt =
   Deno.env.get('WAITLIST_RATE_LIMIT_SALT') || 'aroundyou-waitlist'
 
@@ -52,6 +58,29 @@ function normalizeEmail(value: unknown) {
   return normalizeText(value, 254).toLowerCase()
 }
 
+function normalizePhone(value: unknown) {
+  const rawPhone = normalizeText(value, 32)
+  if (!rawPhone) return ''
+
+  let normalizedPhone = rawPhone.replace(/[^\d+]/g, '')
+
+  if (normalizedPhone.startsWith('00')) {
+    normalizedPhone = `+${normalizedPhone.slice(2)}`
+  }
+
+  if (/^0\d{10}$/.test(normalizedPhone)) {
+    normalizedPhone = `+234${normalizedPhone.slice(1)}`
+  }
+
+  if (!normalizedPhone.startsWith('+')) {
+    normalizedPhone = normalizedPhone.replace(/\+/g, '')
+  } else {
+    normalizedPhone = `+${normalizedPhone.slice(1).replace(/\+/g, '')}`
+  }
+
+  return normalizedPhone
+}
+
 function normalizeServices(value: unknown) {
   if (!Array.isArray(value)) return []
 
@@ -67,6 +96,15 @@ function normalizeServices(value: unknown) {
   }
 
   return Array.from(normalizedServices.values())
+}
+
+function escapeHtml(value: string) {
+  return value
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;')
 }
 
 function slugifyLocation(value: string) {
@@ -144,6 +182,7 @@ async function syncBrevoContact(signup: {
   id: string
   name: string
   email: string
+  phone: string
   role: string
   services: string[]
   location: string
@@ -175,6 +214,7 @@ async function syncBrevoContact(signup: {
         listIds: [brevoListId],
         attributes: {
           FIRSTNAME: signup.name,
+          SMS: signup.phone,
           ROLE: signup.role,
           SERVICES: signup.services.join(', '),
           LOCATION: signup.location,
@@ -209,6 +249,202 @@ async function syncBrevoContact(signup: {
     return true
   } catch (error) {
     console.error('Unexpected Brevo sync failure', {
+      signupId: signup.id,
+      error: error instanceof Error ? error.message : 'Unknown error',
+    })
+    return false
+  }
+}
+
+function buildWaitlistEmailHtml(signup: {
+  name: string
+  role: string
+  services: string[]
+  location: string
+}) {
+  const safeName = escapeHtml(signup.name)
+  const safeLocation = escapeHtml(signup.location)
+  const roleLabel = signup.role === 'worker' ? 'worker' : 'customer'
+  const servicesLabel =
+    signup.role === 'worker' && signup.services.length > 0
+      ? escapeHtml(signup.services.join(', '))
+      : 'Trusted local services near you'
+  const waitlistUrl = `${aroundYouSiteUrl.replace(/\/$/, '')}/waitlist?referral_source=${encodeURIComponent(
+    'Friend or family',
+  )}`
+
+  return `<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Welcome to the AroundYou Waitlist</title>
+  </head>
+  <body style="margin:0;padding:0;background:#F4F7F8;font-family:Inter,Arial,sans-serif;color:#0B1D3A;">
+    <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="background:#F4F7F8;padding:32px 12px;">
+      <tr>
+        <td align="center">
+          <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="max-width:640px;border-radius:32px;overflow:hidden;background:#FFFFFF;box-shadow:0 24px 70px rgba(11,29,58,0.18);">
+            <tr>
+              <td style="background:linear-gradient(135deg,#0B1D3A 0%,#0D6B6E 55%,#0B1D3A 100%);padding:40px 32px 32px;">
+                <p style="margin:0;font-size:13px;letter-spacing:0.22em;text-transform:uppercase;color:#6EE7A8;font-weight:700;">AroundYou Waitlist</p>
+                <h1 style="margin:16px 0 0;font-size:36px;line-height:1.1;color:#FFFFFF;font-family:Sora,Inter,Arial,sans-serif;font-weight:700;">
+                  You’re officially on the <span style="color:#3EC6C8;">AroundYou</span> waitlist
+                </h1>
+                <p style="margin:18px 0 0;font-size:16px;line-height:1.8;color:#D5DEE7;">
+                  Hi ${safeName}, thanks for joining as a <strong style="color:#FFFFFF;">${roleLabel}</strong> in <strong style="color:#FFFFFF;">${safeLocation}</strong>. We’ll email you first when AroundYou launches in your city.
+                </p>
+              </td>
+            </tr>
+
+            <tr>
+              <td style="padding:32px;">
+                <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="background:#F8FAFB;border:1px solid #E5ECEC;border-radius:24px;padding:24px;">
+                  <tr>
+                    <td>
+                      <p style="margin:0;font-size:14px;font-weight:700;color:#0D6B6E;text-transform:uppercase;letter-spacing:0.16em;">Your signup summary</p>
+                      <p style="margin:16px 0 0;font-size:15px;line-height:1.8;color:#425466;"><strong style="color:#0B1D3A;">Location:</strong> ${safeLocation}</p>
+                      <p style="margin:8px 0 0;font-size:15px;line-height:1.8;color:#425466;"><strong style="color:#0B1D3A;">Role:</strong> ${roleLabel}</p>
+                      <p style="margin:8px 0 0;font-size:15px;line-height:1.8;color:#425466;"><strong style="color:#0B1D3A;">Interest:</strong> ${servicesLabel}</p>
+                    </td>
+                  </tr>
+                </table>
+
+                <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="margin-top:24px;">
+                  <tr>
+                    <td width="50%" style="padding-right:8px;">
+                      <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="border:1px solid #E5ECEC;border-radius:24px;padding:20px;">
+                        <tr>
+                          <td>
+                            <p style="margin:0;font-size:15px;font-weight:700;color:#0B1D3A;">City-first rollout</p>
+                            <p style="margin:10px 0 0;font-size:14px;line-height:1.7;color:#5E6B7A;">Your city helps us decide where to activate customers and workers first.</p>
+                          </td>
+                        </tr>
+                      </table>
+                    </td>
+                    <td width="50%" style="padding-left:8px;">
+                      <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="border:1px solid #E5ECEC;border-radius:24px;padding:20px;">
+                        <tr>
+                          <td>
+                            <p style="margin:0;font-size:15px;font-weight:700;color:#0B1D3A;">Private by design</p>
+                            <p style="margin:10px 0 0;font-size:14px;line-height:1.7;color:#5E6B7A;">We only use your details to manage early access and launch updates.</p>
+                          </td>
+                        </tr>
+                      </table>
+                    </td>
+                  </tr>
+                </table>
+
+                <div style="margin-top:28px;text-align:center;">
+                  <a href="${waitlistUrl}" style="display:inline-block;background:linear-gradient(135deg,#0D6B6E,#3EC6C8);color:#FFFFFF;text-decoration:none;padding:16px 32px;border-radius:999px;font-size:15px;font-weight:700;box-shadow:0 16px 40px rgba(13,107,110,0.25);">
+                    Share the waitlist
+                  </a>
+                  <p style="margin:16px 0 0;font-size:13px;line-height:1.7;color:#5E6B7A;">
+                    Invite a friend, teammate, or service provider so we can grow your city faster.
+                  </p>
+                </div>
+              </td>
+            </tr>
+
+            <tr>
+              <td style="padding:0 32px 32px;text-align:center;">
+                <p style="margin:0;font-size:13px;line-height:1.7;color:#748191;">
+                  Around<span style="color:#0D6B6E;font-weight:700;">You</span> • Connecting customers to trusted local services
+                </p>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>`
+}
+
+function buildWaitlistEmailText(signup: {
+  name: string
+  role: string
+  services: string[]
+  location: string
+}) {
+  const servicesText =
+    signup.role === 'worker' && signup.services.length > 0
+      ? signup.services.join(', ')
+      : 'Trusted local services near you'
+  const waitlistUrl = `${aroundYouSiteUrl.replace(/\/$/, '')}/waitlist?referral_source=${encodeURIComponent(
+    'Friend or family',
+  )}`
+
+  return [
+    `Hi ${signup.name},`,
+    '',
+    `You're officially on the AroundYou waitlist as a ${signup.role} in ${signup.location}.`,
+    `Interest: ${servicesText}`,
+    '',
+    "We'll email you first when AroundYou launches in your city.",
+    `Share the waitlist: ${waitlistUrl}`,
+    '',
+    'AroundYou',
+    'Connecting customers to trusted local services',
+  ].join('\n')
+}
+
+async function sendWaitlistWelcomeEmail(signup: {
+  id: string
+  name: string
+  email: string
+  role: string
+  services: string[]
+  location: string
+}) {
+  if (!brevoApiKey || !brevoSenderEmail) {
+    console.error(
+      'Waitlist welcome email skipped because BREVO_API_KEY or BREVO_SENDER_EMAIL is missing',
+    )
+    return false
+  }
+
+  try {
+    const response = await fetch('https://api.brevo.com/v3/smtp/email', {
+      method: 'POST',
+      headers: {
+        accept: 'application/json',
+        'api-key': brevoApiKey,
+        'content-type': 'application/json',
+      },
+      body: JSON.stringify({
+        sender: {
+          email: brevoSenderEmail,
+          name: brevoSenderName,
+        },
+        to: [
+          {
+            email: signup.email,
+            name: signup.name,
+          },
+        ],
+        subject: "You're on the AroundYou waitlist",
+        htmlContent: buildWaitlistEmailHtml(signup),
+        textContent: buildWaitlistEmailText(signup),
+        headers: {
+          idempotencyKey: `waitlist-welcome-${signup.id}`,
+        },
+      }),
+    })
+
+    if (!response.ok) {
+      const details = await response.text()
+      console.error('Waitlist welcome email failed', {
+        signupId: signup.id,
+        status: response.status,
+        details,
+      })
+      return false
+    }
+
+    return true
+  } catch (error) {
+    console.error('Unexpected waitlist welcome email failure', {
       signupId: signup.id,
       error: error instanceof Error ? error.message : 'Unknown error',
     })
@@ -257,6 +493,7 @@ serve(async (request) => {
 
   const name = normalizeText(body.name, 120)
   const email = normalizeEmail(body.email)
+  const phone = normalizePhone(body.phone)
   const role = normalizeText(body.role, 20).toLowerCase()
   const location = normalizeText(body.location, 120)
   const referralSource = normalizeText(body.referral_source, 160)
@@ -291,6 +528,18 @@ serve(async (request) => {
         status: 'error',
         code: 'INVALID_EMAIL',
         message: 'Please provide a valid email address.',
+      },
+      400,
+    )
+  }
+
+  if (!phone || phone.length > 20 || !PHONE_PATTERN.test(phone)) {
+    return jsonResponse(
+      {
+        status: 'error',
+        code: 'INVALID_PHONE',
+        message:
+          'Please provide a valid phone number with your country code, for example +2348012345678.',
       },
       400,
     )
@@ -361,6 +610,7 @@ serve(async (request) => {
   const { data, error } = await supabaseAdmin.rpc('insert_waitlist_signup', {
     p_name: name,
     p_email: email,
+    p_phone: phone,
     p_role: role,
     p_services: role === 'worker' ? services : [],
     p_location: location,
@@ -410,10 +660,20 @@ serve(async (request) => {
     id: insertedSignup.id,
     name,
     email,
+    phone,
     role,
     services: role === 'worker' ? services : [],
     location,
     referral_source: referralSource,
+  })
+
+  await sendWaitlistWelcomeEmail({
+    id: insertedSignup.id,
+    name,
+    email,
+    role,
+    services: role === 'worker' ? services : [],
+    location,
   })
 
   return jsonResponse({

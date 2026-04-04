@@ -53,7 +53,10 @@ async function fetchPendingSignups() {
     '/rest/v1/waitlist_signups',
     SUPABASE_URL.replace(/\/$/, ''),
   )
-  url.searchParams.set('select', 'id,name,email,role,services,location,referral_source')
+  url.searchParams.set(
+    'select',
+    'id,name,email,phone,role,services,location,referral_source',
+  )
   url.searchParams.set('brevo_synced', 'eq.false')
   url.searchParams.set('order', 'created_at.asc')
   url.searchParams.set('limit', String(batchSize))
@@ -98,18 +101,22 @@ async function markSynced(signupId) {
 }
 
 async function syncBrevoContact(signup) {
+  const attributes = {
+    FIRSTNAME: signup.name,
+    ROLE: signup.role,
+    SERVICES: Array.isArray(signup.services) ? signup.services.join(', ') : '',
+    LOCATION: signup.location,
+    REFERRAL_SOURCE: signup.referral_source || '',
+  }
+
+  if (signup.phone) {
+    attributes.SMS = signup.phone
+  }
+
   const body = {
     email: signup.email,
     updateEnabled: true,
-    attributes: {
-      FIRSTNAME: signup.name,
-      ROLE: signup.role,
-      SERVICES: Array.isArray(signup.services)
-        ? signup.services.join(', ')
-        : '',
-      LOCATION: signup.location,
-      REFERRAL_SOURCE: signup.referral_source || '',
-    },
+    attributes,
   }
 
   if (!Number.isNaN(BREVO_LIST_ID) && BREVO_LIST_ID > 0) {

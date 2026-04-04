@@ -22,8 +22,13 @@ supabase functions deploy waitlist-signup
 supabase secrets set \
   BREVO_API_KEY="your-brevo-api-key" \
   BREVO_LIST_ID="123" \
+  BREVO_SENDER_EMAIL="your-verified-brevo-sender@example.com" \
+  BREVO_SENDER_NAME="AroundYou" \
+  AROUNDYOU_SITE_URL="https://your-live-domain.com" \
   WAITLIST_RATE_LIMIT_SALT="replace-with-a-long-random-secret"
 ```
+
+The Edge Function sends a branded welcome email after a successful waitlist signup using Brevo Transactional Email.
 
 ## Brevo Retry Sync
 
