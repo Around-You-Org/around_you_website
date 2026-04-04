@@ -342,21 +342,31 @@ function buildWaitlistEmailHtml(signup: {
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="color-scheme" content="light only" />
+    <meta name="supported-color-schemes" content="light" />
     <title>Welcome to the AroundYou Waitlist</title>
   </head>
-  <body style="margin:0;padding:0;background:#F4F7F8;font-family:Inter,Arial,sans-serif;color:#0B1D3A;">
+  <body style="margin:0;padding:0;background:#F4F7F8;font-family:Inter,Arial,sans-serif;color:#0B1D3A;color-scheme:light only;">
     <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="background:#F4F7F8;padding:32px 12px;">
       <tr>
         <td align="center">
           <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="max-width:640px;border-radius:32px;overflow:hidden;background:#FFFFFF;box-shadow:0 24px 70px rgba(11,29,58,0.18);">
             <tr>
-              <td style="background:linear-gradient(135deg,#0B1D3A 0%,#0D6B6E 55%,#0B1D3A 100%);padding:40px 32px 32px;">
-                <p style="margin:0;font-size:13px;letter-spacing:0.22em;text-transform:uppercase;color:#6EE7A8;font-weight:700;">AroundYou Waitlist</p>
-                <h1 style="margin:16px 0 0;font-size:36px;line-height:1.1;color:#FFFFFF;font-family:Sora,Inter,Arial,sans-serif;font-weight:700;">
-                  You’re officially on the <span style="color:#3EC6C8;">AroundYou</span> waitlist
+              <td bgcolor="#0B1D3A" style="background:#0B1D3A;background-image:linear-gradient(135deg,#0B1D3A 0%,#0D6B6E 55%,#0B1D3A 100%);padding:40px 32px 32px;">
+                <p style="margin:0;font-size:13px;letter-spacing:0.22em;text-transform:uppercase;color:#6EE7A8 !important;font-weight:700;-webkit-text-fill-color:#6EE7A8;">
+                  <span style="color:#6EE7A8 !important;-webkit-text-fill-color:#6EE7A8;">AROUNDYOU WAITLIST</span>
+                </p>
+                <h1 style="margin:16px 0 0;font-size:36px;line-height:1.1;color:#FFFFFF !important;font-family:Sora,Inter,Arial,sans-serif;font-weight:700;-webkit-text-fill-color:#FFFFFF;text-shadow:0 2px 12px rgba(0,0,0,0.35);">
+                  <span style="color:#FFFFFF !important;-webkit-text-fill-color:#FFFFFF;">You’re officially on the</span>
+                  <span style="color:#3EC6C8 !important;-webkit-text-fill-color:#3EC6C8;"> AroundYou </span>
+                  <span style="color:#FFFFFF !important;-webkit-text-fill-color:#FFFFFF;">waitlist</span>
                 </h1>
-                <p style="margin:18px 0 0;font-size:16px;line-height:1.8;color:#D5DEE7;">
-                  Hi ${safeName}, thanks for joining as a <strong style="color:#FFFFFF;">${roleLabel}</strong> in <strong style="color:#FFFFFF;">${safeLocation}</strong>. We’ll email you first when AroundYou launches in your city.
+                <p style="margin:18px 0 0;font-size:16px;line-height:1.8;color:#EAF4F4 !important;-webkit-text-fill-color:#EAF4F4;">
+                  <span style="color:#EAF4F4 !important;-webkit-text-fill-color:#EAF4F4;">Hi ${safeName}, thanks for joining as a</span>
+                  <strong style="color:#FFFFFF !important;-webkit-text-fill-color:#FFFFFF;"> ${roleLabel}</strong>
+                  <span style="color:#EAF4F4 !important;-webkit-text-fill-color:#EAF4F4;"> in</span>
+                  <strong style="color:#FFFFFF !important;-webkit-text-fill-color:#FFFFFF;"> ${safeLocation}</strong>
+                  <span style="color:#EAF4F4 !important;-webkit-text-fill-color:#EAF4F4;">. We’ll email you first when AroundYou launches in your city.</span>
                 </p>
               </td>
             </tr>
