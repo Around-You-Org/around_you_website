@@ -286,7 +286,7 @@ function WaitlistPage() {
           </div>
         </div>
 
-        <div className="rounded-[2rem] border border-white/15 bg-white/95 p-6 shadow-2xl backdrop-blur-xl md:p-8">
+        <div className="rounded-4xl border border-white/15 bg-white/95 p-6 shadow-2xl backdrop-blur-xl md:p-8">
           <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
             <div>
               <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[#0D6B6E]">
@@ -513,7 +513,7 @@ function WaitlistPage() {
               </div>
 
               {formState.role === 'worker' && (
-                <div className="rounded-[2rem] border border-gray-200 bg-[#F8FAFB] p-5">
+                <div className="rounded-4xl border border-gray-200 bg-[#F8FAFB] p-5">
                   <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
                     <div>
                       <p className="text-sm font-semibold text-[#0B1D3A]">
