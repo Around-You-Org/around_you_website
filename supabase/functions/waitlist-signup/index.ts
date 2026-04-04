@@ -49,6 +49,29 @@ function jsonResponse(
   })
 }
 
+function duplicateSignupResponse(field: 'email' | 'phone' | 'account' = 'account') {
+  const messageMap = {
+    email:
+      'That email is already on the AroundYou waitlist. Please share the waitlist link with someone else in your city.',
+    phone:
+      'That phone number is already on the AroundYou waitlist. Please share the waitlist link with someone else in your city.',
+    account:
+      'That email or phone number is already on the AroundYou waitlist. Please share the waitlist link with someone else in your city.',
+  }
+
+  const codeMap = {
+    email: 'DUPLICATE_EMAIL',
+    phone: 'DUPLICATE_PHONE',
+    account: 'DUPLICATE_SIGNUP',
+  }
+
+  return jsonResponse({
+    status: 'already_joined',
+    code: codeMap[field],
+    message: messageMap[field],
+  })
+}
+
 function normalizeText(value: unknown, maxLength = 120) {
   if (typeof value !== 'string') return ''
   return value.trim().slice(0, maxLength)
@@ -105,6 +128,13 @@ function escapeHtml(value: string) {
     .replace(/>/g, '&gt;')
     .replace(/"/g, '&quot;')
     .replace(/'/g, '&#39;')
+}
+
+function normalizeBrevoErrorText(value: string) {
+  return value
+    .replace(/[^a-zA-Z0-9]+/g, '_')
+    .replace(/^_+|_+$/g, '')
+    .slice(0, 80)
 }
 
 function slugifyLocation(value: string) {
@@ -176,6 +206,40 @@ async function enforceRateLimit(clientIp: string, email: string) {
     allowed: !isOverLimit,
     code: isOverLimit ? 'RATE_LIMITED' : undefined,
   }
+}
+
+async function findExistingSignup(email: string, phone: string) {
+  if (!supabaseAdmin) return null
+
+  const [emailMatch, phoneMatch] = await Promise.all([
+    supabaseAdmin
+      .from('waitlist_signups')
+      .select('id')
+      .eq('email', email)
+      .limit(1)
+      .maybeSingle(),
+    supabaseAdmin
+      .from('waitlist_signups')
+      .select('id')
+      .eq('phone', phone)
+      .limit(1)
+      .maybeSingle(),
+  ])
+
+  if (emailMatch.error) {
+    console.error('Waitlist duplicate email check failed', emailMatch.error.message)
+    return { field: 'lookup_error' as const }
+  }
+
+  if (phoneMatch.error) {
+    console.error('Waitlist duplicate phone check failed', phoneMatch.error.message)
+    return { field: 'lookup_error' as const }
+  }
+
+  if (emailMatch.data) return { field: 'email' as const }
+  if (phoneMatch.data) return { field: 'phone' as const }
+
+  return null
 }
 
 async function syncBrevoContact(signup: {
@@ -401,7 +465,10 @@ async function sendWaitlistWelcomeEmail(signup: {
     console.error(
       'Waitlist welcome email skipped because BREVO_API_KEY or BREVO_SENDER_EMAIL is missing',
     )
-    return false
+    return {
+      sent: false,
+      code: 'WELCOME_EMAIL_CONFIG_MISSING',
+    }
   }
 
   try {
@@ -426,29 +493,41 @@ async function sendWaitlistWelcomeEmail(signup: {
         subject: "You're on the AroundYou waitlist",
         htmlContent: buildWaitlistEmailHtml(signup),
         textContent: buildWaitlistEmailText(signup),
-        headers: {
-          idempotencyKey: `waitlist-welcome-${signup.id}`,
-        },
       }),
     })
 
     if (!response.ok) {
       const details = await response.text()
+      const parsedDetails = JSON.parse(details || '{}') as {
+        code?: string
+        message?: string
+      }
       console.error('Waitlist welcome email failed', {
         signupId: signup.id,
         status: response.status,
         details,
       })
-      return false
+      return {
+        sent: false,
+        code: `WELCOME_EMAIL_HTTP_${response.status}_${parsedDetails.code || 'ERROR'}_${normalizeBrevoErrorText(
+          parsedDetails.message || 'unknown',
+        )}`,
+      }
     }
 
-    return true
+    return {
+      sent: true,
+      code: 'WELCOME_EMAIL_SENT',
+    }
   } catch (error) {
     console.error('Unexpected waitlist welcome email failure', {
       signupId: signup.id,
       error: error instanceof Error ? error.message : 'Unknown error',
     })
-    return false
+    return {
+      sent: false,
+      code: 'WELCOME_EMAIL_EXCEPTION',
+    }
   }
 }
 
@@ -607,6 +686,22 @@ serve(async (request) => {
     )
   }
 
+  const existingSignup = await findExistingSignup(email, phone)
+  if (existingSignup?.field === 'lookup_error') {
+    return jsonResponse(
+      {
+        status: 'error',
+        code: 'DUPLICATE_LOOKUP_FAILED',
+        message: 'We could not verify your signup right now. Please try again.',
+      },
+      500,
+    )
+  }
+
+  if (existingSignup?.field === 'email' || existingSignup?.field === 'phone') {
+    return duplicateSignupResponse(existingSignup.field)
+  }
+
   const { data, error } = await supabaseAdmin.rpc('insert_waitlist_signup', {
     p_name: name,
     p_email: email,
@@ -622,15 +717,7 @@ serve(async (request) => {
     console.error('Waitlist insert failed', error.message)
 
     if (error.code === '23505') {
-      return jsonResponse(
-        {
-          status: 'already_joined',
-          code: 'DUPLICATE_EMAIL',
-          message:
-            'That email is already on the AroundYou waitlist. Please share the waitlist link with someone else in your city.',
-        },
-        200,
-      )
+      return duplicateSignupResponse('account')
     }
 
     return jsonResponse(
@@ -645,15 +732,7 @@ serve(async (request) => {
 
   const insertedSignup = Array.isArray(data) ? data[0] : null
   if (!insertedSignup) {
-    return jsonResponse(
-      {
-        status: 'already_joined',
-        code: 'DUPLICATE_EMAIL',
-        message:
-          'That email is already on the AroundYou waitlist. Please share the waitlist link with someone else in your city.',
-      },
-      200,
-    )
+    return duplicateSignupResponse('account')
   }
 
   await syncBrevoContact({
@@ -667,7 +746,7 @@ serve(async (request) => {
     referral_source: referralSource,
   })
 
-  await sendWaitlistWelcomeEmail({
+  const welcomeEmailResult = await sendWaitlistWelcomeEmail({
     id: insertedSignup.id,
     name,
     email,
@@ -678,6 +757,7 @@ serve(async (request) => {
 
   return jsonResponse({
     status: 'success',
+    code: welcomeEmailResult.code,
     message:
       "You're on the AroundYou waitlist. We'll email you directly when we launch in your city.",
   })

@@ -12,10 +12,10 @@ function Footer() {
             </p>
             <div className="flex gap-3 mt-5">
               {[
-                { name: "twitter", url: "https://twitter.com/aroundyou" },
-                { name: "instagram", url: "https://instagram.com/aroundyou" },
+                { name: "twitter", url: "https://x.com/AroundY39229" },
+                { name: "instagram", url: "https://www.instagram.com/aroundyou26._/" },
                 { name: "linkedin", url: "https://www.linkedin.com/company/around-you26/" },
-                { name: "facebook", url: "https://facebook.com/aroundyou" }
+                { name: "tiktok", url: "https://www.tiktok.com/@aroundyou26" }
               ].map(({ name, url }) => (
                 <a key={name} href={url} target="_blank" rel="noopener noreferrer" className="w-8 h-8 rounded-full flex items-center justify-center bg-white/10 hover:bg-white/20 transition-colors">
                   <Icon name={name} size={14} color="#3EC6C8" />
