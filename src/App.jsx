@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import HomePage from './pages/HomePage'
 import AboutPage from './pages/AboutPage'
 import WaitlistPage from './pages/WaitlistPage'
+import HelpCenterPage from './pages/HelpCenterPage'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 
@@ -14,6 +15,7 @@ function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="/about" element={<AboutPage />} />
           <Route path="/waitlist" element={<WaitlistPage />} />
+          <Route path="/help-center" element={<HelpCenterPage />} />
         </Routes>
       </main>
       <Footer />

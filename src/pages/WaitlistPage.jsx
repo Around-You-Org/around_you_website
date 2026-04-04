@@ -217,13 +217,6 @@ function WaitlistPage() {
 
       <div className="relative z-10 mx-auto grid max-w-7xl gap-12 px-6 py-20 lg:grid-cols-[0.9fr_1.1fr] lg:px-10">
         <div className="text-white">
-          <Link
-            to="/"
-            className="inline-flex items-center gap-2 text-sm font-semibold text-white/80 transition-colors hover:text-white"
-          >
-            <Icon name="arrow-right" size={16} className="rotate-180" />
-            Back to home
-          </Link>
 
           <div
             className="mt-10 inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm font-semibold"

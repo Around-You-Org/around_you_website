@@ -1,4 +1,5 @@
 import Icon from "./Icon";
+import { Link } from "react-router-dom";
 
 function Footer() {
   return (
@@ -47,7 +48,12 @@ function Footer() {
           <div>
             <h4 className="font-semibold text-white mb-4">Support</h4>
             <ul className="space-y-2.5">
-              {['Help Center', 'Safety', 'Terms of Service', 'Privacy Policy'].map((label) => (
+              <li>
+                <Link to="/help-center" className="text-sm text-gray-400 hover:text-white transition-colors">
+                  Help Center
+                </Link>
+              </li>
+              {['Safety', 'Terms of Service', 'Privacy Policy'].map((label) => (
                 <li key={label}><button className="text-sm text-gray-400 hover:text-white transition-colors">{label}</button></li>
               ))}
             </ul>
