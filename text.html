@@ -1,809 +1,386 @@
-<!doctype html>
-<html lang="en" class="h-full">
- <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AroundYou</title>
-  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
-  <script src="https://cdn.jsdelivr.net/npm/lucide@0.263.0/dist/umd/lucide.min.js"></script>
-  <script src="/_sdk/element_sdk.js"></script>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&amp;family=Sora:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet">
-  <script>
+<!DOCTYPE html>
+
+<html class="light" lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>Saved Professionals - Around You</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap"
+    rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+    rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+    rel="stylesheet" />
+  <style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+    }
+
+    h1,
+    h2,
+    h3,
+    .brand-font {
+      font-family: 'Manrope', sans-serif;
+    }
+  </style>
+  <script id="tailwind-config">
     tailwind.config = {
+      darkMode: "class",
       theme: {
         extend: {
-          colors: {
-            navy: '#0B1D3A',
-            teal: '#0D6B6E',
-            aqua: '#3EC6C8',
-            mint: '#6EE7A8',
-            cream: '#FFFFFF'
+          "colors": {
+            "surface-container-highest": "#e0e3e5",
+            "on-tertiary": "#ffffff",
+            "inverse-on-surface": "#eff1f3",
+            "on-primary-fixed": "#001c3a",
+            "surface-container": "#eceef0",
+            "tertiary-fixed": "#b2f2bb",
+            "outline-variant": "#c4c6cf",
+            "on-secondary-fixed-variant": "#004f56",
+            "on-secondary": "#ffffff",
+            "inverse-surface": "#2d3133",
+            "surface-container-lowest": "#ffffff",
+            "surface-tint": "#476083",
+            "on-primary": "#ffffff",
+            "on-error": "#ffffff",
+            "secondary-fixed": "#9ff0fb",
+            "primary-fixed-dim": "#afc8f0",
+            "error-container": "#ffdad6",
+            "tertiary-fixed-dim": "#96d5a0",
+            "primary": "#000613",
+            "tertiary": "#000802",
+            "primary-fixed": "#d4e3ff",
+            "on-tertiary-fixed": "#00210b",
+            "on-tertiary-fixed-variant": "#145129",
+            "surface-container-high": "#e6e8ea",
+            "primary-container": "#001f3f",
+            "error": "#ba1a1a",
+            "surface-bright": "#f7f9fb",
+            "on-primary-container": "#6f88ad",
+            "secondary-fixed-dim": "#82d3de",
+            "on-surface": "#191c1e",
+            "on-background": "#191c1e",
+            "background": "#f7f9fb",
+            "inverse-primary": "#afc8f0",
+            "surface-dim": "#d8dadc",
+            "outline": "#74777f",
+            "surface-container-low": "#f2f4f6",
+            "on-primary-fixed-variant": "#2f486a",
+            "on-error-container": "#93000a",
+            "secondary": "#006972",
+            "on-secondary-container": "#066f79",
+            "tertiary-container": "#00250d",
+            "on-surface-variant": "#43474e",
+            "surface": "#f7f9fb",
+            "secondary-container": "#9ff0fb",
+            "on-tertiary-container": "#589364",
+            "surface-variant": "#e0e3e5",
+            "on-secondary-fixed": "#001f23"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "fontFamily": {
+            "headline": ["Manrope"],
+            "body": ["Inter"],
+            "label": ["Inter"]
           }
-        }
-      }
+        },
+      },
     }
   </script>
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    html, body { height: 100%; font-family: 'DM Sans', sans-serif; }
+</head>
 
-    .font-heading { font-family: 'Sora', sans-serif; }
-
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(30px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
-    }
-    @keyframes scaleIn {
-      from { opacity: 0; transform: scale(0.85); }
-      to { opacity: 1; transform: scale(1); }
-    }
-    @keyframes slideRight {
-      from { opacity: 0; transform: translateX(-40px); }
-      to { opacity: 1; transform: translateX(0); }
-    }
-    @keyframes slideLeft {
-      from { opacity: 0; transform: translateX(40px); }
-      to { opacity: 1; transform: translateX(0); }
-    }
-    @keyframes pulse-ring {
-      0% { transform: scale(1); opacity: 0.4; }
-      100% { transform: scale(1.6); opacity: 0; }
-    }
-    @keyframes float {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-12px); }
-    }
-    @keyframes gradient-shift {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
-    }
-
-    .anim-fade-up { animation: fadeUp 0.7s ease-out both; }
-    .anim-fade-in { animation: fadeIn 0.6s ease-out both; }
-    .anim-scale-in { animation: scaleIn 0.6s ease-out both; }
-    .anim-slide-r { animation: slideRight 0.7s ease-out both; }
-    .anim-slide-l { animation: slideLeft 0.7s ease-out both; }
-    .delay-1 { animation-delay: 0.1s; }
-    .delay-2 { animation-delay: 0.2s; }
-    .delay-3 { animation-delay: 0.3s; }
-    .delay-4 { animation-delay: 0.4s; }
-    .delay-5 { animation-delay: 0.5s; }
-    .delay-6 { animation-delay: 0.6s; }
-    .delay-7 { animation-delay: 0.7s; }
-    .delay-8 { animation-delay: 0.8s; }
-
-    .floating { animation: float 4s ease-in-out infinite; }
-    .floating-slow { animation: float 6s ease-in-out infinite; }
-
-    .gradient-bg {
-      background: linear-gradient(135deg, #0B1D3A 0%, #0D6B6E 50%, #0B1D3A 100%);
-      background-size: 200% 200%;
-      animation: gradient-shift 8s ease infinite;
-    }
-
-    .glass {
-      background: rgba(255,255,255,0.08);
-      backdrop-filter: blur(12px);
-      border: 1px solid rgba(255,255,255,0.12);
-    }
-
-    .service-card {
-      transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-    .service-card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 20px 40px rgba(13,107,110,0.15);
-    }
-
-    .stat-card {
-      transition: all 0.3s ease;
-    }
-    .stat-card:hover {
-      transform: scale(1.04);
-    }
-
-    .nav-link {
-      position: relative;
-      transition: color 0.3s ease;
-    }
-    .nav-link::after {
-      content: '';
-      position: absolute;
-      bottom: -4px;
-      left: 0;
-      width: 0;
-      height: 2px;
-      background: #3EC6C8;
-      transition: width 0.3s ease;
-    }
-    .nav-link:hover::after,
-    .nav-link.active::after {
-      width: 100%;
-    }
-
-    .infinity-logo {
-      position: relative;
-      display: inline-block;
-    }
-
-    .scroll-section {
-      opacity: 0;
-      transform: translateY(30px);
-      transition: all 0.7s ease-out;
-    }
-    .scroll-section.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    .cta-btn {
-      position: relative;
-      overflow: hidden;
-      transition: all 0.3s ease;
-    }
-    .cta-btn::before {
-      content: '';
-      position: absolute;
-      top: 0; left: -100%;
-      width: 100%; height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent);
-      transition: left 0.5s ease;
-    }
-    .cta-btn:hover::before { left: 100%; }
-    .cta-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(13,107,110,0.35); }
-
-    .team-card {
-      transition: all 0.3s ease;
-    }
-    .team-card:hover {
-      transform: translateY(-4px);
-    }
-
-    ::-webkit-scrollbar { width: 6px; }
-    ::-webkit-scrollbar-track { background: #f1f5f9; }
-    ::-webkit-scrollbar-thumb { background: #3EC6C8; border-radius: 3px; }
-  </style>
-  <style>body { box-sizing: border-box; }</style>
-  <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
- </head>
- <body class="h-full">
-  <div id="app-root" class="w-full h-full overflow-auto bg-white"><!-- NAVBAR -->
-   <nav id="navbar" class="fixed top-0 left-0 w-full z-50 transition-all duration-300" style="background: transparent;">
-    <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-     <div class="flex items-center gap-2 cursor-pointer" onclick="navigateTo('home')">
-      <svg width="40" height="24" viewbox="0 0 80 40" fill="none"><path d="M20 20C20 12 26 6 34 6C38 6 41.5 8 44 11C46.5 8 50 6 54 6C62 6 68 12 68 20C68 28 62 34 54 34C50 34 46.5 32 44 29C41.5 32 38 34 34 34C26 34 20 28 20 20Z" stroke="#0D6B6E" stroke-width="3.5" fill="none" /> <path d="M34 20C34 16 37 13 40 11C43 13 46 16 46 20C46 24 43 27 40 29C37 27 34 24 34 20Z" fill="#3EC6C8" opacity="0.5" /> <circle cx="16" cy="10" r="3" fill="#6EE7A8" /> <circle cx="68" cy="32" r="2.5" fill="#6EE7A8" />
-      </svg><span class="font-heading font-bold text-xl" style="color: #0B1D3A;">AROUND<span style="color: #0D6B6E;">YOU</span></span>
-     </div>
-     <div class="hidden md:flex items-center gap-8"><a class="nav-link text-sm font-medium cursor-pointer active" style="color: #0B1D3A;" onclick="navigateTo('home')" id="nav-home">Home</a> <a class="nav-link text-sm font-medium cursor-pointer" style="color: #0B1D3A;" onclick="navigateTo('about')" id="nav-about">About Us</a> <a class="nav-link text-sm font-medium cursor-pointer" style="color: #0B1D3A;" onclick="navigateTo('services-section')">Services</a> <a class="nav-link text-sm font-medium cursor-pointer" style="color: #0B1D3A;" onclick="navigateTo('contact-section')">Contact</a>
-     </div>
-     <div class="flex items-center gap-3"><button class="hidden md:block cta-btn px-5 py-2.5 rounded-full text-sm font-semibold text-white" style="background: linear-gradient(135deg, #0D6B6E, #3EC6C8);"> Get the App </button> <button class="md:hidden p-2" onclick="toggleMobile()" id="mobile-toggle"> <i data-lucide="menu" style="color: #0B1D3A; width: 24px; height: 24px;"></i> </button>
-     </div>
-    </div><!-- Mobile Menu -->
-    <div id="mobile-menu" class="hidden md:hidden px-6 pb-4" style="background: white;">
-     <div class="flex flex-col gap-3 pt-2 border-t border-gray-100"><a class="py-2 text-sm font-medium cursor-pointer" style="color: #0B1D3A;" onclick="navigateTo('home'); toggleMobile();">Home</a> <a class="py-2 text-sm font-medium cursor-pointer" style="color: #0B1D3A;" onclick="navigateTo('about'); toggleMobile();">About Us</a> <a class="py-2 text-sm font-medium cursor-pointer" style="color: #0B1D3A;" onclick="navigateTo('services-section'); toggleMobile();">Services</a> <a class="py-2 text-sm font-medium cursor-pointer" style="color: #0B1D3A;" onclick="navigateTo('contact-section'); toggleMobile();">Contact</a> <button class="cta-btn px-5 py-2.5 rounded-full text-sm font-semibold text-white w-full mt-2" style="background: linear-gradient(135deg, #0D6B6E, #3EC6C8);">Get the App</button>
-     </div>
-    </div>
-   </nav><!-- ====== HOME PAGE ====== -->
-   <div id="page-home" class="page"><!-- HERO -->
-    <section class="relative w-full overflow-hidden" style="min-height: 100%;">
-     <div class="absolute inset-0 gradient-bg"></div><!-- Decorative elements -->
-     <div class="absolute top-20 left-10 w-64 h-64 rounded-full opacity-10 floating" style="background: #3EC6C8; filter: blur(80px);"></div>
-     <div class="absolute bottom-20 right-10 w-80 h-80 rounded-full opacity-10 floating-slow" style="background: #6EE7A8; filter: blur(100px);"></div>
-     <div class="absolute top-32 right-20 w-3 h-3 rounded-full floating" style="background: #6EE7A8; animation-delay: 1s;"></div>
-     <div class="absolute top-48 left-32 w-2 h-2 rounded-full floating" style="background: #3EC6C8; animation-delay: 2s;"></div>
-     <div class="absolute bottom-40 left-20 w-4 h-4 rounded-full floating-slow" style="background: #6EE7A8; animation-delay: 0.5s;"></div>
-     <div class="relative z-10 max-w-7xl mx-auto px-6 pt-32 pb-20 md:pt-40 md:pb-28 flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
-      <div class="flex-1 text-center lg:text-left">
-       <div class="anim-fade-up inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass mb-6">
-        <div class="w-2 h-2 rounded-full" style="background: #6EE7A8;"></div><span class="text-xs font-medium text-white opacity-80">Now available in Lagos &amp; Abuja</span>
-       </div>
-       <h1 id="hero-title" class="font-heading text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight anim-fade-up delay-1">Everything You Need,<br><span style="color: #3EC6C8;">Right Around You</span></h1>
-       <p id="hero-subtitle" class="mt-6 text-lg md:text-xl text-gray-300 max-w-xl anim-fade-up delay-2 mx-auto lg:mx-0">Instantly connect with trusted artisans, drivers, cleaners, handymen, and more — all GPS-matched and ready to help.</p>
-       <div class="mt-8 flex flex-col sm:flex-row gap-4 justify-center lg:justify-start anim-fade-up delay-3"><button class="cta-btn px-8 py-3.5 rounded-full text-base font-semibold text-white flex items-center justify-center gap-2" style="background: linear-gradient(135deg, #0D6B6E, #3EC6C8);"> <i data-lucide="download" style="width: 18px; height: 18px;"></i> Download App </button> <button class="px-8 py-3.5 rounded-full text-base font-semibold text-white glass flex items-center justify-center gap-2 transition-all hover:bg-white hover:bg-opacity-15"> <i data-lucide="play-circle" style="width: 18px; height: 18px;"></i> Watch Demo </button>
-       </div>
-       <div class="mt-10 flex items-center gap-8 justify-center lg:justify-start anim-fade-up delay-4">
-        <div class="text-center">
-         <p class="font-heading text-2xl font-bold text-white">50K+</p>
-         <p class="text-xs text-gray-400 mt-1">Active Users</p>
+<body class="bg-surface text-on-surface">
+  
+  <!-- Main Content Canvas -->
+  <main class="m-auto min-h-screen bg-surface">
+    <!-- Top App Bar -->
+    <header
+      class="w-full h-16 sticky top-0 z-40 bg-white/80 dark:bg-slate-950/80 backdrop-blur-xl flex items-center justify-between px-8 border-b border-slate-100 dark:border-slate-800">
+      <div class="flex items-center gap-4">
+        <div class="relative">
+          <span class="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 material-symbols-outlined"
+            data-icon="search">search</span>
+          <input
+            class="bg-surface-container-low border-none rounded-full pl-10 pr-4 py-2 text-sm w-64 focus:ring-2 focus:ring-secondary transition-all"
+            placeholder="Search saved pros..." type="text" />
         </div>
-        <div class="w-px h-10" style="background: rgba(255,255,255,0.15);"></div>
-        <div class="text-center">
-         <p class="font-heading text-2xl font-bold text-white">10K+</p>
-         <p class="text-xs text-gray-400 mt-1">Verified Pros</p>
+      </div>
+      <div class="flex items-center gap-6">
+        <button class="text-slate-500 hover:text-primary transition-colors">
+          <span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+        </button>
+        <button class="text-slate-500 hover:text-primary transition-colors">
+          <span class="material-symbols-outlined" data-icon="help_outline">help_outline</span>
+        </button>
+        <div class="h-8 w-8 rounded-full overflow-hidden border-2 border-secondary-container">
+          <img alt="Customer profile picture"
+            data-alt="close-up portrait of a professional woman with a warm smile, wearing business casual attire in a modern bright office environment"
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuDcN9BXZir4fhCqVlIPORCfy2NnpsxfkXDur56zyVy-Tf11P-pToTxFFGIuUk7r7ogFnmXhQ-aFvIN7yREjJYZxjrY9_ym9Pt7GIZJPN0oOOKmTLmSubK7hHAcz7V2CGs8iEoOz8Npa8qoQRMYIZY4xmgwuGbzwS3nX5tX57V1dw1MbdapQo-DGZ5YkxWjVNgCup2rbZHxpdrBrjmRnfMrOhVMAq2saizkUPaXq6AltoRqsOTrDTM-IyhgEqmMsAwg7f1m3Ar_nuQ" />
         </div>
-        <div class="w-px h-10" style="background: rgba(255,255,255,0.15);"></div>
-        <div class="text-center">
-         <p class="font-heading text-2xl font-bold text-white">4.8</p>
-         <p class="text-xs text-gray-400 mt-1">Avg Rating</p>
-        </div>
-       </div>
-      </div><!-- Hero Visual -->
-      <div class="flex-1 flex justify-center anim-scale-in delay-3">
-       <div class="relative"><!-- Phone mockup -->
-        <div class="relative w-64 h-120 md:w-72 md:h-132.5 rounded-[2.5rem] glass p-3" style="border: 2px solid rgba(62,198,200,0.3);">
-         <div class="w-full h-full rounded-4xl overflow-hidden" style="background: linear-gradient(180deg, #0B1D3A 0%, #0D6B6E 100%);">
-          <div class="p-5 pt-8">
-           <div class="flex items-center justify-between mb-6">
-            <div>
-             <p class="text-gray-400 text-xs">Good morning 👋</p>
-             <p class="text-white font-semibold text-sm mt-1">What do you need?</p>
+      </div>
+    </header>
+    <!-- Page Content -->
+    <section class="p-10 max-w-7xl mx-auto">
+      <div class="mb-12">
+        <span class="text-secondary font-bold tracking-widest text-xs uppercase mb-2 block">Curated Network</span>
+        <h2 class="text-4xl font-extrabold text-primary-container tracking-tight">Saved Professionals</h2>
+        <p class="text-on-surface-variant mt-2 text-lg">Your handpicked team of local service experts.</p>
+      </div>
+      <!-- Bento-style Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Professional Card 1 -->
+        <div
+          class="group bg-surface-container-lowest rounded-xl overflow-hidden hover:-translate-y-1 transition-all duration-300 shadow-sm border border-transparent hover:border-secondary/20">
+          <div class="h-48 overflow-hidden relative">
+            <img alt="Professional worker"
+              class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+              data-alt="Professional cleaner in uniform standing in a sparkling clean modern kitchen with natural morning light streaming through windows"
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuBHoJCFcEr8mhAOl70x0HK8KtJXdg24i534S0AYGJFKsb48lfk-kU0eUfO2LxQlGpRZt1yb4C77Z3aAxOJoFyD4-9O8d-_KdYeeiRbx4T4qcqiSHXqDR4VaqvlJ6on_etI3SPszo8RQY3EzPvwB2wyNzQGAh0GFDFizJ6S7aJ22DyOffx0JaNTeSmw_2JuE-OptpoRJcLqkVf1j4z9dE8wFFS8fH40IAxL-jMLUowDag7EGdqrDTWwXLBqulC1x1Tn7PH_Kaauixw" />
+            <div class="absolute top-4 right-4 bg-white/90 backdrop-blur-md rounded-full p-2 text-secondary">
+              <span class="material-symbols-outlined" data-icon="favorite"
+                style="font-variation-settings: 'FILL' 1;">favorite</span>
             </div>
-            <div class="w-9 h-9 rounded-full flex items-center justify-center" style="background: rgba(62,198,200,0.2);"><i data-lucide="bell" style="width: 16px; height: 16px; color: #3EC6C8;"></i>
-            </div>
-           </div>
-           <div class="rounded-xl p-3 mb-5 flex items-center gap-3" style="background: rgba(255,255,255,0.08);"><i data-lucide="search" style="width: 16px; height: 16px; color: #6EE7A8;"></i> <span class="text-gray-400 text-xs">Search services...</span>
-           </div>
-           <div class="grid grid-cols-3 gap-3 mb-5">
-            <div class="flex flex-col items-center gap-1.5 p-2 rounded-xl" style="background: rgba(110,231,168,0.1);">
-             <div class="w-9 h-9 rounded-full flex items-center justify-center" style="background: rgba(110,231,168,0.2);"><i data-lucide="car" style="width: 16px; height: 16px; color: #6EE7A8;"></i>
-             </div><span class="text-white text-[10px]">Rides</span>
-            </div>
-            <div class="flex flex-col items-center gap-1.5 p-2 rounded-xl" style="background: rgba(62,198,200,0.1);">
-             <div class="w-9 h-9 rounded-full flex items-center justify-center" style="background: rgba(62,198,200,0.2);"><i data-lucide="wrench" style="width: 16px; height: 16px; color: #3EC6C8;"></i>
-             </div><span class="text-white text-[10px]">Repair</span>
-            </div>
-            <div class="flex flex-col items-center gap-1.5 p-2 rounded-xl" style="background: rgba(110,231,168,0.1);">
-             <div class="w-9 h-9 rounded-full flex items-center justify-center" style="background: rgba(110,231,168,0.2);"><i data-lucide="sparkles" style="width: 16px; height: 16px; color: #6EE7A8;"></i>
-             </div><span class="text-white text-[10px]">Clean</span>
-            </div>
-           </div>
-           <div class="rounded-xl p-3" style="background: rgba(255,255,255,0.06);">
-            <div class="flex items-center justify-between mb-2"><span class="text-white text-xs font-medium">Nearby Pro</span> <span class="text-[10px] px-2 py-0.5 rounded-full" style="background: rgba(110,231,168,0.2); color: #6EE7A8;">Online</span>
-            </div>
-            <div class="flex items-center gap-3">
-             <div class="w-10 h-10 rounded-full flex items-center justify-center font-semibold text-sm" style="background: linear-gradient(135deg, #0D6B6E, #3EC6C8); color: white;">
-              AO
-             </div>
-             <div class="flex-1">
-              <p class="text-white text-xs font-medium">Adebayo O.</p>
-              <p class="text-gray-400 text-[10px]">Electrician · ⭐ 4.9 · 0.3km</p>
-             </div><button class="px-3 py-1.5 rounded-full text-[10px] font-semibold text-white" style="background: #0D6B6E;">Book</button>
-            </div>
-           </div>
           </div>
-         </div>
-        </div><!-- Floating badges -->
-        <div class="absolute -top-3 -right-4 glass rounded-xl px-3 py-2 floating" style="animation-delay: 0.5s;">
-         <div class="flex items-center gap-2">
-          <div class="w-6 h-6 rounded-full flex items-center justify-center" style="background: rgba(110,231,168,0.3);"><i data-lucide="shield-check" style="width: 12px; height: 12px; color: #6EE7A8;"></i>
-          </div><span class="text-white text-[10px] font-medium">Verified &amp; Trusted</span>
-         </div>
+          <div class="p-6">
+            <div class="flex justify-between items-start mb-2">
+              <div>
+                <h3 class="font-bold text-xl text-primary-container">Amara Okafor</h3>
+                <p class="text-sm text-secondary font-medium uppercase tracking-tight">Premium Home Cleaning</p>
+              </div>
+              <div
+                class="flex items-center bg-tertiary-fixed-dim px-2 py-1 rounded text-on-tertiary-fixed font-bold text-sm">
+                <span class="material-symbols-outlined text-xs mr-1" data-icon="star"
+                  style="font-variation-settings: 'FILL' 1;">star</span>
+                4.9
+              </div>
+            </div>
+            <p class="text-sm text-on-surface-variant line-clamp-2 mb-6">Expert in deep sanitization and organized space
+              management with over 5 years of experience in Lagos.</p>
+            <div class="flex items-center justify-between pt-6 border-t border-surface-container">
+              <div class="flex items-center gap-2">
+                <div class="relative h-2 w-2">
+                  <div class="absolute inset-0 bg-secondary-fixed-dim rounded-full animate-ping"></div>
+                  <div class="relative bg-secondary rounded-full h-2 w-2"></div>
+                </div>
+                <span class="text-xs font-semibold text-secondary">Available Today</span>
+              </div>
+              <button
+                class="bg-primary-container text-white px-5 py-2.5 rounded-lg text-sm font-bold hover:bg-primary transition-colors shadow-lg shadow-primary/10 active:scale-95">
+                Book New Service
+              </button>
+            </div>
+          </div>
         </div>
-        <div class="absolute -bottom-2 -left-6 glass rounded-xl px-3 py-2 floating-slow">
-         <div class="flex items-center gap-2">
-          <div class="w-6 h-6 rounded-full flex items-center justify-center" style="background: rgba(62,198,200,0.3);"><i data-lucide="map-pin" style="width: 12px; height: 12px; color: #3EC6C8;"></i>
-          </div><span class="text-white text-[10px] font-medium">GPS Matched</span>
-         </div>
+        <!-- Professional Card 2 -->
+        <div
+          class="group bg-surface-container-lowest rounded-xl overflow-hidden hover:-translate-y-1 transition-all duration-300 shadow-sm border border-transparent hover:border-secondary/20">
+          <div class="h-48 overflow-hidden relative">
+            <img alt="Professional worker"
+              class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+              data-alt="Expert electrician working on a modern electrical panel with professional tools, focused expression, bright workshop lighting"
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuAlCgfEs-Nn0tqyBFFJEwiwP2Ra0vwFpVGfB1fBzhIMU_ayQRKQdG4rs1Ry9Ieqd4kG3xaP0Upoie-ESYsD4E9fWL9plvvbgfdEyA7eKap74uLM9lPjfIIdxbvi3eMFELWy8CHqDP9X0qF5MMgZ9ec5O5UDKRL7OvQgWBe_CuLzy-mI1pk_WsFAhgwdrVz8E5HZMpvUzxPHJKtXmoVeicT4f4tpeK9JOnVYI_qiO92aQRZ3L_-N-9xWzVd2Cn9Z-GG0dYL3HNuZWQ" />
+            <div class="absolute top-4 right-4 bg-white/90 backdrop-blur-md rounded-full p-2 text-secondary">
+              <span class="material-symbols-outlined" data-icon="favorite"
+                style="font-variation-settings: 'FILL' 1;">favorite</span>
+            </div>
+          </div>
+          <div class="p-6">
+            <div class="flex justify-between items-start mb-2">
+              <div>
+                <h3 class="font-bold text-xl text-primary-container">Chidi Benson</h3>
+                <p class="text-sm text-secondary font-medium uppercase tracking-tight">Certified Electrician</p>
+              </div>
+              <div
+                class="flex items-center bg-tertiary-fixed-dim px-2 py-1 rounded text-on-tertiary-fixed font-bold text-sm">
+                <span class="material-symbols-outlined text-xs mr-1" data-icon="star"
+                  style="font-variation-settings: 'FILL' 1;">star</span>
+                5.0
+              </div>
+            </div>
+            <p class="text-sm text-on-surface-variant line-clamp-2 mb-6">Specializing in smart home installations and
+              complex industrial electrical repairs with precision and safety.</p>
+            <div class="flex items-center justify-between pt-6 border-t border-surface-container">
+              <div class="flex items-center gap-2">
+                <div class="bg-surface-variant rounded-full h-2 w-2"></div>
+                <span class="text-xs font-semibold text-slate-400">Next: Tuesday</span>
+              </div>
+              <button
+                class="bg-primary-container text-white px-5 py-2.5 rounded-lg text-sm font-bold hover:bg-primary transition-colors shadow-lg shadow-primary/10 active:scale-95">
+                Book New Service
+              </button>
+            </div>
+          </div>
         </div>
-       </div>
-      </div>
-     </div><!-- Wave transition -->
-     <div class="absolute bottom-0 left-0 w-full">
-      <svg viewbox="0 0 1440 100" fill="none" preserveaspectratio="none" style="display: block; width: 100%; height: 60px;"><path d="M0 40C360 80 720 0 1080 40C1260 60 1380 50 1440 45V100H0V40Z" fill="white" />
-      </svg>
-     </div>
-    </section><!-- HOW IT WORKS -->
-    <section class="py-20 px-6 scroll-section" style="background: white;">
-     <div class="max-w-6xl mx-auto">
-      <div class="text-center mb-14"><span class="inline-block px-4 py-1.5 rounded-full text-xs font-semibold mb-4" style="background: rgba(13,107,110,0.08); color: #0D6B6E;">Simple Process</span>
-       <h2 class="font-heading text-3xl md:text-4xl font-bold" style="color: #0B1D3A;">How It Works</h2>
-       <p class="mt-3 text-gray-500 max-w-lg mx-auto">Three simple steps to get help from a vetted professional near you.</p>
-      </div>
-      <div class="grid md:grid-cols-3 gap-8">
-       <div class="text-center group">
-        <div class="relative mx-auto w-20 h-20 rounded-2xl flex items-center justify-center mb-5 transition-all group-hover:scale-110" style="background: linear-gradient(135deg, rgba(13,107,110,0.1), rgba(62,198,200,0.1));"><i data-lucide="map-pin" style="width: 32px; height: 32px; color: #0D6B6E;"></i>
-         <div class="absolute -top-2 -right-2 w-7 h-7 rounded-full flex items-center justify-center font-heading font-bold text-xs text-white" style="background: #0D6B6E;">
-          1
-         </div>
+        <!-- Professional Card 3 -->
+        <div
+          class="group bg-surface-container-lowest rounded-xl overflow-hidden hover:translate-y-[-4px] transition-all duration-300 shadow-sm border border-transparent hover:border-secondary/20">
+          <div class="h-48 overflow-hidden relative">
+            <img alt="Professional worker"
+              class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+              data-alt="Plumber fixing a luxury kitchen faucet, close-up of hands and chrome fixtures with soft daylight background"
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuCdYDKItgg5d2KXAYKW2ZXeSOo2wL4jtk2TMqF1DvjP1PZVvrIOmuJuRC6gsZt0UZGvbEh8w2wSz1vd_Cri7wrC2tCqZnoqu-E4AXD3OGKdSOYyn7lpP6jOIM33V4NJmaOlluUCzk73BvQuCdmuU51uokLo9Cko_CpjfbkVM2HWeRdzG9_te0gGqTBvoqjVZSovho4H6w9vJPR8MawYdrjfb3ZWkxarnjEFn9m_lvmYpOoXFoRKS9ZcVDsHcb8A2Xcrgg44sROhHQ" />
+            <div class="absolute top-4 right-4 bg-white/90 backdrop-blur-md rounded-full p-2 text-secondary">
+              <span class="material-symbols-outlined" data-icon="favorite"
+                style="font-variation-settings: 'FILL' 1;">favorite</span>
+            </div>
+          </div>
+          <div class="p-6">
+            <div class="flex justify-between items-start mb-2">
+              <div>
+                <h3 class="font-bold text-xl text-primary-container">Ibrahim Musa</h3>
+                <p class="text-sm text-secondary font-medium uppercase tracking-tight">Master Plumber</p>
+              </div>
+              <div
+                class="flex items-center bg-tertiary-fixed-dim px-2 py-1 rounded text-on-tertiary-fixed font-bold text-sm">
+                <span class="material-symbols-outlined text-xs mr-1" data-icon="star"
+                  style="font-variation-settings: 'FILL' 1;">star</span>
+                4.8
+              </div>
+            </div>
+            <p class="text-sm text-on-surface-variant line-clamp-2 mb-6">Prompt and reliable plumbing services for
+              residential maintenance and new installations across Lekki.</p>
+            <div class="flex items-center justify-between pt-6 border-t border-surface-container">
+              <div class="flex items-center gap-2">
+                <div class="relative h-2 w-2">
+                  <div class="absolute inset-0 bg-secondary-fixed-dim rounded-full animate-ping"></div>
+                  <div class="relative bg-secondary rounded-full h-2 w-2"></div>
+                </div>
+                <span class="text-xs font-semibold text-secondary">Available Today</span>
+              </div>
+              <button
+                class="bg-primary-container text-white px-5 py-2.5 rounded-lg text-sm font-bold hover:bg-primary transition-colors shadow-lg shadow-primary/10 active:scale-95">
+                Book New Service
+              </button>
+            </div>
+          </div>
         </div>
-        <h3 class="font-heading font-semibold text-lg" style="color: #0B1D3A;">Share Location</h3>
-        <p class="mt-2 text-sm text-gray-500 max-w-xs mx-auto">Open the app and let GPS find verified professionals near you instantly.</p>
-       </div>
-       <div class="text-center group">
-        <div class="relative mx-auto w-20 h-20 rounded-2xl flex items-center justify-center mb-5 transition-all group-hover:scale-110" style="background: linear-gradient(135deg, rgba(62,198,200,0.1), rgba(110,231,168,0.1));"><i data-lucide="user-check" style="width: 32px; height: 32px; color: #3EC6C8;"></i>
-         <div class="absolute -top-2 -right-2 w-7 h-7 rounded-full flex items-center justify-center font-heading font-bold text-xs text-white" style="background: #3EC6C8;">
-          2
-         </div>
+        <!-- Professional Card 4 (Asymmetric Large Card) -->
+        <div
+          class="lg:col-span-2 group bg-primary-container text-white rounded-xl overflow-hidden relative flex items-center shadow-xl">
+          <div class="w-1/2 p-10 z-10">
+            <span class="text-secondary-fixed font-bold text-xs uppercase tracking-widest mb-4 block">Recommended
+              Specialist</span>
+            <h3 class="text-3xl font-black mb-4 tracking-tight">Dr. Sarah Adekunle</h3>
+            <p class="text-primary-fixed-dim mb-8 text-lg">Specialist Holistic Pet Care. Sarah has been your go-to for
+              Duke's health for 2 years. </p>
+            <div class="flex items-center gap-6 mb-8">
+              <div class="flex flex-col">
+                <span class="text-2xl font-bold">12</span>
+                <span class="text-[10px] uppercase text-primary-fixed-dim opacity-70">Bookings</span>
+              </div>
+              <div class="h-8 w-px bg-white/20"></div>
+              <div class="flex flex-col">
+                <span class="text-2xl font-bold text-secondary-fixed">5.0</span>
+                <span class="text-[10px] uppercase text-primary-fixed-dim opacity-70">Lifetime Rating</span>
+              </div>
+            </div>
+            <button
+              class="bg-secondary-container text-on-secondary-container px-8 py-4 rounded-xl font-black text-sm hover:brightness-110 transition-all active:scale-95">
+              Book Checkup Now
+            </button>
+          </div>
+          <div class="w-1/2 h-full relative overflow-hidden">
+            <img alt="Sarah Adekunle"
+              class="absolute inset-0 w-full h-full object-cover opacity-80 group-hover:scale-105 transition-transform duration-1000"
+              data-alt="Woman veterinarian in white coat smiling, softly lit by window light in a clean modern clinic with medical equipment in background"
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuDxbKXaYM6Iue5s-YTUV_EgQaOv4XwZolQ8RFbJHjHWz2ejN9c8TBIt-FXJ66H7tagvbcsCr-hu0LQ-4i_DdTqlKm4RIPkLouke9nfQ3JbDhvs1m3N-rj57Hj2AhP6cbSrS88JTQORBmvhcIDDj_r7p8NkBTWZsqSVB0-IBrUK8TQj_Onit17ZHFsDy2hQGlGfEDlWUf7fYH3Q2ggKTleRA4jmym9IfhnsFspH7jD389sspI7lHnYYeNe9cECKk1-JMomQwZ2eZtg" />
+            <div class="absolute inset-0 bg-gradient-to-r from-primary-container via-transparent to-transparent"></div>
+          </div>
         </div>
-        <h3 class="font-heading font-semibold text-lg" style="color: #0B1D3A;">Pick a Pro</h3>
-        <p class="mt-2 text-sm text-gray-500 max-w-xs mx-auto">Browse ratings, reviews, and pricing. Choose the best match for your need.</p>
-       </div>
-       <div class="text-center group">
-        <div class="relative mx-auto w-20 h-20 rounded-2xl flex items-center justify-center mb-5 transition-all group-hover:scale-110" style="background: linear-gradient(135deg, rgba(110,231,168,0.1), rgba(13,107,110,0.1));"><i data-lucide="check-circle" style="width: 32px; height: 32px; color: #6EE7A8;"></i>
-         <div class="absolute -top-2 -right-2 w-7 h-7 rounded-full flex items-center justify-center font-heading font-bold text-xs text-white" style="background: #6EE7A8; color: #0B1D3A;">
-          3
-         </div>
-        </div>
-        <h3 class="font-heading font-semibold text-lg" style="color: #0B1D3A;">Get It Done</h3>
-        <p class="mt-2 text-sm text-gray-500 max-w-xs mx-auto">Track arrival in real-time, chat in-app, and pay securely when done.</p>
-       </div>
-      </div>
-     </div>
-    </section><!-- SERVICES -->
-    <section id="services-section" class="py-20 px-6 scroll-section" style="background: #f8fafb;">
-     <div class="max-w-6xl mx-auto">
-      <div class="text-center mb-14"><span class="inline-block px-4 py-1.5 rounded-full text-xs font-semibold mb-4" style="background: rgba(62,198,200,0.1); color: #0D6B6E;">Our Services</span>
-       <h2 class="font-heading text-3xl md:text-4xl font-bold" style="color: #0B1D3A;">One App, Endless Services</h2>
-       <p class="mt-3 text-gray-500 max-w-lg mx-auto">Whatever you need done, there's a verified professional around you ready to help.</p>
-      </div>
-      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-       <div class="service-card bg-white rounded-2xl p-6 cursor-pointer" style="border: 1px solid #f0f0f0;">
-        <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-4" style="background: linear-gradient(135deg, #0D6B6E, #3EC6C8);"><i data-lucide="car" style="width: 22px; height: 22px; color: white;"></i>
-        </div>
-        <h3 class="font-heading font-semibold" style="color: #0B1D3A;">Rides &amp; Drivers</h3>
-        <p class="mt-2 text-sm text-gray-500">Private drivers, taxis, and ride-hailing — matched by proximity and rating.</p>
-       </div>
-       <div class="service-card bg-white rounded-2xl p-6 cursor-pointer" style="border: 1px solid #f0f0f0;">
-        <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-4" style="background: linear-gradient(135deg, #3EC6C8, #6EE7A8);"><i data-lucide="wrench" style="width: 22px; height: 22px; color: white;"></i>
-        </div>
-        <h3 class="font-heading font-semibold" style="color: #0B1D3A;">Artisans &amp; Handymen</h3>
-        <p class="mt-2 text-sm text-gray-500">Plumbers, electricians, carpenters, welders — skilled tradespeople you can trust.</p>
-       </div>
-       <div class="service-card bg-white rounded-2xl p-6 cursor-pointer" style="border: 1px solid #f0f0f0;">
-        <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-4" style="background: linear-gradient(135deg, #6EE7A8, #0D6B6E);"><i data-lucide="sparkles" style="width: 22px; height: 22px; color: white;"></i>
-        </div>
-        <h3 class="font-heading font-semibold" style="color: #0B1D3A;">Cleaning &amp; Domestic</h3>
-        <p class="mt-2 text-sm text-gray-500">Home cleaners, cooks, laundry services, and domestic assistants on demand.</p>
-       </div>
-       <div class="service-card bg-white rounded-2xl p-6 cursor-pointer" style="border: 1px solid #f0f0f0;">
-        <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-4" style="background: linear-gradient(135deg, #0D6B6E, #0B1D3A);"><i data-lucide="package" style="width: 22px; height: 22px; color: white;"></i>
-        </div>
-        <h3 class="font-heading font-semibold" style="color: #0B1D3A;">Delivery &amp; Errands</h3>
-        <p class="mt-2 text-sm text-gray-500">Quick deliveries, grocery runs, and errands handled by reliable dispatch riders.</p>
-       </div>
-       <div class="service-card bg-white rounded-2xl p-6 cursor-pointer" style="border: 1px solid #f0f0f0;">
-        <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-4" style="background: linear-gradient(135deg, #3EC6C8, #0D6B6E);"><i data-lucide="palette" style="width: 22px; height: 22px; color: white;"></i>
-        </div>
-        <h3 class="font-heading font-semibold" style="color: #0B1D3A;">Beauty &amp; Wellness</h3>
-        <p class="mt-2 text-sm text-gray-500">Hairstylists, barbers, makeup artists, and spa therapists at your doorstep.</p>
-       </div>
-       <div class="service-card bg-white rounded-2xl p-6 cursor-pointer" style="border: 1px solid #f0f0f0;">
-        <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-4" style="background: linear-gradient(135deg, #6EE7A8, #3EC6C8);"><i data-lucide="shield" style="width: 22px; height: 22px; color: white;"></i>
-        </div>
-        <h3 class="font-heading font-semibold" style="color: #0B1D3A;">Security &amp; Moving</h3>
-        <p class="mt-2 text-sm text-gray-500">Security escorts, movers, and logistics help when you need safe hands.</p>
-       </div>
-      </div>
-     </div>
-    </section><!-- TRUST SECTION -->
-    <section class="py-20 px-6 scroll-section" style="background: white;">
-     <div class="max-w-6xl mx-auto">
-      <div class="flex flex-col lg:flex-row items-center gap-14">
-       <div class="flex-1"><span class="inline-block px-4 py-1.5 rounded-full text-xs font-semibold mb-4" style="background: rgba(110,231,168,0.15); color: #0D6B6E;">Trust &amp; Safety</span>
-        <h2 class="font-heading text-3xl md:text-4xl font-bold leading-tight" style="color: #0B1D3A;">Built on Trust,<br>
-         Powered by <span style="color: #0D6B6E;">Community</span></h2>
-        <p class="mt-4 text-gray-500 leading-relaxed">Every professional on AroundYou goes through identity verification, skill assessment, and background checks. Our rating system ensures only the best stay on the platform.</p>
-        <div class="mt-8 space-y-4">
-         <div class="flex items-start gap-4">
-          <div class="w-10 h-10 rounded-xl flex items-center justify-center shrink-0" style="background: rgba(13,107,110,0.1);"><i data-lucide="shield-check" style="width: 20px; height: 20px; color: #0D6B6E;"></i>
+        <!-- Invite/CTA Card -->
+        <div
+          class="group bg-secondary-container rounded-xl p-8 flex flex-col justify-between border-2 border-dashed border-secondary/30 relative overflow-hidden">
+          <div class="absolute -right-10 -bottom-10 opacity-10 group-hover:rotate-12 transition-transform duration-500">
+            <span class="material-symbols-outlined text-[160px]" data-icon="add_circle">add_circle</span>
           </div>
           <div>
-           <h4 class="font-semibold text-sm" style="color: #0B1D3A;">ID Verified Professionals</h4>
-           <p class="text-sm text-gray-500 mt-0.5">NIN and government ID verification for every service provider.</p>
+            <h3 class="text-2xl font-black text-on-secondary-container mb-2">Find More Pros</h3>
+            <p class="text-secondary font-medium leading-relaxed">Expand your circle of trusted experts. Browse
+              top-rated professionals in your neighborhood.</p>
           </div>
-         </div>
-         <div class="flex items-start gap-4">
-          <div class="w-10 h-10 rounded-xl flex items-center justify-center shrink-0" style="background: rgba(62,198,200,0.1);"><i data-lucide="lock" style="width: 20px; height: 20px; color: #3EC6C8;"></i>
+          <button
+            class="bg-white text-secondary px-6 py-3 rounded-lg font-bold text-sm flex items-center justify-center gap-2 mt-8 hover:bg-secondary-fixed transition-colors">
+            Explore Directory
+            <span class="material-symbols-outlined" data-icon="arrow_forward">arrow_forward</span>
+          </button>
+        </div>
+      </div>
+      <!-- Recently Visited (Sub-section) -->
+      <div class="mt-20">
+        <div class="flex items-center justify-between mb-8">
+          <h3 class="text-2xl font-extrabold text-primary-container tracking-tight">Recently Contacted</h3>
+          <button class="text-secondary font-bold text-sm flex items-center gap-1 hover:underline">
+            View All History
+            <span class="material-symbols-outlined text-sm" data-icon="chevron_right">chevron_right</span>
+          </button>
+        </div>
+        <div class="space-y-4">
+          <!-- List Item 1 -->
+          <div
+            class="flex items-center justify-between p-4 bg-surface-container-low rounded-xl group hover:bg-white hover:shadow-md transition-all duration-300">
+            <div class="flex items-center gap-4">
+              <div class="h-12 w-12 rounded-full overflow-hidden border-2 border-white shadow-sm">
+                <img alt="Kola Olatunji" class="w-full h-full object-cover"
+                  data-alt="Portrait of a friendly Nigerian man with a neat beard, wearing a professional uniform in a sunlit outdoor garden setting"
+                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuDam-BFFflGZ7-MNXglNugzPr-688uq7Y7vioG9yp6Ob_DrRVKPSbb6iKaqgi4BXBZTNtBIre0-GbLriWKMTaW5K5E91Vwnz-_8CaMl_VjmTJ29j4rwybp3FadwYxC0VR55nv9xbVcWsZkLN0sUuqnE2QPirAz7PRdgBS0e-8isIpB5UWSXWjeMBD_rG8-wIWGiMRJx8B0FE58b9vefuREPV7R1o0p5xuwhAhctC2XwPJ7a1N_vA6oclP22gmMAdJ6QLamRsvkt8Q" />
+              </div>
+              <div>
+                <h4 class="font-bold text-primary-container">Kola Olatunji</h4>
+                <p class="text-xs text-on-surface-variant font-medium">Landscape Designer • Contacted 2 days ago</p>
+              </div>
+            </div>
+            <div class="flex items-center gap-4">
+              <button class="p-2 text-slate-400 hover:text-secondary transition-colors">
+                <span class="material-symbols-outlined" data-icon="chat_bubble">chat_bubble</span>
+              </button>
+              <button
+                class="bg-white border border-slate-100 px-4 py-2 rounded-lg text-xs font-bold text-primary-container hover:bg-primary-container hover:text-white transition-all">
+                Quick Book
+              </button>
+            </div>
           </div>
-          <div>
-           <h4 class="font-semibold text-sm" style="color: #0B1D3A;">Secure In-App Payments</h4>
-           <p class="text-sm text-gray-500 mt-0.5">Money held in escrow until you confirm satisfaction with the service.</p>
+          <!-- List Item 2 -->
+          <div
+            class="flex items-center justify-between p-4 bg-surface-container-low rounded-xl group hover:bg-white hover:shadow-md transition-all duration-300">
+            <div class="flex items-center gap-4">
+              <div class="h-12 w-12 rounded-full overflow-hidden border-2 border-white shadow-sm">
+                <img alt="Blessing Eke" class="w-full h-full object-cover"
+                  data-alt="Confident woman holding a tablet, wearing stylish glasses and professional attire in a modern tech-focused workspace"
+                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuDL7UKbgpP9WV2IUxocJSCw91gynFSNqS6MIqc_kLCX-8aMIS0PKGPSzkyVif63Ob4J1ZyKx50neMwXiZJ3wxMsEzGBsOvx9W4ts1nLbdpdNu2Wr0r-a5mT8a717CcSXr_uaXFNsEAoxuRBWgRG9V7oG-iPTr41RXJ0R2ol8fgES0Rm1l2t31_54dYhC-QEvGhxIAa1oJkEGzjEekP38q_fLCBk42Pwx0aHQtVXhSsWKb6TzEcsIeFZw4tlWyKYlZHpV7zfwMBR6Q" />
+              </div>
+              <div>
+                <h4 class="font-bold text-primary-container">Blessing Eke</h4>
+                <p class="text-xs text-on-surface-variant font-medium">Private Tutor • Contacted 1 week ago</p>
+              </div>
+            </div>
+            <div class="flex items-center gap-4">
+              <button class="p-2 text-slate-400 hover:text-secondary transition-colors">
+                <span class="material-symbols-outlined" data-icon="chat_bubble">chat_bubble</span>
+              </button>
+              <button
+                class="bg-white border border-slate-100 px-4 py-2 rounded-lg text-xs font-bold text-primary-container hover:bg-primary-container hover:text-white transition-all">
+                Quick Book
+              </button>
+            </div>
           </div>
-         </div>
-         <div class="flex items-start gap-4">
-          <div class="w-10 h-10 rounded-xl flex items-center justify-center shrink-0" style="background: rgba(110,231,168,0.1);"><i data-lucide="star" style="width: 20px; height: 20px; color: #6EE7A8;"></i>
-          </div>
-          <div>
-           <h4 class="font-semibold text-sm" style="color: #0B1D3A;">Real Reviews &amp; Ratings</h4>
-           <p class="text-sm text-gray-500 mt-0.5">Transparent reviews from real customers drive quality and accountability.</p>
-          </div>
-         </div>
         </div>
-       </div>
-       <div class="flex-1 flex justify-center">
-        <div class="grid grid-cols-2 gap-4 max-w-sm">
-         <div class="stat-card rounded-2xl p-5 text-center" style="background: linear-gradient(135deg, rgba(13,107,110,0.08), rgba(62,198,200,0.08));">
-          <p class="font-heading text-3xl font-bold" style="color: #0D6B6E;">99%</p>
-          <p class="text-xs text-gray-500 mt-1">Satisfaction Rate</p>
-         </div>
-         <div class="stat-card rounded-2xl p-5 text-center" style="background: linear-gradient(135deg, rgba(62,198,200,0.08), rgba(110,231,168,0.08));">
-          <p class="font-heading text-3xl font-bold" style="color: #3EC6C8;">3min</p>
-          <p class="text-xs text-gray-500 mt-1">Avg Match Time</p>
-         </div>
-         <div class="stat-card rounded-2xl p-5 text-center" style="background: linear-gradient(135deg, rgba(110,231,168,0.08), rgba(13,107,110,0.08));">
-          <p class="font-heading text-3xl font-bold" style="color: #6EE7A8;">24/7</p>
-          <p class="text-xs text-gray-500 mt-1">Availability</p>
-         </div>
-         <div class="stat-card rounded-2xl p-5 text-center" style="background: linear-gradient(135deg, rgba(11,29,58,0.06), rgba(13,107,110,0.08));">
-          <p class="font-heading text-3xl font-bold" style="color: #0B1D3A;">15+</p>
-          <p class="text-xs text-gray-500 mt-1">Service Categories</p>
-         </div>
-        </div>
-       </div>
       </div>
-     </div>
-    </section><!-- CTA -->
-    <section class="py-20 px-6 scroll-section">
-     <div class="max-w-4xl mx-auto rounded-3xl overflow-hidden relative" style="background: linear-gradient(135deg, #0B1D3A, #0D6B6E);">
-      <div class="absolute top-0 right-0 w-48 h-48 rounded-full opacity-15" style="background: #3EC6C8; filter: blur(60px);"></div>
-      <div class="absolute bottom-0 left-0 w-40 h-40 rounded-full opacity-10" style="background: #6EE7A8; filter: blur(50px);"></div>
-      <div class="relative z-10 p-10 md:p-14 text-center">
-       <h2 class="font-heading text-3xl md:text-4xl font-bold text-white">Ready to Find Help<br><span style="color: #3EC6C8;">Around You?</span></h2>
-       <p class="mt-4 text-gray-300 max-w-lg mx-auto">Join thousands of Nigerians already using AroundYou to get things done faster, safer, and smarter.</p>
-       <div class="mt-8 flex flex-col sm:flex-row gap-4 justify-center"><button class="cta-btn px-8 py-3.5 rounded-full text-base font-semibold text-white flex items-center justify-center gap-2" style="background: #3EC6C8;"> <i data-lucide="smartphone" style="width: 18px; height: 18px;"></i> Download for Free </button> <button class="px-8 py-3.5 rounded-full text-base font-semibold text-white glass flex items-center justify-center gap-2 transition-all hover:bg-white hover:bg-opacity-15"> Become a Provider </button>
-       </div>
-      </div>
-     </div>
-    </section><!-- CONTACT -->
-    <section id="contact-section" class="py-20 px-6 scroll-section" style="background: #f8fafb;">
-     <div class="max-w-4xl mx-auto">
-      <div class="text-center mb-12"><span class="inline-block px-4 py-1.5 rounded-full text-xs font-semibold mb-4" style="background: rgba(13,107,110,0.08); color: #0D6B6E;">Get In Touch</span>
-       <h2 class="font-heading text-3xl md:text-4xl font-bold" style="color: #0B1D3A;">Contact Us</h2>
-       <p class="mt-3 text-gray-500">Have questions or want to partner with us? We'd love to hear from you.</p>
-      </div>
-      <div class="grid md:grid-cols-3 gap-6 mb-10">
-       <div class="bg-white rounded-2xl p-6 text-center" style="border: 1px solid #f0f0f0;">
-        <div class="w-12 h-12 rounded-xl flex items-center justify-center mx-auto mb-3" style="background: rgba(13,107,110,0.1);"><i data-lucide="mail" style="width: 22px; height: 22px; color: #0D6B6E;"></i>
-        </div>
-        <h4 class="font-semibold text-sm" style="color: #0B1D3A;">Email</h4>
-        <p class="text-sm text-gray-500 mt-1">hello@aroundyou.ng</p>
-       </div>
-       <div class="bg-white rounded-2xl p-6 text-center" style="border: 1px solid #f0f0f0;">
-        <div class="w-12 h-12 rounded-xl flex items-center justify-center mx-auto mb-3" style="background: rgba(62,198,200,0.1);"><i data-lucide="phone" style="width: 22px; height: 22px; color: #3EC6C8;"></i>
-        </div>
-        <h4 class="font-semibold text-sm" style="color: #0B1D3A;">Phone</h4>
-        <p class="text-sm text-gray-500 mt-1">+234 800 AROUND YOU</p>
-       </div>
-       <div class="bg-white rounded-2xl p-6 text-center" style="border: 1px solid #f0f0f0;">
-        <div class="w-12 h-12 rounded-xl flex items-center justify-center mx-auto mb-3" style="background: rgba(110,231,168,0.1);"><i data-lucide="map-pin" style="width: 22px; height: 22px; color: #6EE7A8;"></i>
-        </div>
-        <h4 class="font-semibold text-sm" style="color: #0B1D3A;">Office</h4>
-        <p class="text-sm text-gray-500 mt-1">Lagos, Nigeria</p>
-       </div>
-      </div>
-      <div class="bg-white rounded-2xl p-8" style="border: 1px solid #f0f0f0;">
-       <form id="contact-form" class="grid md:grid-cols-2 gap-5">
-        <div><label for="cf-name" class="block text-xs font-medium mb-1.5" style="color: #0B1D3A;">Full Name</label> <input id="cf-name" type="text" placeholder="Your name" class="w-full px-4 py-3 rounded-xl text-sm outline-none transition-all focus:ring-2" style="background: #f8fafb; border: 1px solid #e8e8e8;" onfocus="this.style.borderColor='#3EC6C8'; this.style.boxShadow='0 0 0 3px rgba(62,198,200,0.1)'" onblur="this.style.borderColor='#e8e8e8'; this.style.boxShadow='none'">
-        </div>
-        <div><label for="cf-email" class="block text-xs font-medium mb-1.5" style="color: #0B1D3A;">Email</label> <input id="cf-email" type="email" placeholder="you@email.com" class="w-full px-4 py-3 rounded-xl text-sm outline-none transition-all" style="background: #f8fafb; border: 1px solid #e8e8e8;" onfocus="this.style.borderColor='#3EC6C8'" onblur="this.style.borderColor='#e8e8e8'">
-        </div>
-        <div class="md:col-span-2"><label for="cf-msg" class="block text-xs font-medium mb-1.5" style="color: #0B1D3A;">Message</label> <textarea id="cf-msg" rows="4" placeholder="How can we help?" class="w-full px-4 py-3 rounded-xl text-sm outline-none resize-none transition-all" style="background: #f8fafb; border: 1px solid #e8e8e8;" onfocus="this.style.borderColor='#3EC6C8'" onblur="this.style.borderColor='#e8e8e8'"></textarea>
-        </div>
-        <div class="md:col-span-2"><button type="submit" class="cta-btn px-8 py-3 rounded-full text-sm font-semibold text-white" style="background: linear-gradient(135deg, #0D6B6E, #3EC6C8);">Send Message</button> <span id="form-success" class="ml-4 text-sm font-medium hidden" style="color: #0D6B6E;">✓ Message sent!</span>
-        </div>
-       </form>
-      </div>
-     </div>
     </section>
-   </div><!-- ====== ABOUT PAGE ====== -->
-   <div id="page-about" class="page hidden"><!-- About Hero -->
-    <section class="relative w-full overflow-hidden" style="min-height: 60%;">
-     <div class="absolute inset-0" style="background: linear-gradient(135deg, #0B1D3A 0%, #0D6B6E 70%, #3EC6C8 100%);"></div>
-     <div class="absolute top-20 right-20 w-60 h-60 rounded-full opacity-10 floating" style="background: #6EE7A8; filter: blur(80px);"></div>
-     <div class="relative z-10 max-w-5xl mx-auto px-6 pt-32 pb-20 md:pt-40 md:pb-28 text-center"><span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass mb-6 anim-fade-up"> <span class="text-xs font-medium text-white opacity-80">Our Story</span> </span>
-      <h1 id="about-heading" class="font-heading text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight anim-fade-up delay-1">We're Building the Future of<br><span style="color: #3EC6C8;">Local Services</span></h1>
-      <p id="about-text" class="mt-6 text-lg text-gray-300 max-w-2xl mx-auto anim-fade-up delay-2">AroundYou was born from a simple idea: everyone deserves fast, reliable access to skilled professionals nearby. We're making that a reality across Nigeria.</p>
-     </div>
-     <div class="absolute bottom-0 left-0 w-full">
-      <svg viewbox="0 0 1440 80" fill="none" preserveaspectratio="none" style="display: block; width: 100%; height: 50px;"><path d="M0 30C480 70 960 10 1440 40V80H0V30Z" fill="white" />
-      </svg>
-     </div>
-    </section><!-- Mission & Vision -->
-    <section class="py-20 px-6 scroll-section" style="background: white;">
-     <div class="max-w-6xl mx-auto">
-      <div class="grid md:grid-cols-2 gap-10">
-       <div class="rounded-2xl p-8" style="background: linear-gradient(135deg, rgba(13,107,110,0.06), rgba(62,198,200,0.06)); border: 1px solid rgba(13,107,110,0.1);">
-        <div class="w-14 h-14 rounded-2xl flex items-center justify-center mb-5" style="background: linear-gradient(135deg, #0D6B6E, #3EC6C8);"><i data-lucide="target" style="width: 26px; height: 26px; color: white;"></i>
-        </div>
-        <h3 class="font-heading text-2xl font-bold mb-3" style="color: #0B1D3A;">Our Mission</h3>
-        <p class="text-gray-500 leading-relaxed">To make quality local services accessible to everyone by connecting people with vetted, reliable professionals through smart technology — creating economic opportunity for service providers while delivering convenience and trust to customers.</p>
-       </div>
-       <div class="rounded-2xl p-8" style="background: linear-gradient(135deg, rgba(110,231,168,0.06), rgba(62,198,200,0.06)); border: 1px solid rgba(110,231,168,0.1);">
-        <div class="w-14 h-14 rounded-2xl flex items-center justify-center mb-5" style="background: linear-gradient(135deg, #6EE7A8, #3EC6C8);"><i data-lucide="eye" style="width: 26px; height: 26px; color: white;"></i>
-        </div>
-        <h3 class="font-heading text-2xl font-bold mb-3" style="color: #0B1D3A;">Our Vision</h3>
-        <p class="text-gray-500 leading-relaxed">To become Africa's most trusted hyperlocal services platform — a world where finding skilled, reliable help is as simple as opening your phone, and where every artisan and professional has access to a thriving digital marketplace.</p>
-       </div>
-      </div>
-     </div>
-    </section><!-- Values -->
-    <section class="py-20 px-6 scroll-section" style="background: #f8fafb;">
-     <div class="max-w-6xl mx-auto">
-      <div class="text-center mb-14"><span class="inline-block px-4 py-1.5 rounded-full text-xs font-semibold mb-4" style="background: rgba(13,107,110,0.08); color: #0D6B6E;">What Drives Us</span>
-       <h2 class="font-heading text-3xl md:text-4xl font-bold" style="color: #0B1D3A;">Our Core Values</h2>
-      </div>
-      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-       <div class="bg-white rounded-2xl p-6 text-center team-card" style="border: 1px solid #f0f0f0;">
-        <div class="w-14 h-14 rounded-2xl flex items-center justify-center mx-auto mb-4" style="background: rgba(13,107,110,0.1);"><i data-lucide="heart-handshake" style="width: 26px; height: 26px; color: #0D6B6E;"></i>
-        </div>
-        <h4 class="font-heading font-semibold" style="color: #0B1D3A;">Trust First</h4>
-        <p class="mt-2 text-sm text-gray-500">Every interaction on our platform is built on verified identity and proven quality.</p>
-       </div>
-       <div class="bg-white rounded-2xl p-6 text-center team-card" style="border: 1px solid #f0f0f0;">
-        <div class="w-14 h-14 rounded-2xl flex items-center justify-center mx-auto mb-4" style="background: rgba(62,198,200,0.1);"><i data-lucide="zap" style="width: 26px; height: 26px; color: #3EC6C8;"></i>
-        </div>
-        <h4 class="font-heading font-semibold" style="color: #0B1D3A;">Speed Matters</h4>
-        <p class="mt-2 text-sm text-gray-500">GPS matching and real-time availability mean help arrives in minutes, not hours.</p>
-       </div>
-       <div class="bg-white rounded-2xl p-6 text-center team-card" style="border: 1px solid #f0f0f0;">
-        <div class="w-14 h-14 rounded-2xl flex items-center justify-center mx-auto mb-4" style="background: rgba(110,231,168,0.1);"><i data-lucide="users" style="width: 26px; height: 26px; color: #6EE7A8;"></i>
-        </div>
-        <h4 class="font-heading font-semibold" style="color: #0B1D3A;">Community</h4>
-        <p class="mt-2 text-sm text-gray-500">We empower local professionals and create economic opportunity in every neighborhood.</p>
-       </div>
-       <div class="bg-white rounded-2xl p-6 text-center team-card" style="border: 1px solid #f0f0f0;">
-        <div class="w-14 h-14 rounded-2xl flex items-center justify-center mx-auto mb-4" style="background: rgba(11,29,58,0.06);"><i data-lucide="lightbulb" style="width: 26px; height: 26px; color: #0B1D3A;"></i>
-        </div>
-        <h4 class="font-heading font-semibold" style="color: #0B1D3A;">Innovation</h4>
-        <p class="mt-2 text-sm text-gray-500">We're constantly improving the platform with AI matching, smart pricing, and new features.</p>
-       </div>
-      </div>
-     </div>
-    </section><!-- Why AroundYou -->
-    <section class="py-20 px-6 scroll-section" style="background: white;">
-     <div class="max-w-6xl mx-auto">
-      <div class="text-center mb-14"><span class="inline-block px-4 py-1.5 rounded-full text-xs font-semibold mb-4" style="background: rgba(62,198,200,0.1); color: #0D6B6E;">The Opportunity</span>
-       <h2 class="font-heading text-3xl md:text-4xl font-bold" style="color: #0B1D3A;">Why AroundYou, Why Now</h2>
-      </div>
-      <div class="grid md:grid-cols-3 gap-6">
-       <div class="rounded-2xl p-6" style="background: linear-gradient(135deg, #0B1D3A, #0D6B6E);">
-        <div class="w-10 h-10 rounded-xl flex items-center justify-center mb-4" style="background: rgba(62,198,200,0.2);"><i data-lucide="trending-up" style="width: 20px; height: 20px; color: #3EC6C8;"></i>
-        </div>
-        <h4 class="font-heading font-semibold text-white mb-2">Gig Economy Boom</h4>
-        <p class="text-sm text-gray-300">Nigeria's gig economy is exploding. Millions of skilled workers need a modern platform to connect with customers efficiently.</p>
-       </div>
-       <div class="rounded-2xl p-6" style="background: linear-gradient(135deg, #0D6B6E, #3EC6C8);">
-        <div class="w-10 h-10 rounded-xl flex items-center justify-center mb-4" style="background: rgba(255,255,255,0.15);"><i data-lucide="smartphone" style="width: 20px; height: 20px; color: white;"></i>
-        </div>
-        <h4 class="font-heading font-semibold text-white mb-2">App Adoption Rising</h4>
-        <p class="text-sm text-gray-200">Ride-hailing success proves Nigerians embrace apps for convenience. Local services are next.</p>
-       </div>
-       <div class="rounded-2xl p-6" style="background: linear-gradient(135deg, #3EC6C8, #6EE7A8);">
-        <div class="w-10 h-10 rounded-xl flex items-center justify-center mb-4" style="background: rgba(11,29,58,0.15);"><i data-lucide="layout-grid" style="width: 20px; height: 20px; color: #0B1D3A;"></i>
-        </div>
-        <h4 class="font-heading font-semibold mb-2" style="color: #0B1D3A;">Fragmented Market</h4>
-        <p class="text-sm" style="color: rgba(11,29,58,0.7);">Current players are small and fragmented. There's a massive opening for a unified platform with better trust, speed, and features.</p>
-       </div>
-      </div>
-     </div>
-    </section><!-- About CTA -->
-    <section class="py-20 px-6 scroll-section" style="background: #f8fafb;">
-     <div class="max-w-3xl mx-auto text-center">
-      <h2 class="font-heading text-3xl md:text-4xl font-bold" style="color: #0B1D3A;">Join the Movement</h2>
-      <p class="mt-4 text-gray-500 max-w-lg mx-auto">Whether you're looking for help or you are the help — AroundYou is your platform. Let's build the future of local services together.</p>
-      <div class="mt-8 flex flex-col sm:flex-row gap-4 justify-center"><button class="cta-btn px-8 py-3.5 rounded-full text-base font-semibold text-white flex items-center justify-center gap-2" style="background: linear-gradient(135deg, #0D6B6E, #3EC6C8);"> <i data-lucide="download" style="width: 18px; height: 18px;"></i> Get the App </button> <button class="cta-btn px-8 py-3.5 rounded-full text-base font-semibold flex items-center justify-center gap-2" style="background: white; color: #0D6B6E; border: 2px solid #0D6B6E;"> Partner With Us </button>
-      </div>
-     </div>
-    </section>
-   </div><!-- FOOTER (shared) -->
-   <footer style="background: #0B1D3A;">
-    <div class="max-w-7xl mx-auto px-6 py-14">
-     <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-10">
-      <div>
-       <div class="flex items-center gap-2 mb-4">
-        <svg width="32" height="20" viewbox="0 0 80 40" fill="none"><path d="M20 20C20 12 26 6 34 6C38 6 41.5 8 44 11C46.5 8 50 6 54 6C62 6 68 12 68 20C68 28 62 34 54 34C50 34 46.5 32 44 29C41.5 32 38 34 34 34C26 34 20 28 20 20Z" stroke="#3EC6C8" stroke-width="3.5" fill="none" /> <circle cx="16" cy="10" r="3" fill="#6EE7A8" />
-        </svg><span class="font-heading font-bold text-lg text-white">AROUND<span style="color: #3EC6C8;">YOU</span></span>
-       </div>
-       <p class="text-sm text-gray-400 leading-relaxed">Connecting you instantly with trusted local professionals. One app for everything around you.</p>
-       <div class="flex gap-3 mt-5"><a class="w-9 h-9 rounded-full flex items-center justify-center transition-all hover:opacity-80 cursor-pointer" style="background: rgba(62,198,200,0.15);"> <i data-lucide="twitter" style="width: 16px; height: 16px; color: #3EC6C8;"></i> </a> <a class="w-9 h-9 rounded-full flex items-center justify-center transition-all hover:opacity-80 cursor-pointer" style="background: rgba(62,198,200,0.15);"> <i data-lucide="instagram" style="width: 16px; height: 16px; color: #3EC6C8;"></i> </a> <a class="w-9 h-9 rounded-full flex items-center justify-center transition-all hover:opacity-80 cursor-pointer" style="background: rgba(62,198,200,0.15);"> <i data-lucide="linkedin" style="width: 16px; height: 16px; color: #3EC6C8;"></i> </a> <a class="w-9 h-9 rounded-full flex items-center justify-center transition-all hover:opacity-80 cursor-pointer" style="background: rgba(62,198,200,0.15);"> <i data-lucide="facebook" style="width: 16px; height: 16px; color: #3EC6C8;"></i> </a>
-       </div>
-      </div>
-      <div>
-       <h4 class="font-heading font-semibold text-white mb-4">Company</h4>
-       <ul class="space-y-2.5">
-        <li><a class="text-sm text-gray-400 hover:text-white transition-colors cursor-pointer" onclick="navigateTo('about')">About Us</a></li>
-        <li><a class="text-sm text-gray-400 hover:text-white transition-colors cursor-pointer">Careers</a></li>
-        <li><a class="text-sm text-gray-400 hover:text-white transition-colors cursor-pointer">Press</a></li>
-        <li><a class="text-sm text-gray-400 hover:text-white transition-colors cursor-pointer">Blog</a></li>
-       </ul>
-      </div>
-      <div>
-       <h4 class="font-heading font-semibold text-white mb-4">Services</h4>
-       <ul class="space-y-2.5">
-        <li><a class="text-sm text-gray-400 hover:text-white transition-colors cursor-pointer">Rides &amp; Drivers</a></li>
-        <li><a class="text-sm text-gray-400 hover:text-white transition-colors cursor-pointer">Artisans</a></li>
-        <li><a class="text-sm text-gray-400 hover:text-white transition-colors cursor-pointer">Cleaning</a></li>
-        <li><a class="text-sm text-gray-400 hover:text-white transition-colors cursor-pointer">Delivery</a></li>
-       </ul>
-      </div>
-      <div>
-       <h4 class="font-heading font-semibold text-white mb-4">Support</h4>
-       <ul class="space-y-2.5">
-        <li><a class="text-sm text-gray-400 hover:text-white transition-colors cursor-pointer">Help Center</a></li>
-        <li><a class="text-sm text-gray-400 hover:text-white transition-colors cursor-pointer">Safety</a></li>
-        <li><a class="text-sm text-gray-400 hover:text-white transition-colors cursor-pointer">Terms of Service</a></li>
-        <li><a class="text-sm text-gray-400 hover:text-white transition-colors cursor-pointer">Privacy Policy</a></li>
-       </ul>
-      </div>
-     </div>
-     <div class="mt-12 pt-6 flex flex-col md:flex-row items-center justify-between gap-4" style="border-top: 1px solid rgba(255,255,255,0.08);">
-      <p class="text-xs text-gray-500">© 2025 AroundYou. All rights reserved.</p>
-      <p class="text-xs text-gray-500">Made with 💚 in Nigeria</p>
-     </div>
-    </div>
-   </footer>
-  </div>
-  <script>
-  // --- Navigation ---
-  let currentPage = 'home';
+  </main>
+</body>
 
-  function navigateTo(target) {
-    if (target === 'services-section' || target === 'contact-section') {
-      if (currentPage !== 'home') {
-        showPage('home');
-      }
-      setTimeout(() => {
-        const el = document.getElementById(target);
-        if (el) el.scrollIntoView({ behavior: 'smooth' });
-      }, currentPage !== 'home' ? 100 : 0);
-      return;
-    }
-    showPage(target);
-    document.getElementById('app-root').scrollTo({ top: 0, behavior: 'smooth' });
-  }
-
-  function showPage(page) {
-    currentPage = page;
-    document.querySelectorAll('.page').forEach(p => p.classList.add('hidden'));
-    const target = document.getElementById('page-' + page);
-    if (target) target.classList.remove('hidden');
-
-    // Update nav active
-    document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
-    const navLink = document.getElementById('nav-' + page);
-    if (navLink) navLink.classList.add('active');
-
-    // Re-trigger scroll animations
-    setTimeout(observeSections, 100);
-  }
-
-  function toggleMobile() {
-    const menu = document.getElementById('mobile-menu');
-    menu.classList.toggle('hidden');
-  }
-
-  // --- Navbar scroll effect ---
-  const appRoot = document.getElementById('app-root');
-  const navbar = document.getElementById('navbar');
-  appRoot.addEventListener('scroll', () => {
-    if (appRoot.scrollTop > 60) {
-      navbar.style.background = 'rgba(255,255,255,0.95)';
-      navbar.style.boxShadow = '0 2px 20px rgba(0,0,0,0.06)';
-      navbar.style.backdropFilter = 'blur(12px)';
-    } else {
-      navbar.style.background = 'transparent';
-      navbar.style.boxShadow = 'none';
-      navbar.style.backdropFilter = 'none';
-    }
-  });
-
-  // --- Scroll reveal ---
-  function observeSections() {
-    const sections = document.querySelectorAll('.scroll-section');
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(e => {
-        if (e.isIntersecting) {
-          e.target.classList.add('visible');
-        }
-      });
-    }, { threshold: 0.1, root: appRoot });
-    sections.forEach(s => observer.observe(s));
-  }
-
-  // --- Contact form ---
-  document.getElementById('contact-form').addEventListener('submit', function(e) {
-    e.preventDefault();
-    const btn = this.querySelector('button[type="submit"]');
-    const msg = document.getElementById('form-success');
-    btn.textContent = 'Sending...';
-    btn.disabled = true;
-    setTimeout(() => {
-      btn.innerHTML = '<i data-lucide="check" style="width:16px;height:16px;display:inline;"></i> Sent!';
-      msg.classList.remove('hidden');
-      lucide.createIcons();
-      this.reset();
-      setTimeout(() => {
-        btn.textContent = 'Send Message';
-        btn.disabled = false;
-        msg.classList.add('hidden');
-      }, 3000);
-    }, 1200);
-  });
-
-  // --- Element SDK ---
-  const defaultConfig = {
-    background_color: '#FFFFFF',
-    surface_color: '#f8fafb',
-    text_color: '#0B1D3A',
-    primary_action_color: '#0D6B6E',
-    secondary_action_color: '#3EC6C8',
-    font_family: 'Sora',
-    font_size: 16,
-    hero_title: 'Everything You Need, Right Around You',
-    hero_subtitle: 'Instantly connect with trusted artisans, drivers, cleaners, handymen, and more — all GPS-matched and ready to help.',
-    about_heading: "We're Building the Future of Local Services",
-    about_text: 'AroundYou was born from a simple idea: everyone deserves fast, reliable access to skilled professionals nearby. We\'re making that a reality across Nigeria.'
-  };
-
-  function applyConfig(config) {
-    const c = { ...defaultConfig, ...config };
-    const font = c.font_family || defaultConfig.font_family;
-    const baseStack = 'DM Sans, sans-serif';
-    const headingStack = `${font}, ${baseStack}`;
-    const size = c.font_size || defaultConfig.font_size;
-
-    // Apply font to headings
-    document.querySelectorAll('.font-heading').forEach(el => {
-      el.style.fontFamily = headingStack;
-    });
-
-    // Apply font size scaling
-    document.querySelectorAll('h1').forEach(el => el.style.fontSize = '');
-    document.querySelectorAll('h2').forEach(el => el.style.fontSize = `${size * 2}px`);
-
-    // Text content
-    const heroTitle = document.getElementById('hero-title');
-    if (heroTitle) {
-      const parts = (c.hero_title || defaultConfig.hero_title).split(',');
-      heroTitle.innerHTML = parts[0] + (parts[1] ? ',<br><span style="color: #3EC6C8;">' + parts[1].trim() + '</span>' : '');
-    }
-    const heroSub = document.getElementById('hero-subtitle');
-    if (heroSub) heroSub.textContent = c.hero_subtitle || defaultConfig.hero_subtitle;
-
-    const aboutH = document.getElementById('about-heading');
-    if (aboutH) {
-      const text = c.about_heading || defaultConfig.about_heading;
-      const lastTwo = text.split(' ');
-      if (lastTwo.length > 2) {
-        const end = lastTwo.splice(-2).join(' ');
-        aboutH.innerHTML = lastTwo.join(' ') + '<br><span style="color: #3EC6C8;">' + end + '</span>';
-      } else {
-        aboutH.textContent = text;
-      }
-    }
-    const aboutT = document.getElementById('about-text');
-    if (aboutT) aboutT.textContent = c.about_text || defaultConfig.about_text;
-  }
-
-  if (window.elementSdk) {
-    window.elementSdk.init({
-      defaultConfig,
-      onConfigChange: async (config) => applyConfig(config),
-      mapToCapabilities: (config) => ({
-        recolorables: [
-          { get: () => config.background_color || defaultConfig.background_color, set: (v) => { config.background_color = v; window.elementSdk.setConfig({ background_color: v }); } },
-          { get: () => config.surface_color || defaultConfig.surface_color, set: (v) => { config.surface_color = v; window.elementSdk.setConfig({ surface_color: v }); } },
-          { get: () => config.text_color || defaultConfig.text_color, set: (v) => { config.text_color = v; window.elementSdk.setConfig({ text_color: v }); } },
-          { get: () => config.primary_action_color || defaultConfig.primary_action_color, set: (v) => { config.primary_action_color = v; window.elementSdk.setConfig({ primary_action_color: v }); } },
-          { get: () => config.secondary_action_color || defaultConfig.secondary_action_color, set: (v) => { config.secondary_action_color = v; window.elementSdk.setConfig({ secondary_action_color: v }); } }
-        ],
-        borderables: [],
-        fontEditable: {
-          get: () => config.font_family || defaultConfig.font_family,
-          set: (v) => { config.font_family = v; window.elementSdk.setConfig({ font_family: v }); }
-        },
-        fontSizeable: {
-          get: () => config.font_size || defaultConfig.font_size,
-          set: (v) => { config.font_size = v; window.elementSdk.setConfig({ font_size: v }); }
-        }
-      }),
-      mapToEditPanelValues: (config) => new Map([
-        ['hero_title', config.hero_title || defaultConfig.hero_title],
-        ['hero_subtitle', config.hero_subtitle || defaultConfig.hero_subtitle],
-        ['about_heading', config.about_heading || defaultConfig.about_heading],
-        ['about_text', config.about_text || defaultConfig.about_text]
-      ])
-    });
-  }
-
-  // Init
-  lucide.createIcons();
-  observeSections();
-</script>
- <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9e5ff100c3a6782a',t:'MTc3NTEzNDAzOS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
