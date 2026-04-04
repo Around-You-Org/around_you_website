@@ -41,9 +41,14 @@ function NavBar(){
         </div>
 
         <div className="flex items-center gap-3">
-          {/* <button className="hidden md:inline-flex cta-btn px-5 py-2.5 rounded-full text-sm font-semibold text-white bg-linear-to-r from-teal to-aqua">
-            Get the App
-          </button> */}
+          <Link to="/waitlist?role=customer">
+          <button className="hidden md:inline-flex cta-btn px-5 py-2.5 rounded-full text-sm font-semibold text-white" 
+            style={{
+                  background: "linear-gradient(135deg,#0D6B6E,#3EC6C8)",
+                }}>
+            Join Waitlist
+          </button>
+          </Link>
           <button className="md:hidden p-2" onClick={() => setOpen((v) => !v)}>
             {open ? <X className="w-6 h-6 text-navy" /> : <Menu className="w-6 h-6 text-navy" />}
           </button>
@@ -57,7 +62,12 @@ function NavBar(){
             <Link to="/about" onClick={() => setOpen(false)} className="py-2 text-sm font-medium text-navy">About Us</Link>
             <button onClick={() => scrollAndNavigate('services-section')} className="py-2 text-sm font-medium text-navy text-left">Services</button>
             <button onClick={() => scrollAndNavigate('contact-section')} className="py-2 text-sm font-medium text-navy text-left">Contact</button>
-            {/* <button onClick={() => setOpen(false)} className="cta-btn px-5 py-2.5 rounded-full text-sm font-semibold text-white w-full bg-linear-to-r from-teal to-aqua">Get the App</button> */}
+            <Link to="/waitlist?role=customer">
+              <button onClick={() => setOpen(false)} className="cta-btn px-5 py-2.5 rounded-full text-sm font-semibold text-white w-full"
+                style={{
+                  background: "linear-gradient(135deg,#0D6B6E,#3EC6C8)",
+                }}>Join Waitlist</button>
+            </Link>
           </div>
         </div>
       )}
