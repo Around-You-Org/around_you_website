@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+Sitemap: https://aroundyou.com.ng/sitemap.xml
+Disallow: /admin

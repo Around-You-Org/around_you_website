@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
+import { Helmet } from 'react-helmet-async';
 import Icon from "../components/Icon";
 import CTASection from "../sections/CTASection";
 import ContactSection from "../sections/ContactSection";
@@ -55,7 +56,6 @@ function useScrollReveal() {
   }, []);
 }
 
-// ── Mobile Dashboard HTML ───────────────────────────────────────────────────────
 
 
 // ── Device Mockup ─────────────────────────────────────────────────────────────
@@ -279,6 +279,17 @@ function HomePage() {
 
   return (
     <>
+      <Helmet>
+        <title>Around You - Connect with Trusted Local Pros Instantly</title>
+        <meta
+          name="description"
+          content="Around You is your go-to platform for instantly connecting with trusted local professionals. Whether you need a handyman, cleaner, driver, or artisan, we've got you covered. Our GPS-matching technology ensures you find the right help, right around you."
+        />
+        <meta
+          name="keywords"
+          content="local services, trusted professionals, GPS matching, handyman, cleaner, driver, artisan, on-demand help"
+        />
+      </Helmet>
       {/* HERO SECTION */}
       <section
         className="relative w-full overflow-hidden min-h-screen flex flex-col justify-end"

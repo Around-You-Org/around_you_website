@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useState } from 'react'
+import { Helmet } from 'react-helmet-async'
 import { Link, useSearchParams } from 'react-router-dom'
 import Icon from '../components/Icon'
 import {
@@ -206,6 +207,15 @@ function WaitlistPage() {
           'linear-gradient(135deg,#0B1D3A 0%,#0D6B6E 50%,#0B1D3A 100%)',
       }}
     >
+      <Helmet>
+        <title>Waitlist - AroundYou</title>
+        <meta
+          name="description"
+          content="Join the AroundYou waitlist to get early access to trusted local services in your city. Sign up as a customer or worker and be the first to experience AroundYou."
+        />
+      </Helmet>
+
+    
       <div
         className="absolute top-16 right-10 h-72 w-72 rounded-full opacity-10"
         style={{ background: '#3EC6C8', filter: 'blur(90px)' }}

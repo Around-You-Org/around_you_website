@@ -1,5 +1,6 @@
 import Icon from "../components/Icon";
 import { useEffect, useState } from "react";
+import { Helmet } from 'react-helmet-async';
 
 function useScrollReveal() {
   useEffect(() => {
@@ -57,6 +58,10 @@ function AboutPage() {
 
   return (
     <div>
+      <Helmet>
+        <title>Around You - About Us</title>
+        <meta name="description" content="Learn more about AroundYou, our mission, and our team." />
+      </Helmet>
       {/* Hero */}
       <section className="py-20 px-6 text-white relative overflow-hidden"
         style={{ background: "linear-gradient(135deg,#0B1D3A,#0D6B6E)" }}>

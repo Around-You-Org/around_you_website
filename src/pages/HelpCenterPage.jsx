@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { Helmet } from 'react-helmet-async';
 
 function useScrollReveal() {
   useEffect(() => {
@@ -51,7 +52,12 @@ function HelpCenterPage() {
   ];
 
   return (
+
     <div className="min-h-screen bg-white">
+      <Helmet>
+      <title>Around You - Help Center</title>
+      <meta name="description" content="Find answers to common questions and get support for Around You services." />
+    </Helmet>
       {/* Hero Section */}
       <section className="bg-linear-to-br from-[#0B1D3A] to-[#1e3a5f] text-white py-20">
         <div className="max-w-4xl mx-auto px-6 text-center">
