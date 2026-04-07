@@ -194,7 +194,7 @@ export default function PrivacyPolicyPage() {
               If you have questions about this Privacy Policy or want to exercise your privacy rights, please contact us at:
             </p>
             <div className="bg-gray-50 p-6 rounded-lg">
-              <p className="text-gray-700 mb-2"><strong>Email:</strong> privacy@aroundyou.com.ng</p>
+              <p className="text-gray-700 mb-2"><strong>Email:</strong> support@aroundyou.com.ng</p>
               <p className="text-gray-700 mb-2"><strong>Website:</strong> aroundyou.com.ng</p>
             </div>
           </section>
