@@ -72,3 +72,46 @@ export async function submitWaitlistSignup(payload) {
     }
   }
 }
+
+export async function verifyWaitlistSignup(token) {
+  if (!SUPABASE_URL || !SUPABASE_ANON_KEY) {
+    return {
+      status: 'error',
+      code: 'MISSING_CONFIG',
+      message: 'Waitlist is not fully configured yet.',
+    }
+  }
+
+  try {
+    const response = await fetch(
+      `${SUPABASE_URL.replace(/\/$/, '')}/functions/v1/verify-waitlist`,
+      {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          apikey: SUPABASE_ANON_KEY,
+          Authorization: `Bearer ${SUPABASE_ANON_KEY}`,
+        },
+        body: JSON.stringify({ token }),
+      },
+    )
+
+    const data = await response.json().catch(() => null)
+
+    if (!data?.status) {
+      return {
+        status: 'error',
+        code: 'BAD_RESPONSE',
+        message: 'Could not verify the link at this time.',
+      }
+    }
+
+    return data
+  } catch {
+    return {
+      status: 'error',
+      code: 'NETWORK_ERROR',
+      message: 'Network error. Please check your connection and try again.',
+    }
+  }
+}
