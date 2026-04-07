@@ -115,7 +115,7 @@ function buildWaitlistEmailHtml(signup: { name: string; role: string; services: 
       ? escapeHtml(signup.services.join(', '))
       : 'Trusted local services near you'
   const waitlistUrl = `${aroundYouSiteUrl.replace(/\/$/, '')}/waitlist?referral_source=${encodeURIComponent('Friend or family')}`
-  const logoUrl = `${aroundYouSiteUrl.replace(/\/$/, '')}/IMG_5222.JPG`
+  const logoUrl = `${aroundYouSiteUrl.replace(/\/$/, '')}/logo.png`
 
   return `<!DOCTYPE html>
 <html lang="en">

@@ -247,7 +247,7 @@ function buildWaitlistVerificationEmailHtml(signup: {
 }) {
   const safeName = escapeHtml(signup.name)
   const verifyUrl = `${aroundYouSiteUrl.replace(/\/$/, '')}/verify-waitlist?token=${signup.token}`
-  const logoUrl = `${aroundYouSiteUrl.replace(/\/$/, '')}/IMG_5222.JPG`
+  const logoUrl = `${aroundYouSiteUrl.replace(/\/$/, '')}/logo.png`
 
   return `<!DOCTYPE html>
 <html lang="en">
