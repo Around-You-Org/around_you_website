@@ -12,7 +12,7 @@ const brevoSenderEmail =
   Deno.env.get('BREVO_SENDER_EMAIL') || 'info@aroundyou.com.ng'
 const brevoSenderName = Deno.env.get('BREVO_SENDER_NAME') || 'AroundYou'
 const aroundYouSiteUrl =
-  Deno.env.get('AROUNDYOU_SITE_URL') || 'https://aroundyou.ng'
+  Deno.env.get('AROUNDYOU_SITE_URL') || 'https://aroundyou.com.ng'
 const rateLimitSalt =
   Deno.env.get('WAITLIST_RATE_LIMIT_SALT') || 'aroundyou-waitlist'
 

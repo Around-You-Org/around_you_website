@@ -7,7 +7,8 @@ const brevoApiKey = Deno.env.get('BREVO_API_KEY') || ''
 const brevoListId = Number(Deno.env.get('BREVO_LIST_ID') || '')
 const brevoSenderEmail = Deno.env.get('BREVO_SENDER_EMAIL') || 'info@aroundyou.com.ng'
 const brevoSenderName = Deno.env.get('BREVO_SENDER_NAME') || 'AroundYou'
-const aroundYouSiteUrl = Deno.env.get('AROUNDYOU_SITE_URL') || 'https://aroundyou.ng'
+const aroundYouSiteUrl =
+  Deno.env.get('AROUNDYOU_SITE_URL') || 'https://aroundyou.com.ng'
 
 const supabaseAdmin =
   supabaseUrl && serviceRoleKey
