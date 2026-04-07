@@ -63,8 +63,10 @@ function Footer() {
         <div className="mt-12 pt-6 flex flex-col md:flex-row items-center justify-between gap-4 border-t border-white/20">
           <p className="text-xs text-gray-400">© 2026 AroundYou. All rights reserved.</p>
           <div className="flex gap-4">
-            {/* <button className="text-sm text-gray-400 hover:text-white transition-colors">Privacy Policy</button>
-            <button className="text-sm text-gray-400 hover:text-white transition-colors">Terms of Service</button> */}
+            <Link to="/privacy-policy" className="text-sm text-gray-400 hover:text-white transition-colors">
+              Privacy Policy
+            </Link>
+            {/* <button className="text-sm text-gray-400 hover:text-white transition-colors">Terms of Service</button> */}
           </div>
         </div>
       </div>

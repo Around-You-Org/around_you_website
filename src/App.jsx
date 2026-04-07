@@ -9,6 +9,7 @@ const AboutPage = lazy(() => import('./pages/AboutPage'))
 const WaitlistPage = lazy(() => import('./pages/WaitlistPage'))
 const VerifyWaitlistPage = lazy(() => import('./pages/VerifyWaitlistPage'))
 const HelpCenterPage = lazy(() => import('./pages/HelpCenterPage'))
+const PrivacyPolicyPage = lazy(() => import('./pages/PrivacyPolicyPage'))
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage'))
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
             <Route path="/waitlist" element={<WaitlistPage />} />
             <Route path="/verify-waitlist" element={<VerifyWaitlistPage />} />
             <Route path="/help-center" element={<HelpCenterPage />} />
+            <Route path= "/privacy-policy" element={<PrivacyPolicyPage />} />
             <Route path="*" element={<NotFoundPage />} />
           </Routes>
         </Suspense>
