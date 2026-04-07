@@ -28,6 +28,8 @@ supabase secrets set \
   WAITLIST_RATE_LIMIT_SALT="replace-with-a-long-random-secret"
 ```
 
+For production, `AROUNDYOU_SITE_URL` should be `https://aroundyou.com.ng` so email and verification links point to the correct domain.
+
 The Edge Function sends a branded welcome email after a successful waitlist signup using Brevo Transactional Email.
 
 ## Brevo Retry Sync

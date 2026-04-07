@@ -4,6 +4,7 @@ import { createClient } from 'https://esm.sh/@supabase/supabase-js@2.45.4'
 const RATE_LIMIT_PER_MINUTE = 10
 const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
 const PHONE_PATTERN = /^\+?[1-9]\d{6,14}$/
+const CANONICAL_SITE_URL = 'https://aroundyou.com.ng'
 
 const supabaseUrl = Deno.env.get('SUPABASE_URL') || ''
 const serviceRoleKey = Deno.env.get('SUPABASE_SERVICE_ROLE_KEY') || ''
@@ -11,8 +12,7 @@ const brevoApiKey = Deno.env.get('BREVO_API_KEY') || ''
 const brevoSenderEmail =
   Deno.env.get('BREVO_SENDER_EMAIL') || 'info@aroundyou.com.ng'
 const brevoSenderName = Deno.env.get('BREVO_SENDER_NAME') || 'AroundYou'
-const aroundYouSiteUrl =
-  Deno.env.get('AROUNDYOU_SITE_URL') || 'https://aroundyou.com.ng'
+const aroundYouSiteUrl = resolveAroundYouSiteUrl()
 const rateLimitSalt =
   Deno.env.get('WAITLIST_RATE_LIMIT_SALT') || 'aroundyou-waitlist'
 
@@ -32,6 +32,22 @@ const corsHeaders = {
     'authorization, x-client-info, apikey, content-type',
   'Access-Control-Allow-Methods': 'POST, OPTIONS',
   'Content-Type': 'application/json',
+}
+
+function resolveAroundYouSiteUrl() {
+  const configuredUrl = (Deno.env.get('AROUNDYOU_SITE_URL') || CANONICAL_SITE_URL).trim()
+
+  try {
+    const parsedUrl = new URL(configuredUrl)
+
+    if (parsedUrl.hostname === 'aroundyou.ng') {
+      parsedUrl.hostname = 'aroundyou.com.ng'
+    }
+
+    return parsedUrl.origin
+  } catch {
+    return CANONICAL_SITE_URL
+  }
 }
 
 function jsonResponse(
