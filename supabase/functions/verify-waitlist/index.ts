@@ -286,11 +286,13 @@ serve(async (request) => {
   await syncBrevoContact(signup)
 
   // Send the Welcome Email
-  await sendWaitlistWelcomeEmail(signup)
+  const welcomeEmailSent = await sendWaitlistWelcomeEmail(signup)
 
   return jsonResponse({
     status: 'success',
-    code: 'VERIFIED',
-    message: 'Your spot is now officially secured!'
+    code: welcomeEmailSent ? 'VERIFIED' : 'VERIFIED_WELCOME_EMAIL_FAILED',
+    message: welcomeEmailSent
+      ? 'Your spot is now officially secured! We have sent you a welcome email.'
+      : 'Your spot is now officially secured! You are verified, even if the welcome email does not arrive right away.',
   })
 })

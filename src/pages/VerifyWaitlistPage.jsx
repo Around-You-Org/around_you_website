@@ -7,8 +7,15 @@ import { verifyWaitlistSignup } from '../lib/waitlistApi'
 function VerifyWaitlistPage() {
   const [searchParams] = useSearchParams()
   const token = searchParams.get('token')
-  const [status, setStatus] = useState('loading')
-  const [message, setMessage] = useState('')
+  const [result, setResult] = useState(() =>
+    token
+      ? { status: 'loading', message: '', code: '' }
+      : {
+          status: 'error',
+          message: 'Invalid verification link. The URL is missing a token.',
+          code: 'MISSING_TOKEN',
+        },
+  )
   const [shareMessage, setShareMessage] = useState('')
 
   const shareUrl = useMemo(
@@ -23,8 +30,6 @@ function VerifyWaitlistPage() {
     window.scrollTo({ top: 0, behavior: 'smooth' })
 
     if (!token) {
-      setStatus('error')
-      setMessage('Invalid verification link. The URL is missing a token.')
       return
     }
 
@@ -33,8 +38,11 @@ function VerifyWaitlistPage() {
     async function verifyNow() {
       const result = await verifyWaitlistSignup(token)
       if (isSubscribed) {
-        setStatus(result.status)
-        setMessage(result.message || 'Verification complete.')
+        setResult({
+          status: result.status,
+          message: result.message || 'Verification complete.',
+          code: result.code || '',
+        })
       }
     }
 
@@ -88,7 +96,7 @@ function VerifyWaitlistPage() {
       />
 
       <div className="relative z-10 w-full max-w-md rounded-4xl border border-white/15 bg-white/95 p-8 shadow-2xl backdrop-blur-xl">
-        {status === 'loading' && (
+        {result.status === 'loading' && (
           <div className="flex flex-col items-center text-center">
             <Icon name="loader-circle" size={48} className="animate-spin text-[#0D6B6E]" />
             <h1 className="mt-6 text-2xl font-bold text-[#0B1D3A]" style={{ fontFamily: "'Sora', sans-serif" }}>
@@ -98,16 +106,18 @@ function VerifyWaitlistPage() {
           </div>
         )}
 
-        {status === 'success' && (
+        {result.status === 'success' && (
           <div className="flex flex-col items-center text-center">
             <div className="flex h-20 w-20 items-center justify-center rounded-3xl bg-emerald-100 mb-6">
               <Icon name="check-circle-2" size={40} color="#059669" />
             </div>
             <h1 className="text-2xl font-bold text-[#0B1D3A]" style={{ fontFamily: "'Sora', sans-serif" }}>
-              You're verified!
+              {result.code === 'ALREADY_VERIFIED'
+                ? "You're already verified"
+                : "You're verified!"}
             </h1>
             <p className="mt-3 text-gray-600">
-              {message} We've also sent you a welcome email.
+              {result.message}
             </p>
 
             <div className="mt-8 w-full rounded-3xl bg-[#F8FAFB] p-6 border border-gray-100">
@@ -139,7 +149,7 @@ function VerifyWaitlistPage() {
           </div>
         )}
 
-        {status === 'error' && (
+        {result.status === 'error' && (
           <div className="flex flex-col items-center text-center">
             <div className="flex h-20 w-20 items-center justify-center rounded-3xl bg-red-100 mb-6">
               <Icon name="alert-triangle" size={40} color="#DC2626" />
@@ -148,7 +158,7 @@ function VerifyWaitlistPage() {
               Verification Failed
             </h1>
             <p className="mt-3 text-gray-600">
-              {message}
+              {result.message}
             </p>
             <Link
               to="/waitlist"

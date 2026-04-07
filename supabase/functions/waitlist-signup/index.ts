@@ -229,13 +229,13 @@ async function findExistingSignup(email: string, phone: string) {
   const [emailMatch, phoneMatch] = await Promise.all([
     supabaseAdmin
       .from('waitlist_signups')
-      .select('id, is_verified, verification_token')
+      .select('id, name, email, phone, is_verified, verification_token')
       .eq('email', email)
       .limit(1)
       .maybeSingle(),
     supabaseAdmin
       .from('waitlist_signups')
-      .select('id, is_verified, verification_token')
+      .select('id, name, email, phone, is_verified, verification_token')
       .eq('phone', phone)
       .limit(1)
       .maybeSingle(),
@@ -255,6 +255,27 @@ async function findExistingSignup(email: string, phone: string) {
   if (phoneMatch.data) return { field: 'phone' as const, data: phoneMatch.data }
 
   return null
+}
+
+async function ensureVerificationToken(signupId: string, currentToken: string | null) {
+  if (currentToken) return currentToken
+  if (!supabaseAdmin) return null
+
+  const nextToken = crypto.randomUUID()
+  const { error } = await supabaseAdmin
+    .from('waitlist_signups')
+    .update({ verification_token: nextToken })
+    .eq('id', signupId)
+
+  if (error) {
+    console.error('Failed to create verification token', {
+      signupId,
+      error: error.message,
+    })
+    return null
+  }
+
+  return nextToken
 }
 
 function buildWaitlistVerificationEmailHtml(signup: {
@@ -589,12 +610,42 @@ serve(async (request) => {
     if (existingSignup.data.is_verified) {
       return duplicateSignupResponse(existingSignup.field)
     } else {
-      await sendWaitlistVerificationEmail({
+      const verificationToken = await ensureVerificationToken(
+        existingSignup.data.id,
+        existingSignup.data.verification_token,
+      )
+
+      if (!verificationToken) {
+        return jsonResponse(
+          {
+            status: 'error',
+            code: 'VERIFICATION_TOKEN_FAILED',
+            message:
+              'We found your signup, but could not prepare a new verification link right now. Please try again shortly.',
+          },
+          500,
+        )
+      }
+
+      const resendResult = await sendWaitlistVerificationEmail({
         id: existingSignup.data.id,
-        name,
-        email,
-        token: existingSignup.data.verification_token,
+        name: existingSignup.data.name,
+        email: existingSignup.data.email,
+        token: verificationToken,
       })
+
+      if (!resendResult.sent) {
+        return jsonResponse(
+          {
+            status: 'error',
+            code: resendResult.code,
+            message:
+              'We found your signup, but could not resend the verification email right now. Please try again in a few minutes.',
+          },
+          500,
+        )
+      }
+
       return jsonResponse({
         status: 'verification_required',
         code: 'VERIFICATION_RESENT',
@@ -614,8 +665,6 @@ serve(async (request) => {
     p_referral_source: referralSource,
   })
 
-  // Because of the 'is_verified' field we added to waitlist_signups, it defaults to false.
-  // We didn't change the rpc itself, but the new row will have `is_verified: false` and a `verification_token`.
   if (error) {
     console.error('Waitlist insert failed', error.message)
 
@@ -650,16 +699,45 @@ serve(async (request) => {
     token = fetchSignup.verification_token
   }
 
-  const welcomeEmailResult = await sendWaitlistVerificationEmail({
+  const verificationToken = await ensureVerificationToken(
+    insertedSignup.id,
+    token ?? null,
+  )
+
+  if (!verificationToken) {
+    return jsonResponse(
+      {
+        status: 'error',
+        code: 'VERIFICATION_TOKEN_FAILED',
+        message:
+          'Your signup was saved, but we could not prepare the verification email. Please try again in a few minutes.',
+      },
+      500,
+    )
+  }
+
+  const verificationEmailResult = await sendWaitlistVerificationEmail({
     id: insertedSignup.id,
     name,
     email,
-    token: token
+    token: verificationToken,
   })
+
+  if (!verificationEmailResult.sent) {
+    return jsonResponse(
+      {
+        status: 'error',
+        code: verificationEmailResult.code,
+        message:
+          'Your signup was saved, but we could not send the verification email right now. Please try again in a few minutes.',
+      },
+      500,
+    )
+  }
 
   return jsonResponse({
     status: 'verification_required',
-    code: welcomeEmailResult.code,
+    code: verificationEmailResult.code,
     message: "We've sent a verification link to your email. Please click it to secure your spot.",
   })
 })
