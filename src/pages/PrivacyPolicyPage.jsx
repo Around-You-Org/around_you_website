@@ -150,20 +150,17 @@ export default function PrivacyPolicyPage() {
               2. Lawful Basis for Processing
             </h2>
             <p className="text-gray-700 mb-4">
-              We process personal information based on the lawful bases that
-              apply to how you interact with the website and waitlist.
+              We process personal information based on:
             </p>
             <ul className="list-disc list-inside text-gray-700 space-y-2">
               <li>
                 <strong>Consent:</strong> when you submit forms, join the
-                waitlist, contact us, or otherwise choose to provide
-                information to us.
+                waitlist, contact us, or otherwise provide information.
               </li>
               <li>
                 <strong>Legitimate Interests:</strong> when we need to operate,
                 secure, maintain, and improve the website and waitlist, respond
-                to inquiries, prevent abuse, and support ordinary business
-                operations.
+                to inquiries, prevent abuse, and support business operations.
               </li>
             </ul>
           </section>
@@ -394,8 +391,8 @@ export default function PrivacyPolicyPage() {
           <section className="mb-12">
             <h2 className="text-2xl font-bold text-gray-900 mb-4">10. Contact Us</h2>
             <p className="text-gray-700 mb-4">
-              If you have questions about this Privacy Policy or want to submit
-              a privacy-related request, please contact us at:
+              If you have any questions about this Privacy Policy or wish to
+              submit a privacy-related request, please contact us at:
             </p>
             <p className="text-gray-700 mb-4">
               We will respond within a reasonable timeframe.
