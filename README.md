@@ -14,11 +14,13 @@ npm run dev
 
 ## Waitlist Backend
 
-Apply the Supabase migration and deploy the Edge Function:
+Apply the Supabase migrations and deploy both Edge Functions used by the
+waitlist flow:
 
 ```bash
 supabase db push
 supabase functions deploy waitlist-signup
+supabase functions deploy verify-waitlist
 supabase secrets set \
   BREVO_API_KEY="your-brevo-api-key" \
   BREVO_LIST_ID="123" \
@@ -30,7 +32,15 @@ supabase secrets set \
 
 For production, `AROUNDYOU_SITE_URL` should be `https://aroundyou.com.ng` so email and verification links point to the correct domain.
 
-The Edge Function sends a branded welcome email after a successful waitlist signup using Brevo Transactional Email.
+Function responsibilities:
+
+- `waitlist-signup`: validates the form submission, stores the signup,
+  rate-limits abuse, and sends the initial email verification message.
+- `verify-waitlist`: confirms the signup after email verification, syncs the
+  verified contact to Brevo, and sends the welcome email.
+
+Both functions rely on your Supabase project environment plus the custom Brevo
+and site secrets shown above.
 
 ## Brevo Retry Sync
 
