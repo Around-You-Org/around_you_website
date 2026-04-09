@@ -41,7 +41,8 @@ export default function PrivacyPolicyPage() {
             <p className="text-gray-700">
               This Privacy Policy applies only to our current website and
               waitlist. We only collect the information reasonably necessary for
-              the website, waitlist, communications, and support. It does not
+              the website, waitlist, communications, and support. We do not
+              sell or rent your personal data to third parties. It does not
               describe future products or features unless and until they are
               launched and covered by an updated policy.
             </p>
@@ -66,7 +67,7 @@ export default function PrivacyPolicyPage() {
                   </li>
                   <li>
                     <strong>Email Address:</strong> your email address for
-                    waitlist email verification and updates
+                    waitlist registration, email verification, and updates
                   </li>
                   <li>
                     <strong>Phone Number:</strong> your phone number for
@@ -113,9 +114,9 @@ export default function PrivacyPolicyPage() {
                   1.3 Chat and Support Information
                 </h3>
                 <p className="text-gray-700">
-                  If you use our website chat widget powered by Brevo
-                  Conversations, we may collect the information you submit in
-                  chat, along with technical information related to the chat
+                  If you use our website chat widget powered by Brevo (chat and
+                  messaging provider), we may collect the information you submit
+                  in chat, along with technical information related to the chat
                   session and delivery of the service.
                 </p>
               </div>
@@ -212,7 +213,7 @@ export default function PrivacyPolicyPage() {
             <div className="space-y-4">
               <div>
                 <h3 className="text-lg font-semibold text-gray-800 mb-2">
-                  3.1 Supabase
+                  4.1 Supabase
                 </h3>
                 <p className="text-gray-700">
                   We use Supabase to help store waitlist information and operate
@@ -223,7 +224,7 @@ export default function PrivacyPolicyPage() {
 
               <div>
                 <h3 className="text-lg font-semibold text-gray-800 mb-2">
-                  3.2 Brevo
+                  4.2 Brevo
                 </h3>
                 <p className="text-gray-700">
                   We use Brevo to send waitlist email verification messages and
@@ -234,7 +235,7 @@ export default function PrivacyPolicyPage() {
 
               <div>
                 <h3 className="text-lg font-semibold text-gray-800 mb-2">
-                  3.3 Formspree
+                  4.3 Formspree
                 </h3>
                 <p className="text-gray-700">
                   We use Formspree to process contact form and partnership
@@ -243,14 +244,14 @@ export default function PrivacyPolicyPage() {
               </div>
 
               <p className="text-gray-700">
-                Supabase, Brevo, and Formspree process data on our behalf to
-                help operate the website and services. We do not sell or rent
-                your personal data to third parties.
+                Supabase, Brevo, and Formspree process personal data on our
+                behalf to help operate the website and services. We do not sell
+                or rent your personal data to third parties.
               </p>
 
               <div>
                 <h3 className="text-lg font-semibold text-gray-800 mb-2">
-                  3.4 Hosting and Infrastructure Providers
+                  4.4 Hosting and Infrastructure Providers
                 </h3>
                 <p className="text-gray-700">
                   Our hosting, delivery, and infrastructure providers may
@@ -262,7 +263,7 @@ export default function PrivacyPolicyPage() {
 
               <div>
                 <h3 className="text-lg font-semibold text-gray-800 mb-2">
-                  3.5 Legal or Business Reasons
+                  4.5 Legal or Business Reasons
                 </h3>
                 <p className="text-gray-700">
                   We may disclose information if required by law, to respond to
@@ -313,7 +314,7 @@ export default function PrivacyPolicyPage() {
             <div className="space-y-4">
               <div>
                 <h3 className="text-lg font-semibold text-gray-800 mb-2">
-                  6.1 Access
+                  7.1 Access
                 </h3>
                 <p className="text-gray-700">
                   Request information about the personal information we hold
@@ -323,7 +324,7 @@ export default function PrivacyPolicyPage() {
 
               <div>
                 <h3 className="text-lg font-semibold text-gray-800 mb-2">
-                  6.2 Correction
+                  7.2 Correction
                 </h3>
                 <p className="text-gray-700">
                   Ask us to correct inaccurate or incomplete personal
@@ -333,7 +334,7 @@ export default function PrivacyPolicyPage() {
 
               <div>
                 <h3 className="text-lg font-semibold text-gray-800 mb-2">
-                  6.3 Deletion
+                  7.3 Deletion
                 </h3>
                 <p className="text-gray-700">
                   Ask us to delete your personal information, subject to
@@ -343,7 +344,7 @@ export default function PrivacyPolicyPage() {
 
               <div>
                 <h3 className="text-lg font-semibold text-gray-800 mb-2">
-                  6.4 Communication Preferences
+                  7.4 Communication Preferences
                 </h3>
                 <p className="text-gray-700">
                   Opt out of non-essential email communications by using the
