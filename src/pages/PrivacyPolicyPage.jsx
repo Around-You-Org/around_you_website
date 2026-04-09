@@ -146,7 +146,30 @@ export default function PrivacyPolicyPage() {
 
           <section className="mb-12">
             <h2 className="text-2xl font-bold text-gray-900 mb-4">
-              2. How We Use Your Information
+              2. Lawful Basis for Processing
+            </h2>
+            <p className="text-gray-700 mb-4">
+              We process personal information based on the lawful bases that
+              apply to how you interact with the website and waitlist.
+            </p>
+            <ul className="list-disc list-inside text-gray-700 space-y-2">
+              <li>
+                <strong>Consent:</strong> when you submit forms, join the
+                waitlist, contact us, or otherwise choose to provide
+                information to us.
+              </li>
+              <li>
+                <strong>Legitimate Interests:</strong> when we need to operate,
+                secure, maintain, and improve the website and waitlist, respond
+                to inquiries, prevent abuse, and support ordinary business
+                operations.
+              </li>
+            </ul>
+          </section>
+
+          <section className="mb-12">
+            <h2 className="text-2xl font-bold text-gray-900 mb-4">
+              3. How We Use Your Information
             </h2>
             <p className="text-gray-700 mb-4">
               We use the information we collect for purposes such as:
@@ -183,7 +206,7 @@ export default function PrivacyPolicyPage() {
 
           <section className="mb-12">
             <h2 className="text-2xl font-bold text-gray-900 mb-4">
-              3. How We Share Information
+              4. How We Share Information
             </h2>
 
             <div className="space-y-4">
@@ -252,7 +275,7 @@ export default function PrivacyPolicyPage() {
           </section>
 
           <section className="mb-12">
-            <h2 className="text-2xl font-bold text-gray-900 mb-4">4. Data Security</h2>
+            <h2 className="text-2xl font-bold text-gray-900 mb-4">5. Data Security</h2>
             <p className="text-gray-700 mb-4">
               We use reasonable administrative, technical, and organizational
               measures to help protect the information we process. Depending on
@@ -268,7 +291,7 @@ export default function PrivacyPolicyPage() {
 
           <section className="mb-12">
             <h2 className="text-2xl font-bold text-gray-900 mb-4">
-              5. Data Retention
+              6. Data Retention
             </h2>
             <p className="text-gray-700">
               We keep personal information only for as long as reasonably
@@ -282,7 +305,7 @@ export default function PrivacyPolicyPage() {
 
           <section className="mb-12">
             <h2 className="text-2xl font-bold text-gray-900 mb-4">
-              6. Your Privacy Choices and Rights
+              7. Your Privacy Choices and Rights
             </h2>
             <p className="text-gray-700 mb-4">
               Depending on applicable law, you may have the right to:
@@ -331,13 +354,13 @@ export default function PrivacyPolicyPage() {
             </div>
             <p className="text-gray-700 mt-4">
               To exercise any of these rights, please contact us using the
-              details in Section 8 below.
+              details in Section 10 below.
             </p>
           </section>
 
           <section className="mb-12">
             <h2 className="text-2xl font-bold text-gray-900 mb-4">
-              7. Cookies and Similar Technologies
+              8. Cookies and Similar Technologies
             </h2>
             <p className="text-gray-700 mb-4">
               Our website and service providers may use essential cookies or
@@ -355,7 +378,20 @@ export default function PrivacyPolicyPage() {
           </section>
 
           <section className="mb-12">
-            <h2 className="text-2xl font-bold text-gray-900 mb-4">8. Contact Us</h2>
+            <h2 className="text-2xl font-bold text-gray-900 mb-4">
+              9. Third-Party Links
+            </h2>
+            <p className="text-gray-700">
+              Our website may contain links to third-party websites, social
+              platforms, or external services. We are not responsible for the
+              privacy practices, content, or policies of those third parties,
+              and we encourage you to review their privacy notices before
+              sharing information with them.
+            </p>
+          </section>
+
+          <section className="mb-12">
+            <h2 className="text-2xl font-bold text-gray-900 mb-4">10. Contact Us</h2>
             <p className="text-gray-700 mb-4">
               If you have questions about this Privacy Policy or want to submit
               a privacy-related request, please contact us at:
@@ -375,7 +411,7 @@ export default function PrivacyPolicyPage() {
 
           <section className="mb-12">
             <h2 className="text-2xl font-bold text-gray-900 mb-4">
-              9. Changes to This Privacy Policy
+              11. Changes to This Privacy Policy
             </h2>
             <p className="text-gray-700">
               We may update this Privacy Policy from time to time to reflect
