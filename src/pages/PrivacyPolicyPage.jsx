@@ -3,211 +3,388 @@ import { Link } from 'react-router-dom';
 import { useEffect } from 'react';
 
 export default function PrivacyPolicyPage() {
-
-
-    useEffect(() => {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }, []);
-
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, []);
 
   return (
     <>
-    
       <Helmet>
         <title>Privacy Policy | AroundYou</title>
-        <meta name="description" content="Privacy Policy for AroundYou - Learn how we collect, use, and protect your personal data." />
+        <meta
+          name="description"
+          content="Privacy Policy for the AroundYou website and waitlist. Learn how we collect, use, and protect information submitted through our website, waitlist, contact forms, and chat."
+        />
         <meta name="robots" content="index, follow" />
       </Helmet>
 
       <div className="min-h-screen bg-white">
-        {/* Hero Section */}
         <div className="bg-linear-to-r from-[#0D6B6E] to-[#3EC6C8] py-12 px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto">
-            <h1 className="text-4xl font-bold text-white mb-4">Privacy Policy</h1>
-            <p className="text-lg text-gray-100">Last Updated: April 7, 2026</p>
+            <h1 className="text-4xl font-bold text-white mb-4">
+              Website and Waitlist Privacy Policy
+            </h1>
+            <p className="text-lg text-gray-100">Last Updated: April 9, 2026</p>
           </div>
         </div>
 
-        {/* Content Section */}
         <div className="max-w-4xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
-          {/* Introduction */}
           <section className="mb-12">
             <h2 className="text-2xl font-bold text-gray-900 mb-4">Introduction</h2>
             <p className="text-gray-700 mb-4">
-              AroundYou ("we," "us," "our," or "Company") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and otherwise process your personal information in connection with our website (aroundyou.com.ng), mobile applications, and related services (collectively, the "Platform").
+              AroundYou ("we," "us," or "our") is committed to protecting your
+              privacy. This Privacy Policy explains how we collect, use,
+              disclose, and protect personal information in connection with the
+              AroundYou website at aroundyou.com.ng, our waitlist, our website
+              contact and partnership forms, and our website chat tools.
             </p>
             <p className="text-gray-700">
-              Please read this Privacy Policy carefully. By accessing or using AroundYou, you acknowledge that you have read, understood, and agree to be bound by all the provisions of this Privacy Policy.
+              This Privacy Policy applies only to our current website and
+              waitlist. We only collect the information reasonably necessary for
+              the website, waitlist, communications, and support. It does not
+              describe future products or features unless and until they are
+              launched and covered by an updated policy.
             </p>
           </section>
 
-          {/* Data We Collect */}
           <section className="mb-12">
-            <h2 className="text-2xl font-bold text-gray-900 mb-4">1. Information We Collect</h2>
-            
+            <h2 className="text-2xl font-bold text-gray-900 mb-4">
+              1. Information We Collect
+            </h2>
+
             <div className="space-y-6">
               <div>
-                <h3 className="text-xl font-semibold text-gray-800 mb-2">1.1 Waitlist Registration Information</h3>
-                <p className="text-gray-700 mb-3">When you join our waitlist, we collect the following information:</p>
+                <h3 className="text-xl font-semibold text-gray-800 mb-2">
+                  1.1 Waitlist Information
+                </h3>
+                <p className="text-gray-700 mb-3">
+                  When you join our waitlist, we may collect:
+                </p>
                 <ul className="list-disc list-inside text-gray-700 space-y-2">
-                  <li><strong>Name:</strong> Your full name</li>
-                  <li><strong>Email Address:</strong> Your email for communications and account access</li>
-                  <li><strong>Phone Number:</strong> Your phone number for contact and verification purposes</li>
-                  <li><strong>Role:</strong> Whether you're interested as a customer or service provider</li>
-                  <li><strong>Location:</strong> Your city or service area</li>
-                  <li><strong>Services of Interest:</strong> Types of services you're interested in</li>
-                  <li><strong>Referral Source:</strong> How you heard about AroundYou</li>
+                  <li>
+                    <strong>Name:</strong> your full name
+                  </li>
+                  <li>
+                    <strong>Email Address:</strong> your email address for
+                    waitlist email verification and updates
+                  </li>
+                  <li>
+                    <strong>Phone Number:</strong> your phone number for
+                    waitlist administration, contact, and duplicate prevention
+                  </li>
+                  <li>
+                    <strong>Role:</strong> whether you are joining as a
+                    customer or worker
+                  </li>
+                  <li>
+                    <strong>Location:</strong> your city or service area
+                  </li>
+                  <li>
+                    <strong>Services:</strong> the services you are interested
+                    in or offer, especially if you join as a worker
+                  </li>
+                  <li>
+                    <strong>Referral Source:</strong> how you heard about
+                    AroundYou
+                  </li>
                 </ul>
               </div>
 
               <div>
-                <h3 className="text-xl font-semibold text-gray-800 mb-2">1.2 Automatically Collected Information</h3>
-                <p className="text-gray-700 mb-3">When you interact with our Platform, we automatically collect:</p>
+                <h3 className="text-xl font-semibold text-gray-800 mb-2">
+                  1.2 Contact and Partnership Form Information
+                </h3>
+                <p className="text-gray-700 mb-3">
+                  If you contact us through the website or submit a partnership
+                  inquiry, we may collect information you choose to provide,
+                  such as:
+                </p>
+                <ul className="list-disc list-inside text-gray-700 space-y-2">
+                  <li>Name</li>
+                  <li>Email address</li>
+                  <li>Profession or role</li>
+                  <li>Message or inquiry details</li>
+                  <li>Any other information you include in your submission</li>
+                </ul>
+              </div>
+
+              <div>
+                <h3 className="text-xl font-semibold text-gray-800 mb-2">
+                  1.3 Chat and Support Information
+                </h3>
+                <p className="text-gray-700">
+                  If you use our website chat widget powered by Brevo
+                  Conversations, we may collect the information you submit in
+                  chat, along with technical information related to the chat
+                  session and delivery of the service.
+                </p>
+              </div>
+
+              <div>
+                <h3 className="text-xl font-semibold text-gray-800 mb-2">
+                  1.4 Automatically Collected Technical Information
+                </h3>
+                <p className="text-gray-700 mb-3">
+                  When you visit or interact with our website, we and our
+                  hosting and infrastructure providers may automatically process
+                  certain technical data, including:
+                </p>
                 <ul className="list-disc list-inside text-gray-700 space-y-2">
                   <li>IP address</li>
                   <li>Browser type and version</li>
-                  <li>Device type and operating system</li>
-                  <li>Pages visited and time spent on each page</li>
-                  <li>Referral source</li>
-                  <li>Timestamps of your interactions</li>
+                  <li>Device and operating system information</li>
+                  <li>Referral source and page requests</li>
+                  <li>Timestamps and basic request metadata</li>
+                  <li>
+                    Security and anti-abuse information used to protect the
+                    website and waitlist
+                  </li>
                 </ul>
-              </div>
-
-              <div>
-                <h3 className="text-xl font-semibold text-gray-800 mb-2">1.3 Location Information</h3>
-                <p className="text-gray-700">When you use our mobile application, you may grant us permission to access your device's GPS location data to help us find professionals near you.</p>
               </div>
             </div>
           </section>
 
-          {/* How We Use Information */}
           <section className="mb-12">
-            <h2 className="text-2xl font-bold text-gray-900 mb-4">2. How We Use Your Information</h2>
-            <p className="text-gray-700 mb-4">We use the information we collect for the following purposes:</p>
+            <h2 className="text-2xl font-bold text-gray-900 mb-4">
+              2. How We Use Your Information
+            </h2>
+            <p className="text-gray-700 mb-4">
+              We use the information we collect for purposes such as:
+            </p>
             <ul className="list-disc list-inside text-gray-700 space-y-2">
-              <li>To provide and improve our services</li>
-              <li>To manage your waitlist registration and send updates about AroundYou</li>
-              <li>To match you with relevant professionals or customers based on your location and service interests</li>
-              <li>To communicate with you about changes to our policies or services</li>
-              <li>To verify your identity and prevent fraudulent activity</li>
-              <li>To comply with legal obligations</li>
-              <li>To analyze trends and improve user experience</li>
-              <li>To provide customer support</li>
-              <li>To send marketing communications (only with your consent)</li>
+              <li>Operating, maintaining, and securing the website</li>
+              <li>
+                Processing waitlist registrations and sending email
+                verification messages
+              </li>
+              <li>
+                Sending service-related emails such as waitlist confirmation,
+                email verification, waitlist updates, and launch notifications
+              </li>
+              <li>
+                Understanding interest by city, role, and service category so we
+                can plan rollout priorities
+              </li>
+              <li>Responding to contact, support, and partnership inquiries</li>
+              <li>
+                Operating our website chat and customer communication tools
+              </li>
+              <li>
+                Allowing you to opt out of non-essential communications where
+                applicable
+              </li>
+              <li>
+                Preventing spam, abuse, duplicate registrations, fraud, and
+                other security issues
+              </li>
+              <li>Complying with legal obligations and enforcing our rights</li>
             </ul>
           </section>
 
-          {/* Data Sharing */}
           <section className="mb-12">
-            <h2 className="text-2xl font-bold text-gray-900 mb-4">3. Data Sharing and Disclosure</h2>
-            
+            <h2 className="text-2xl font-bold text-gray-900 mb-4">
+              3. How We Share Information
+            </h2>
+
             <div className="space-y-4">
               <div>
-                <h3 className="text-lg font-semibold text-gray-800 mb-2">3.1 Service Providers</h3>
-                <p className="text-gray-700">We may share your information with third-party service providers who perform services on our behalf, including email marketing platforms (Brevo), hosting providers, and analytics services. These service providers are obligated to protect your information and use it only for the purposes we specify.</p>
+                <h3 className="text-lg font-semibold text-gray-800 mb-2">
+                  3.1 Supabase
+                </h3>
+                <p className="text-gray-700">
+                  We use Supabase to help store waitlist information and operate
+                  backend functions related to waitlist processing, email
+                  verification, and anti-abuse controls.
+                </p>
               </div>
 
               <div>
-                <h3 className="text-lg font-semibold text-gray-800 mb-2">3.2 Legal Obligations</h3>
-                <p className="text-gray-700">We may disclose your information when required by law or when we believe in good faith that such disclosure is necessary to comply with legal obligations, protect our rights, or protect the safety of our users.</p>
+                <h3 className="text-lg font-semibold text-gray-800 mb-2">
+                  3.2 Brevo
+                </h3>
+                <p className="text-gray-700">
+                  We use Brevo to send waitlist email verification messages and
+                  other waitlist emails, and to provide website chat
+                  functionality through Brevo Conversations.
+                </p>
               </div>
 
               <div>
-                <h3 className="text-lg font-semibold text-gray-800 mb-2">3.3 Business Transfers</h3>
-                <p className="text-gray-700">If AroundYou is involved in a merger, acquisition, bankruptcy, or sale of assets, your information may be transferred as part of that transaction.</p>
+                <h3 className="text-lg font-semibold text-gray-800 mb-2">
+                  3.3 Formspree
+                </h3>
+                <p className="text-gray-700">
+                  We use Formspree to process contact form and partnership
+                  inquiry submissions made through the website.
+                </p>
+              </div>
+
+              <p className="text-gray-700">
+                Supabase, Brevo, and Formspree process data on our behalf to
+                help operate the website and services. We do not sell or rent
+                your personal data to third parties.
+              </p>
+
+              <div>
+                <h3 className="text-lg font-semibold text-gray-800 mb-2">
+                  3.4 Hosting and Infrastructure Providers
+                </h3>
+                <p className="text-gray-700">
+                  Our hosting, delivery, and infrastructure providers may
+                  process technical information such as IP address, request
+                  logs, and device or browser information to operate the website
+                  securely and reliably.
+                </p>
               </div>
 
               <div>
-                <h3 className="text-lg font-semibold text-gray-800 mb-2">3.4 With Your Consent</h3>
-                <p className="text-gray-700">We will not share your information with third parties for marketing purposes without your explicit consent.</p>
+                <h3 className="text-lg font-semibold text-gray-800 mb-2">
+                  3.5 Legal or Business Reasons
+                </h3>
+                <p className="text-gray-700">
+                  We may disclose information if required by law, to respond to
+                  valid legal requests, to protect our rights or users, or if we
+                  are involved in a merger, acquisition, financing, or asset
+                  sale.
+                </p>
               </div>
             </div>
           </section>
 
-          {/* Data Security */}
           <section className="mb-12">
             <h2 className="text-2xl font-bold text-gray-900 mb-4">4. Data Security</h2>
             <p className="text-gray-700 mb-4">
-              We implement industry-standard security measures to protect your personal information against unauthorized access, alteration, disclosure, or destruction. These measures include:
+              We use reasonable administrative, technical, and organizational
+              measures to help protect the information we process. Depending on
+              the context, these measures may include encrypted website
+              connections, access controls, email verification messages for
+              waitlist signups, and anti-spam or rate-limiting protections.
             </p>
-            <ul className="list-disc list-inside text-gray-700 space-y-2">
-              <li>Encrypted data transmission (HTTPS/SSL)</li>
-              <li>Secure database storage with access controls</li>
-              <li>Regular security audits and updates</li>
-              <li>Limited access to personal information on a need-to-know basis</li>
-            </ul>
-            <p className="text-gray-700 mt-4">
-              However, no method of transmission over the internet is fully secure. While we strive to protect your information, we cannot guarantee absolute security.
-            </p>
-          </section>
-
-          {/* Data Retention */}
-          <section className="mb-12">
-            <h2 className="text-2xl font-bold text-gray-900 mb-4">5. Data Retention</h2>
             <p className="text-gray-700">
-              We retain your personal information for as long as necessary to provide our services and fulfill the purposes outlined in this Privacy Policy. For waitlist registrations, we retain your information until you request deletion or for a period of one year of inactivity, whichever comes first. We may retain certain information longer if required by law.
+              However, no method of transmission or storage is completely
+              secure, so we cannot guarantee absolute security.
             </p>
           </section>
 
-          {/* Your Rights */}
           <section className="mb-12">
-            <h2 className="text-2xl font-bold text-gray-900 mb-4">6. Your Privacy Rights</h2>
-            <p className="text-gray-700 mb-4">You have the following rights regarding your personal information:</p>
+            <h2 className="text-2xl font-bold text-gray-900 mb-4">
+              5. Data Retention
+            </h2>
+            <p className="text-gray-700">
+              We keep personal information only for as long as reasonably
+              necessary to operate the website and waitlist, communicate with
+              you, respond to inquiries, maintain security, comply with legal
+              obligations, and resolve disputes. If you request deletion, we may
+              retain limited information where necessary for security, fraud
+              prevention, recordkeeping, or legal compliance.
+            </p>
+          </section>
+
+          <section className="mb-12">
+            <h2 className="text-2xl font-bold text-gray-900 mb-4">
+              6. Your Privacy Choices and Rights
+            </h2>
+            <p className="text-gray-700 mb-4">
+              Depending on applicable law, you may have the right to:
+            </p>
             <div className="space-y-4">
               <div>
-                <h3 className="text-lg font-semibold text-gray-800 mb-2">6.1 Right to Access</h3>
-                <p className="text-gray-700">You have the right to request and receive a copy of the personal information we hold about you.</p>
+                <h3 className="text-lg font-semibold text-gray-800 mb-2">
+                  6.1 Access
+                </h3>
+                <p className="text-gray-700">
+                  Request information about the personal information we hold
+                  about you.
+                </p>
               </div>
 
               <div>
-                <h3 className="text-lg font-semibold text-gray-800 mb-2">6.2 Right to Correction</h3>
-                <p className="text-gray-700">You may request that we correct or update inaccurate or incomplete personal information.</p>
+                <h3 className="text-lg font-semibold text-gray-800 mb-2">
+                  6.2 Correction
+                </h3>
+                <p className="text-gray-700">
+                  Ask us to correct inaccurate or incomplete personal
+                  information.
+                </p>
               </div>
 
               <div>
-                <h3 className="text-lg font-semibold text-gray-800 mb-2">6.3 Right to Deletion</h3>
-                <p className="text-gray-700">You may request that we delete your personal information, subject to certain exceptions (such as when we need to retain it for legal compliance).</p>
+                <h3 className="text-lg font-semibold text-gray-800 mb-2">
+                  6.3 Deletion
+                </h3>
+                <p className="text-gray-700">
+                  Ask us to delete your personal information, subject to
+                  applicable exceptions.
+                </p>
               </div>
 
               <div>
-                <h3 className="text-lg font-semibold text-gray-800 mb-2">6.4 Right to Opt-Out</h3>
-                <p className="text-gray-700">You can opt-out of receiving marketing communications at any time by clicking the unsubscribe link in our emails or contacting us directly.</p>
+                <h3 className="text-lg font-semibold text-gray-800 mb-2">
+                  6.4 Communication Preferences
+                </h3>
+                <p className="text-gray-700">
+                  Opt out of non-essential email communications by using the
+                  unsubscribe option where available or by contacting us
+                  directly.
+                </p>
               </div>
             </div>
             <p className="text-gray-700 mt-4">
-              To exercise any of these rights, please contact us using the information provided in Section 8 below.
+              To exercise any of these rights, please contact us using the
+              details in Section 8 below.
             </p>
           </section>
 
-          {/* Cookies and Tracking */}
           <section className="mb-12">
-            <h2 className="text-2xl font-bold text-gray-900 mb-4">7. Cookies and Tracking Technologies</h2>
+            <h2 className="text-2xl font-bold text-gray-900 mb-4">
+              7. Cookies and Similar Technologies
+            </h2>
             <p className="text-gray-700 mb-4">
-              We use cookies and similar tracking technologies to enhance your experience on our Platform. Cookies are small files stored on your device that help us remember your preferences and analyze usage patterns. You can control cookie settings through your browser preferences, though disabling cookies may affect some features of our Platform.
+              Our website and service providers may use essential cookies or
+              similar technologies to operate the website, support embedded
+              services like chat, improve performance, and maintain security.
+            </p>
+            <p className="text-gray-700 mb-4">
+              We do not use cookies for advertising purposes.
+            </p>
+            <p className="text-gray-700">
+              You can manage cookies through your browser settings, although
+              disabling some cookies may affect how parts of the website or chat
+              features work.
             </p>
           </section>
 
-          {/* Contact Information */}
           <section className="mb-12">
             <h2 className="text-2xl font-bold text-gray-900 mb-4">8. Contact Us</h2>
             <p className="text-gray-700 mb-4">
-              If you have questions about this Privacy Policy or want to exercise your privacy rights, please contact us at:
+              If you have questions about this Privacy Policy or want to submit
+              a privacy-related request, please contact us at:
+            </p>
+            <p className="text-gray-700 mb-4">
+              We will respond within a reasonable timeframe.
             </p>
             <div className="bg-gray-50 p-6 rounded-lg">
-              <p className="text-gray-700 mb-2"><strong>Email:</strong> support@aroundyou.com.ng</p>
-              <p className="text-gray-700 mb-2"><strong>Website:</strong> aroundyou.com.ng</p>
+              <p className="text-gray-700 mb-2">
+                <strong>Email:</strong> support@aroundyou.com.ng
+              </p>
+              <p className="text-gray-700 mb-2">
+                <strong>Website:</strong> aroundyou.com.ng
+              </p>
             </div>
           </section>
 
-          {/* Changes to Policy */}
           <section className="mb-12">
-            <h2 className="text-2xl font-bold text-gray-900 mb-4">9. Changes to This Privacy Policy</h2>
+            <h2 className="text-2xl font-bold text-gray-900 mb-4">
+              9. Changes to This Privacy Policy
+            </h2>
             <p className="text-gray-700">
-              We may update this Privacy Policy from time to time to reflect changes in our practices or for other operational, legal, or regulatory reasons. The "Last Updated" date at the top of this page indicates when the Privacy Policy was last modified. Continued use of our Platform after changes are posted constitutes your acceptance of the updated Privacy Policy.
+              We may update this Privacy Policy from time to time to reflect
+              changes in our website, waitlist process, service providers, legal
+              requirements, or business operations. When we do, we will update
+              the "Last Updated" date at the top of this page.
             </p>
           </section>
 
-          {/* Footer Links */}
           <div className="border-t pt-8 mt-12">
             <p className="text-gray-600">
               <Link to="/" className="text-[#0D6B6E] hover:underline">
