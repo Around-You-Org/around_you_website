@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Helmet } from 'react-helmet-async';
+import { Link } from 'react-router-dom';
 import Icon from "../components/Icon";
 import useScrollReveal from "../hooks/useScrollReveal";
 
@@ -31,7 +32,7 @@ function FAQItem({ question, answer }) {
       <div
         className="overflow-hidden transition-all duration-300"
         style={{
-          maxHeight: open ? "200px" : "0",
+          maxHeight: open ? "1000px" : "0",
           opacity: open ? 1 : 0,
         }}
       >
@@ -82,6 +83,11 @@ function HelpCenterPage() {
       question: "How can I contact support?",
       answer:
         "You can reach our support team anytime via email at support@aroundyou.com.ng or through the contact options on this page.",
+    },
+    {
+      question: "Is AroundYou free to join?",
+      answer:
+        "Yes, joining the waitlist is completely free. You will only be notified when the platform becomes available.",
     },
   ];
 
@@ -191,6 +197,14 @@ function HelpCenterPage() {
               <Icon name="phone" size={18} color="#0D6B6E" />
               +234 907 103 7946
             </a>
+            <Link
+              to="/waitlist"
+              className="inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-full text-sm font-semibold text-white transition-all hover:-translate-y-0.5 hover:shadow-lg"
+              style={{ background: "#0D6B6E" }}
+            >
+              <Icon name="user-plus" size={18} color="white" />
+              Join Waitlist
+            </Link>
           </div>
         </div>
       </section>

@@ -46,9 +46,9 @@ export default function TermsOfServicePage() {
               use our Services.
             </p>
             <p className="text-gray-700 mb-4">
-              These Terms apply to the current website and waitlist only. They do
-              not describe terms for future products or features unless and until
-              those features are launched and covered by updated terms.
+              These Terms apply only to our current website and waitlist. They
+              do not describe terms for future products or features unless and
+              until those features are launched and covered by updated terms.
             </p>
             <p className="text-gray-700">
               These Terms do not govern future marketplace or service interactions
@@ -115,23 +115,23 @@ export default function TermsOfServicePage() {
             <p className="text-gray-700 mb-4">
               You agree not to:
             </p>
-            <ul className="list-disc list-inside text-gray-700 space-y-2">
-              <li>Submit false, misleading, or inaccurate information</li>
-              <li>Register multiple times with different identities</li>
+            <ul className="list-disc list-inside text-gray-700 space-y-3">
+              <li><strong>False information:</strong> Submit false, misleading, or inaccurate information</li>
+              <li><strong>Multiple registrations:</strong> Register multiple times with different identities</li>
               <li>
-                Use automated tools, bots, or scripts to interact with the
+                <strong>Automation:</strong> Use automated tools, bots, or scripts to interact with the
                 Services
               </li>
               <li>
-                Attempt to disrupt, overload, or interfere with the proper
+                <strong>Disruption:</strong> Attempt to disrupt, overload, or interfere with the proper
                 functioning of our website or systems
               </li>
               <li>
-                Use the Services for any unlawful purpose or in violation of
+                <strong>Unlawful use:</strong> Use the Services for any unlawful purpose or in violation of
                 applicable laws
               </li>
               <li>
-                Impersonate any person or misrepresent your affiliation with any
+                <strong>Impersonation:</strong> Impersonate any person or misrepresent your affiliation with any
                 entity
               </li>
             </ul>
