@@ -1,22 +1,9 @@
 import Icon from "../components/Icon";
 import { useEffect, useState } from "react";
 import { Helmet } from 'react-helmet-async';
+import useScrollReveal from "../hooks/useScrollReveal";
 
-function useScrollReveal() {
-  useEffect(() => {
-    const els = document.querySelectorAll(".scroll-reveal");
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((e) => {
-          if (e.isIntersecting) e.target.classList.add("revealed");
-        });
-      },
-      { threshold: 0.1 }
-    );
-    els.forEach((el) => observer.observe(el));
-    return () => observer.disconnect();
-  }, []);
-}
+
 
 function AboutPage() {
   useScrollReveal();
@@ -61,6 +48,9 @@ function AboutPage() {
       <Helmet>
         <title>Around You - About Us</title>
         <meta name="description" content="Learn more about AroundYou, our mission, and our team." />
+        <meta property="og:title" content="About Us | AroundYou" />
+        <meta property="og:description" content="Learn about the team and mission behind AroundYou." />
+        <meta property="og:url" content="https://aroundyou.com.ng/about" />
       </Helmet>
       {/* Hero */}
       <section className="py-20 px-6 text-white relative overflow-hidden"
@@ -124,9 +114,9 @@ function AboutPage() {
           <div className="grid grid-cols-2 gap-4">
             {[
               { val: "2026", label: "Founded", color: "#0D6B6E" },
-              // { val: "2", label: "Cities", color: "#3EC6C8" },
-              // { val: "10K+", label: "Pros Onboarded", color: "#6EE7A8" },
-              // { val: "50K+", label: "Happy Users", color: "#0B1D3A" },
+              { val: "4", label: "Team Members", color: "#3EC6C8" },
+              { val: "15+", label: "Service Categories", color: "#6EE7A8" },
+              { val: "∞", label: "Ambition", color: "#0B1D3A" },
             ].map(({ val, label, color }) => (
               <div key={label} className="rounded-2xl p-6 text-center transition-transform hover:scale-105"
                 style={{ background: "linear-gradient(135deg,rgba(13,107,110,0.06),rgba(62,198,200,0.06))" }}>

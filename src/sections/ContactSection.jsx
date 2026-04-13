@@ -73,6 +73,7 @@ function ContactSection() {
                   id={id}
                   name={id}
                   type={type}
+                  required
                   placeholder={placeholder}
                   className="w-full px-4 py-3 rounded-xl text-sm outline-none transition-all focus:ring-2 focus:ring-[#3EC6C8]"
                   style={{ background: "#f8fafb", border: "1px solid #e8e8e8" }}
@@ -86,6 +87,7 @@ function ContactSection() {
                 id="msg"
                 name="message"
                 rows={4}
+                required
                 placeholder="How can we help?"
                 className="w-full px-4 py-3 rounded-xl text-sm outline-none resize-none transition-all focus:ring-2 focus:ring-[#3EC6C8]"
                 style={{ background: "#f8fafb", border: "1px solid #e8e8e8" }}

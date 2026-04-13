@@ -2,6 +2,9 @@ import { serve } from 'https://deno.land/std@0.224.0/http/server.ts'
 import { createClient } from 'https://esm.sh/@supabase/supabase-js@2.45.4'
 
 const RATE_LIMIT_PER_MINUTE = 10
+const VERIFICATION_TOKEN_TTL_DAYS = 7
+const VERIFICATION_TOKEN_TTL_MS =
+  VERIFICATION_TOKEN_TTL_DAYS * 24 * 60 * 60 * 1000
 const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
 const PHONE_PATTERN = /^\+?[1-9]\d{6,14}$/
 const CANONICAL_SITE_URL = 'https://aroundyou.com.ng'
@@ -229,13 +232,13 @@ async function findExistingSignup(email: string, phone: string) {
   const [emailMatch, phoneMatch] = await Promise.all([
     supabaseAdmin
       .from('waitlist_signups')
-      .select('id, name, email, phone, is_verified, verification_token')
+      .select('id, name, email, phone, is_verified')
       .eq('email', email)
       .limit(1)
       .maybeSingle(),
     supabaseAdmin
       .from('waitlist_signups')
-      .select('id, name, email, phone, is_verified, verification_token')
+      .select('id, name, email, phone, is_verified')
       .eq('phone', phone)
       .limit(1)
       .maybeSingle(),
@@ -257,14 +260,21 @@ async function findExistingSignup(email: string, phone: string) {
   return null
 }
 
-async function ensureVerificationToken(signupId: string, currentToken: string | null) {
-  if (currentToken) return currentToken
+function getVerificationTokenExpiry() {
+  return new Date(Date.now() + VERIFICATION_TOKEN_TTL_MS).toISOString()
+}
+
+async function issueVerificationToken(signupId: string) {
   if (!supabaseAdmin) return null
 
   const nextToken = crypto.randomUUID()
+  const nextExpiresAt = getVerificationTokenExpiry()
   const { error } = await supabaseAdmin
     .from('waitlist_signups')
-    .update({ verification_token: nextToken })
+    .update({
+      verification_token: nextToken,
+      verification_token_expires_at: nextExpiresAt,
+    })
     .eq('id', signupId)
 
   if (error) {
@@ -324,7 +334,7 @@ function buildWaitlistVerificationEmailHtml(signup: {
                     Verify Waitlist Spot
                   </a>
                   <p style="margin:16px 0 0;font-size:13px;line-height:1.7;color:#5E6B7A;">
-                    Click the button above to confirm your spot. We will email you first when we launch in your city.
+                    Click the button above to confirm your spot. This link expires in ${VERIFICATION_TOKEN_TTL_DAYS} days.
                   </p>
                 </div>
               </td>
@@ -357,6 +367,7 @@ function buildWaitlistVerificationEmailText(signup: {
     `Please verify your email address to secure your spot on the AroundYou waitlist.`,
     '',
     `Click here to verify: ${verifyUrl}`,
+    `This verification link expires in ${VERIFICATION_TOKEN_TTL_DAYS} days.`,
     '',
     'AroundYou',
     'Connecting customers to trusted local services',
@@ -610,10 +621,7 @@ serve(async (request) => {
     if (existingSignup.data.is_verified) {
       return duplicateSignupResponse(existingSignup.field)
     } else {
-      const verificationToken = await ensureVerificationToken(
-        existingSignup.data.id,
-        existingSignup.data.verification_token,
-      )
+      const verificationToken = await issueVerificationToken(existingSignup.data.id)
 
       if (!verificationToken) {
         return jsonResponse(
@@ -687,22 +695,7 @@ serve(async (request) => {
     return duplicateSignupResponse('account')
   }
 
-  // Fetch the created row to get the verification_token
-  const { data: fetchSignup } = await supabaseAdmin
-    .from('waitlist_signups')
-    .select('verification_token')
-    .eq('id', insertedSignup.id)
-    .single()
-    
-  let token = insertedSignup.verification_token
-  if (!token && fetchSignup) {
-    token = fetchSignup.verification_token
-  }
-
-  const verificationToken = await ensureVerificationToken(
-    insertedSignup.id,
-    token ?? null,
-  )
+  const verificationToken = await issueVerificationToken(insertedSignup.id)
 
   if (!verificationToken) {
     return jsonResponse(

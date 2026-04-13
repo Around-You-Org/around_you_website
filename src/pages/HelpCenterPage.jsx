@@ -1,20 +1,44 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Helmet } from 'react-helmet-async';
+import Icon from "../components/Icon";
+import useScrollReveal from "../hooks/useScrollReveal";
 
-function useScrollReveal() {
-  useEffect(() => {
-    const els = document.querySelectorAll(".scroll-reveal");
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((e) => {
-          if (e.isIntersecting) e.target.classList.add("revealed");
-        });
-      },
-      { threshold: 0.1 },
-    );
-    els.forEach((el) => observer.observe(el));
-    return () => observer.disconnect();
-  }, []);
+function FAQItem({ question, answer }) {
+  const [open, setOpen] = useState(false);
+
+  return (
+    <div
+      className="rounded-2xl overflow-hidden transition-all scroll-reveal"
+      style={{ border: "1px solid #e8f3f4", background: open ? "#f0fafa" : "#f8fafb" }}
+    >
+      <button
+        type="button"
+        onClick={() => setOpen((v) => !v)}
+        aria-expanded={open}
+        className="w-full flex items-center justify-between gap-4 p-6 text-left"
+      >
+        <h3 className="text-lg font-semibold text-[#0B1D3A]">{question}</h3>
+        <div
+          className="shrink-0 w-8 h-8 rounded-full flex items-center justify-center transition-all"
+          style={{
+            background: open ? "#0D6B6E" : "rgba(13,107,110,0.1)",
+            transform: open ? "rotate(180deg)" : "rotate(0deg)",
+          }}
+        >
+          <Icon name="chevron-down" size={16} color={open ? "white" : "#0D6B6E"} />
+        </div>
+      </button>
+      <div
+        className="overflow-hidden transition-all duration-300"
+        style={{
+          maxHeight: open ? "200px" : "0",
+          opacity: open ? 1 : 0,
+        }}
+      >
+        <p className="px-6 pb-6 text-gray-600 leading-relaxed">{answer}</p>
+      </div>
+    </div>
+  );
 }
 
 function HelpCenterPage() {
@@ -49,19 +73,54 @@ function HelpCenterPage() {
       answer:
         "Yes, you can cancel or reschedule most bookings up to 2 hours before the scheduled time through the app.",
     },
+    {
+      question: "How do I join the waitlist?",
+      answer:
+        "Head to the Waitlist page from the navigation. Fill in your details, choose whether you're a customer or worker, and verify your email to confirm your spot.",
+    },
+    {
+      question: "How are professionals verified?",
+      answer:
+        "Every professional goes through NIN and government ID verification, skill assessment, and background checks before being accepted onto the AroundYou platform.",
+    },
   ];
 
   return (
-
     <div className="min-h-screen bg-white">
       <Helmet>
-      <title>Around You - Help Center</title>
-      <meta name="description" content="Find answers to common questions and get support for Around You services." />
-    </Helmet>
+        <title>Around You - Help Center</title>
+        <meta name="description" content="Find answers to common questions and get support for AroundYou services." />
+        <meta property="og:title" content="Help Center | AroundYou" />
+        <meta property="og:description" content="Find answers to common questions and get support." />
+        <meta property="og:url" content="https://aroundyou.com.ng/help-center" />
+      </Helmet>
+
       {/* Hero Section */}
-      <section className="bg-linear-to-br from-[#0B1D3A] to-[#1e3a5f] text-white py-20">
-        <div className="max-w-4xl mx-auto px-6 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold mb-6">Help Center</h1>
+      <section
+        className="relative py-20 overflow-hidden text-white"
+        style={{ background: "linear-gradient(135deg,#0B1D3A 0%,#0D6B6E 100%)" }}
+      >
+        <div
+          className="absolute top-10 right-10 w-64 h-64 rounded-full opacity-10 pointer-events-none"
+          style={{ background: "#3EC6C8", filter: "blur(80px)" }}
+        />
+        <div
+          className="absolute bottom-10 left-10 w-48 h-48 rounded-full opacity-10 pointer-events-none"
+          style={{ background: "#6EE7A8", filter: "blur(60px)" }}
+        />
+        <div className="max-w-4xl mx-auto px-6 text-center relative z-10">
+          <span
+            className="inline-block px-4 py-1.5 rounded-full text-xs font-semibold mb-6"
+            style={{ background: "rgba(255,255,255,0.1)", color: "#6EE7A8" }}
+          >
+            Support
+          </span>
+          <h1
+            className="text-4xl md:text-5xl font-bold mb-6"
+            style={{ fontFamily: "'Sora', sans-serif" }}
+          >
+            Help Center
+          </h1>
           <p className="text-xl text-gray-300 max-w-2xl mx-auto">
             Find answers to common questions and get the support you need.
           </p>
@@ -71,46 +130,66 @@ function HelpCenterPage() {
       {/* FAQ Section */}
       <section className="py-20 px-6">
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-3xl font-bold text-center mb-12 text-[#0B1D3A]">
-            Frequently Asked Questions
-          </h2>
-          <div className="space-y-6">
+          <div className="text-center mb-12">
+            <span
+              className="inline-block px-4 py-1.5 rounded-full text-xs font-semibold mb-4"
+              style={{ background: "rgba(13,107,110,0.08)", color: "#0D6B6E" }}
+            >
+              FAQ
+            </span>
+            <h2
+              className="text-3xl font-bold text-[#0B1D3A]"
+              style={{ fontFamily: "'Sora', sans-serif" }}
+            >
+              Frequently Asked Questions
+            </h2>
+          </div>
+          <div className="space-y-4">
             {faqs.map((faq, index) => (
-              <div
-                key={index}
-                className="bg-gray-50 rounded-lg p-6 scroll-reveal"
-              >
-                <h3 className="text-lg font-semibold text-[#0B1D3A] mb-3">
-                  {faq.question}
-                </h3>
-                <p className="text-gray-600 leading-relaxed">{faq.answer}</p>
-              </div>
+              <FAQItem key={index} question={faq.question} answer={faq.answer} />
             ))}
           </div>
         </div>
       </section>
 
       {/* Contact Support Section */}
-      <section className="bg-gray-50 py-20 px-6">
+      <section className="py-20 px-6" style={{ background: "#f8fafb" }}>
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-3xl font-bold mb-6 text-[#0B1D3A]">
-            Still Need Help?
+          <span
+            className="inline-block px-4 py-1.5 rounded-full text-xs font-semibold mb-4"
+            style={{ background: "rgba(13,107,110,0.08)", color: "#0D6B6E" }}
+          >
+            Still need help?
+          </span>
+          <h2
+            className="text-3xl font-bold mb-4 text-[#0B1D3A]"
+            style={{ fontFamily: "'Sora', sans-serif" }}
+          >
+            Contact Our Team
           </h2>
-          <p className="text-xl text-gray-600 mb-8">
-            Our support team is here to help you with any questions or issues.
+          <p className="text-gray-500 mb-8 max-w-lg mx-auto">
+            Our support team is here to help you with any questions or issues you may have.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
               href="mailto:support@aroundyou.com.ng"
-              className="bg-[#3EC6C8] text-white px-8 py-3 rounded-lg font-semibold hover:bg-[#2ba8aa] transition-colors"
+              className="inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-full text-sm font-semibold text-white transition-all hover:-translate-y-0.5 hover:shadow-lg"
+              style={{ background: "linear-gradient(135deg,#0D6B6E,#3EC6C8)" }}
             >
+              <Icon name="mail" size={18} color="white" />
               Email Support
             </a>
             <a
-              href="tel:+9071037946"
-              className="bg-white border-2 border-[#3EC6C8] text-[#3EC6C8] px-8 py-3 rounded-lg font-semibold hover:bg-[#3EC6C8] hover:text-white transition-colors"
+              href="tel:+2349071037946"
+              className="inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-full text-sm font-semibold transition-all hover:-translate-y-0.5"
+              style={{
+                background: "rgba(13,107,110,0.08)",
+                color: "#0D6B6E",
+                border: "1px solid rgba(13,107,110,0.2)",
+              }}
             >
-              Call Us
+              <Icon name="phone" size={18} color="#0D6B6E" />
+              +234 907 103 7946
             </a>
           </div>
         </div>

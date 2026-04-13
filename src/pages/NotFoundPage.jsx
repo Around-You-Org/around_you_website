@@ -1,21 +1,5 @@
 import { Link } from "react-router-dom";
-import { useEffect } from "react";
-
-function useScrollReveal() {
-  useEffect(() => {
-    const els = document.querySelectorAll(".scroll-reveal");
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((e) => {
-          if (e.isIntersecting) e.target.classList.add("revealed");
-        });
-      },
-      { threshold: 0.1 }
-    );
-    els.forEach((el) => observer.observe(el));
-    return () => observer.disconnect();
-  }, []);
-}
+import useScrollReveal from "../hooks/useScrollReveal";
 
 function NotFoundPage() {
   useScrollReveal();

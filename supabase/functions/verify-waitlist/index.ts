@@ -70,6 +70,15 @@ function normalizeBrevoErrorText(value: string) {
     .slice(0, 80)
 }
 
+function isVerificationTokenExpired(expiresAt: string | null | undefined) {
+  if (!expiresAt) return true
+
+  const expiresAtMs = Date.parse(expiresAt)
+  if (Number.isNaN(expiresAtMs)) return true
+
+  return expiresAtMs <= Date.now()
+}
+
 async function syncBrevoContact(signup: {
   id: string
   name: string
@@ -272,10 +281,25 @@ serve(async (request) => {
     return jsonResponse({ status: 'success', code: 'ALREADY_VERIFIED', message: 'You have already verified your spot on the waitlist!' })
   }
 
+  if (isVerificationTokenExpired(signup.verification_token_expires_at)) {
+    return jsonResponse(
+      {
+        status: 'error',
+        code: 'EXPIRED_TOKEN',
+        message:
+          'This verification link has expired. Please submit the waitlist form again and we will send you a fresh verification email.',
+      },
+      400,
+    )
+  }
+
   // Mark as verified
   const { error: updateError } = await supabaseAdmin
     .from('waitlist_signups')
-    .update({ is_verified: true })
+    .update({
+      is_verified: true,
+      verification_token_expires_at: null,
+    })
     .eq('id', signup.id)
 
   if (updateError) {

@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Helmet } from 'react-helmet-async';
 import Icon from "../components/Icon";
+import useScrollReveal from "../hooks/useScrollReveal";
 import CTASection from "../sections/CTASection";
 import ContactSection from "../sections/ContactSection";
 import ServicesSection from "../sections/ServicesSection";
@@ -40,21 +41,7 @@ const steps = [
   },
 ];
 
-function useScrollReveal() {
-  useEffect(() => {
-    const els = document.querySelectorAll(".scroll-reveal");
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((e) => {
-          if (e.isIntersecting) e.target.classList.add("revealed");
-        });
-      },
-      { threshold: 0.1 },
-    );
-    els.forEach((el) => observer.observe(el));
-    return () => observer.disconnect();
-  }, []);
-}
+
 
 
 
@@ -289,6 +276,11 @@ function HomePage() {
           name="keywords"
           content="local services, trusted professionals, GPS matching, handyman, cleaner, driver, artisan, on-demand help"
         />
+        <meta property="og:title" content="AroundYou – Connect with Trusted Local Pros Instantly" />
+        <meta property="og:description" content="Instantly connect with trusted artisans, drivers, cleaners, handymen, and more. All GPS-matched and ready to help." />
+        <meta property="og:url" content="https://aroundyou.com.ng/" />
+        <meta name="twitter:title" content="AroundYou – Connect with Trusted Local Pros Instantly" />
+        <meta name="twitter:description" content="Instantly connect with trusted artisans, drivers, cleaners, handymen, and more. All GPS-matched and ready to help." />
       </Helmet>
       {/* HERO SECTION */}
       <section

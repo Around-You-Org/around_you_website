@@ -58,6 +58,7 @@ async function fetchPendingSignups() {
     'id,name,email,phone,role,services,location,referral_source',
   )
   url.searchParams.set('brevo_synced', 'eq.false')
+  url.searchParams.set('is_verified', 'eq.true')
   url.searchParams.set('order', 'created_at.asc')
   url.searchParams.set('limit', String(batchSize))
 
@@ -146,7 +147,7 @@ async function main() {
 
   const pendingSignups = await fetchPendingSignups()
   if (!Array.isArray(pendingSignups) || pendingSignups.length === 0) {
-    console.log('No pending Brevo sync rows found.')
+    console.log('No pending verified Brevo sync rows found.')
     return
   }
 

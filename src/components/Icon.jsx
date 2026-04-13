@@ -1,7 +1,11 @@
 import {
   AlertCircle,
+  AlertTriangle,
   ArrowRight,
+  ArrowUp,
   BriefcaseBusiness,
+  CheckCircle2,
+  ChevronDown,
   Clock3,
   Download,
   PlayCircle,
@@ -62,8 +66,12 @@ const TiktokIcon = ({ size, color }) => (
 
 const iconMap = {
   "alert-circle": AlertCircle,
+  "alert-triangle": AlertTriangle,
   "arrow-right": ArrowRight,
+  "arrow-up": ArrowUp,
   briefcase: BriefcaseBusiness,
+  "check-circle-2": CheckCircle2,
+  "chevron-down": ChevronDown,
   "clock-3": Clock3,
   download: Download,
   "play-circle": PlayCircle,
