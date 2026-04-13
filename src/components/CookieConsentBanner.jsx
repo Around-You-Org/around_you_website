@@ -5,6 +5,22 @@ const COOKIE_CONSENT_KEY = 'aroundyou_cookie_consent'
 const BREVO_SCRIPT_ID = 'brevo-conversations-script'
 const BREVO_CONVERSATIONS_ID = '69d0fd18003d84b8000fb163'
 
+function updateGoogleConsent(consentState) {
+  if (typeof window === 'undefined' || typeof window.gtag !== 'function') {
+    return
+  }
+
+  window.gtag('consent', 'update', {
+    ad_storage: 'denied',
+    ad_user_data: 'denied',
+    ad_personalization: 'denied',
+    analytics_storage: consentState === 'accepted' ? 'granted' : 'denied',
+    functionality_storage: 'granted',
+    personalization_storage: 'denied',
+    security_storage: 'granted',
+  })
+}
+
 function loadBrevoConversations() {
   if (typeof window === 'undefined' || typeof document === 'undefined') {
     return
@@ -46,7 +62,13 @@ export default function CookieConsentBanner() {
 
   useEffect(() => {
     if (consent === 'accepted') {
+      updateGoogleConsent('accepted')
       loadBrevoConversations()
+      return
+    }
+
+    if (consent === 'declined') {
+      updateGoogleConsent('declined')
     }
   }, [consent])
 

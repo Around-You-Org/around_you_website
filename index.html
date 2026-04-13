@@ -4,11 +4,29 @@
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-TWXNPNQVYM"></script>
     <script>
+      const aroundYouConsentKey = 'aroundyou_cookie_consent';
+      let aroundYouStoredConsent = 'pending';
+      try {
+        aroundYouStoredConsent = localStorage.getItem(aroundYouConsentKey) || 'pending';
+      } catch (error) {
+        aroundYouStoredConsent = 'pending';
+      }
+
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
+      gtag('consent', 'default', {
+        ad_storage: 'denied',
+        ad_user_data: 'denied',
+        ad_personalization: 'denied',
+        analytics_storage:
+          aroundYouStoredConsent === 'accepted' ? 'granted' : 'denied',
+        functionality_storage: 'granted',
+        personalization_storage: 'denied',
+        security_storage: 'granted',
+        wait_for_update: aroundYouStoredConsent === 'pending' ? 500 : 0,
+      });
       gtag('js', new Date());
-
-      gtag('config', 'G-TWXNPNQVYM');
+      gtag('config', 'G-TWXNPNQVYM', { anonymize_ip: true });
     </script>
 
     <meta charset="UTF-8" />
