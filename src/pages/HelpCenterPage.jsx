@@ -49,39 +49,39 @@ function HelpCenterPage() {
 
   const faqs = [
     {
-      question: "How do I find a professional near me?",
+      question: "What is AroundYou?",
       answer:
-        "Simply open the AroundYou app, share your location, and browse verified professionals in your area. You can filter by service type, ratings, and availability.",
+        "AroundYou is a platform that connects people with trusted local professionals such as artisans, cleaners, and drivers. We are currently in our early launch phase.",
     },
     {
-      question: "Is my payment secure?",
+      question: "Is AroundYou available now?",
       answer:
-        "Yes, all payments are processed securely through our encrypted platform. You only pay after the service is completed to your satisfaction.",
-    },
-    {
-      question: "What if I'm not satisfied with the service?",
-      answer:
-        "We stand behind our professionals. If you're not satisfied, contact our support team within 24 hours, and we'll work to resolve the issue.",
-    },
-    {
-      question: "How do I track my service request?",
-      answer:
-        "Once you book a service, you'll receive real-time updates on the professional's arrival and progress through the app.",
-    },
-    {
-      question: "Can I cancel or reschedule a booking?",
-      answer:
-        "Yes, you can cancel or reschedule most bookings up to 2 hours before the scheduled time through the app.",
+        "AroundYou is currently in its pre-launch phase. You can join the waitlist to be notified when we go live in your area.",
     },
     {
       question: "How do I join the waitlist?",
       answer:
-        "Head to the Waitlist page from the navigation. Fill in your details, choose whether you're a customer or worker, and verify your email to confirm your spot.",
+        "Go to the Waitlist page, fill in your details, choose whether you're joining as a customer or worker, and verify your email to confirm your spot.",
     },
     {
-      question: "How are professionals verified?",
+      question: "What happens after I join the waitlist?",
       answer:
-        "Every professional goes through NIN and government ID verification, skill assessment, and background checks before being accepted onto the AroundYou platform.",
+        "We will notify you by email when AroundYou launches in your area and provide early access where available.",
+    },
+    {
+      question: "Can I sign up as a worker?",
+      answer:
+        "Yes, you can join the waitlist as a worker by selecting your services during registration. We will contact you when onboarding begins.",
+    },
+    {
+      question: "How are workers verified?",
+      answer:
+        "Workers will go through a verification process before being approved on the platform. Full details will be shared during onboarding.",
+    },
+    {
+      question: "How can I contact support?",
+      answer:
+        "You can reach our support team anytime via email at support@aroundyou.com.ng or through the contact options on this page.",
     },
   ];
 
