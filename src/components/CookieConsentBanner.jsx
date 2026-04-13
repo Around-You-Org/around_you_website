@@ -1,7 +1,11 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
+import { initializeSentry } from '../instrument'
+import {
+  COOKIE_CONSENT_KEY,
+  getStoredCookieConsent,
+} from '../lib/cookieConsent'
 
-const COOKIE_CONSENT_KEY = 'aroundyou_cookie_consent'
 const BREVO_SCRIPT_ID = 'brevo-conversations-script'
 const BREVO_CONVERSATIONS_ID = '69d0fd18003d84b8000fb163'
 
@@ -47,22 +51,12 @@ function loadBrevoConversations() {
 }
 
 export default function CookieConsentBanner() {
-  const [consent, setConsent] = useState(() => {
-    if (typeof window === 'undefined') {
-      return null
-    }
-
-    const storedConsent = window.localStorage.getItem(COOKIE_CONSENT_KEY)
-    if (storedConsent === 'accepted' || storedConsent === 'declined') {
-      return storedConsent
-    }
-
-    return 'pending'
-  })
+  const [consent, setConsent] = useState(() => getStoredCookieConsent())
 
   useEffect(() => {
     if (consent === 'accepted') {
       updateGoogleConsent('accepted')
+      initializeSentry('accepted')
       loadBrevoConversations()
       return
     }
@@ -92,8 +86,10 @@ export default function CookieConsentBanner() {
             </p>
             <p className="mt-2 text-sm leading-6 text-gray-200">
               We use essential cookies to keep the site working. If you accept,
-              we will also load the Brevo chat widget so you can message the
-              AroundYou team directly. Read more in our{' '}
+              we will also enable Google Analytics, Sentry diagnostics and
+              session replay to help us improve the site, and load the Brevo
+              chat widget so you can message the AroundYou team directly. Read
+              more in our{' '}
               <Link
                 to="/privacy-policy"
                 className="text-[#3EC6C8] hover:underline"
@@ -118,7 +114,7 @@ export default function CookieConsentBanner() {
               className="rounded-full px-5 py-3 text-sm font-semibold text-white transition-all hover:-translate-y-0.5 hover:shadow-lg"
               style={{ background: 'linear-gradient(135deg,#0D6B6E,#3EC6C8)' }}
             >
-              Accept and enable chat
+              Accept optional tools
             </button>
           </div>
         </div>

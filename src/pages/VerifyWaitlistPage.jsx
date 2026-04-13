@@ -84,6 +84,10 @@ function VerifyWaitlistPage() {
     >
       <Helmet>
         <title>Verify Waitlist - AroundYou</title>
+        <meta name="description" content="Verify your email address to confirm your spot on the AroundYou waitlist." />
+        <meta property="og:title" content="Verify Your Waitlist Spot | AroundYou" />
+        <meta property="og:description" content="Confirm your email to secure your place on the AroundYou waitlist." />
+        <meta property="og:url" content="https://aroundyou.com.ng/verify-waitlist" />
       </Helmet>
 
       <div

@@ -29,27 +29,33 @@ function NavBar(){
       <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
 
         <Link to="/" className="flex items-center gap-2">
-              <img src="/logo.png" alt="aroundyou_logo" width="40" height="24" viewBox="0 0 80 40" fill="none"/> 
+          <img src="/logo.png" alt="AroundYou logo" width="40" height="24" />
           <span className="font-heading font-bold text-xl text-navy">AROUND<span className="text-teal-800">YOU</span></span>
         </Link>
 
         <div className="hidden md:flex items-center gap-8">
           <Link to="/" className={linkClass('/')}>Home</Link>
           <Link to="/about" className={linkClass('/about')}>About Us</Link>
-          <button onClick={() => scrollAndNavigate('services-section')} className="nav-link text-sm font-medium text-navy hover:text-aqua">Services</button>
-          <button onClick={() => scrollAndNavigate('contact-section')} className="nav-link text-sm font-medium text-navy hover:text-aqua">Contact</button>
+          <button type="button" onClick={() => scrollAndNavigate('services-section')} className="nav-link text-sm font-medium text-navy hover:text-aqua">Services</button>
+          <button type="button" onClick={() => scrollAndNavigate('contact-section')} className="nav-link text-sm font-medium text-navy hover:text-aqua">Contact</button>
         </div>
 
         <div className="flex items-center gap-3">
-          <Link to="/waitlist?role=customer">
-          <button className="hidden md:inline-flex cta-btn px-5 py-2.5 rounded-full text-sm font-semibold text-white" 
+          <Link
+            to="/waitlist?role=customer"
+            className="hidden md:inline-flex cta-btn px-5 py-2.5 rounded-full text-sm font-semibold text-white"
             style={{
-                  background: "linear-gradient(135deg,#0D6B6E,#3EC6C8)",
-                }}>
+              background: "linear-gradient(135deg,#0D6B6E,#3EC6C8)",
+            }}
+          >
             Join Waitlist
-          </button>
           </Link>
-          <button className="md:hidden p-2" onClick={() => setOpen((v) => !v)}>
+          <button
+            type="button"
+            className="md:hidden p-2"
+            onClick={() => setOpen((v) => !v)}
+            aria-label={open ? "Close menu" : "Open menu"}
+          >
             {open ? <X className="w-6 h-6 text-navy" /> : <Menu className="w-6 h-6 text-navy" />}
           </button>
         </div>
@@ -60,13 +66,17 @@ function NavBar(){
           <div className="flex flex-col gap-3 pt-2">
             <Link to="/" onClick={() => setOpen(false)} className="py-2 text-sm font-medium text-navy">Home</Link>
             <Link to="/about" onClick={() => setOpen(false)} className="py-2 text-sm font-medium text-navy">About Us</Link>
-            <button onClick={() => scrollAndNavigate('services-section')} className="py-2 text-sm font-medium text-navy text-left">Services</button>
-            <button onClick={() => scrollAndNavigate('contact-section')} className="py-2 text-sm font-medium text-navy text-left">Contact</button>
-            <Link to="/waitlist?role=customer">
-              <button onClick={() => setOpen(false)} className="cta-btn px-5 py-2.5 rounded-full text-sm font-semibold text-white w-full"
-                style={{
-                  background: "linear-gradient(135deg,#0D6B6E,#3EC6C8)",
-                }}>Join Waitlist</button>
+            <button type="button" onClick={() => scrollAndNavigate('services-section')} className="py-2 text-sm font-medium text-navy text-left">Services</button>
+            <button type="button" onClick={() => scrollAndNavigate('contact-section')} className="py-2 text-sm font-medium text-navy text-left">Contact</button>
+            <Link
+              to="/waitlist?role=customer"
+              onClick={() => setOpen(false)}
+              className="cta-btn px-5 py-2.5 rounded-full text-sm font-semibold text-white w-full text-center"
+              style={{
+                background: "linear-gradient(135deg,#0D6B6E,#3EC6C8)",
+              }}
+            >
+              Join Waitlist
             </Link>
           </div>
         </div>

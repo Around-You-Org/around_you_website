@@ -15,6 +15,9 @@ export default function PrivacyPolicyPage() {
           name="description"
           content="Privacy Policy for the AroundYou website and waitlist. Learn how we collect, use, and protect information submitted through our website, waitlist, contact forms, and chat."
         />
+        <meta property="og:title" content="Privacy Policy | AroundYou" />
+        <meta property="og:description" content="Learn how AroundYou collects, uses, and protects your information." />
+        <meta property="og:url" content="https://aroundyou.com.ng/privacy-policy" />
         <meta name="robots" content="index, follow" />
       </Helmet>
 
@@ -24,7 +27,7 @@ export default function PrivacyPolicyPage() {
             <h1 className="text-4xl font-bold text-white mb-4">
               Website and Waitlist Privacy Policy
             </h1>
-            <p className="text-lg text-gray-100">Last Updated: April 9, 2026</p>
+            <p className="text-lg text-gray-100">Last Updated: April 13, 2026</p>
           </div>
         </div>
 
@@ -141,6 +144,12 @@ export default function PrivacyPolicyPage() {
                     website and waitlist
                   </li>
                 </ul>
+                <p className="text-gray-700 mt-3">
+                  If you accept optional analytics and diagnostics in our cookie
+                  banner, we may also collect website performance telemetry,
+                  error reports, and limited session replay data to help us
+                  diagnose issues and improve the experience.
+                </p>
               </div>
             </div>
           </section>
@@ -189,6 +198,11 @@ export default function PrivacyPolicyPage() {
               <li>Responding to contact, support, and partnership inquiries</li>
               <li>
                 Operating our website chat and customer communication tools
+              </li>
+              <li>
+                Monitoring site performance, debugging errors, and reviewing
+                limited session replay data when you consent to optional
+                diagnostics
               </li>
               <li>
                 Allowing you to opt out of non-essential communications where
@@ -248,7 +262,19 @@ export default function PrivacyPolicyPage() {
 
               <div>
                 <h3 className="text-lg font-semibold text-gray-800 mb-2">
-                  4.4 Hosting and Infrastructure Providers
+                  4.4 Sentry
+                </h3>
+                <p className="text-gray-700">
+                  If you accept optional analytics and diagnostics, we use
+                  Sentry to monitor website errors, performance, logs, and
+                  limited session replay data so we can diagnose and fix issues
+                  more quickly.
+                </p>
+              </div>
+
+              <div>
+                <h3 className="text-lg font-semibold text-gray-800 mb-2">
+                  4.5 Hosting and Infrastructure Providers
                 </h3>
                 <p className="text-gray-700">
                   Our hosting, delivery, and infrastructure providers may
@@ -260,7 +286,7 @@ export default function PrivacyPolicyPage() {
 
               <div>
                 <h3 className="text-lg font-semibold text-gray-800 mb-2">
-                  4.5 Legal or Business Reasons
+                  4.6 Legal or Business Reasons
                 </h3>
                 <p className="text-gray-700">
                   We may disclose information if required by law, to respond to
@@ -366,10 +392,15 @@ export default function PrivacyPolicyPage() {
               services like chat, improve performance, and maintain security.
             </p>
             <p className="text-gray-700 mb-4">
-              We do not use cookies for advertising purposes.
+              If you accept our cookie banner, we may also use optional
+              analytics and diagnostics technologies, including Google
+              Analytics and Sentry, to measure traffic, monitor performance,
+              and troubleshoot errors. We do not use cookies for advertising
+              purposes.
             </p>
             <p className="text-gray-700">
-              You can manage cookies through your browser settings, although
+              You can manage cookies through your browser settings, and you can
+              decline optional cookies and diagnostics in our banner, although
               disabling some cookies may affect how parts of the website or chat
               features work.
             </p>

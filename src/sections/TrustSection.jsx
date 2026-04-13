@@ -2,15 +2,15 @@ import Icon from "../components/Icon";
 
 function TrustSection() {
   const pillars = [
-    { icon: "shield-check", color: "#0D6B6E", bg: "rgba(13,107,110,0.1)", title: "ID Verified Professionals", desc: "NIN and government ID verification for every service provider." },
-    { icon: "lock", color: "#3EC6C8", bg: "rgba(62,198,200,0.1)", title: "Secure In-App Payments", desc: "Money held in escrow until you confirm satisfaction with the service." },
-    { icon: "star", color: "#6EE7A8", bg: "rgba(110,231,168,0.1)", title: "Real Reviews & Ratings", desc: "Transparent reviews from real customers drive quality and accountability." },
+    { icon: "shield-check", color: "#0D6B6E", bg: "rgba(13,107,110,0.1)", title: "ID Verified Professionals", desc: "Every service provider will go through NIN and government ID verification before joining the platform." },
+    { icon: "lock", color: "#3EC6C8", bg: "rgba(62,198,200,0.1)", title: "Secure Payments", desc: "We are building a secure payment system so you only pay when you are satisfied with the service." },
+    { icon: "star", color: "#6EE7A8", bg: "rgba(110,231,168,0.1)", title: "Reviews & Ratings", desc: "Transparent reviews from real customers will drive quality and accountability on the platform." },
   ];
   const stats = [
-    { val: "99%", color: "#0D6B6E", label: "Satisfaction Rate", g: "linear-gradient(135deg,rgba(13,107,110,0.08),rgba(62,198,200,0.08))" },
-    { val: "3min", color: "#3EC6C8", label: "Avg Match Time", g: "linear-gradient(135deg,rgba(62,198,200,0.08),rgba(110,231,168,0.08))" },
-    { val: "24/7", color: "#6EE7A8", label: "Availability", g: "linear-gradient(135deg,rgba(110,231,168,0.08),rgba(13,107,110,0.08))" },
-    { val: "15+", color: "#0B1D3A", label: "Service Categories", g: "linear-gradient(135deg,rgba(11,29,58,0.06),rgba(13,107,110,0.08))" },
+    { val: "15+", color: "#0D6B6E", label: "Service Categories", g: "linear-gradient(135deg,rgba(13,107,110,0.08),rgba(62,198,200,0.08))" },
+    { val: "GPS", color: "#3EC6C8", label: "Proximity Matching", g: "linear-gradient(135deg,rgba(62,198,200,0.08),rgba(110,231,168,0.08))" },
+    { val: "24/7", color: "#6EE7A8", label: "Planned Availability", g: "linear-gradient(135deg,rgba(110,231,168,0.08),rgba(13,107,110,0.08))" },
+    { val: "4", color: "#0B1D3A", label: "Founding Team", g: "linear-gradient(135deg,rgba(11,29,58,0.06),rgba(13,107,110,0.08))" },
   ];
   return (
     <section className="py-20 px-6 bg-white scroll-reveal opacity-0 translate-y-8 transition-all duration-700">
@@ -23,7 +23,7 @@ function TrustSection() {
               Building on Trust,<br />Powered by <span style={{ color: "#0D6B6E" }}>Community</span>
             </h2>
             <p className="mt-4 text-gray-500 leading-relaxed">
-              Every professional on AroundYou goes through identity verification, skill assessment, and background checks. Our rating system ensures only the best stay on the platform.
+              Every professional on AroundYou will go through identity verification, skill assessment, and background checks. Our rating system will ensure only the best stay on the platform.
             </p>
             <div className="mt-8 space-y-4">
               {pillars.map(({ icon, color, bg, title, desc }) => (

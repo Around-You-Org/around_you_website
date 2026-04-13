@@ -15,7 +15,7 @@ function CTASection() {
             Ready to Find Help<br /><span style={{ color: "#3EC6C8" }}>Around You?</span>
           </h2>
           <p className="mt-4 text-gray-300 max-w-lg mx-auto">
-            Join thousands of Nigerians already using AroundYou to get things done faster, safer, and smarter.
+            Be among the first Nigerians to experience AroundYou — get things done faster, safer, and smarter.
           </p>
           <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
             <Link

@@ -215,6 +215,9 @@ function WaitlistPage() {
           name="description"
           content="Join the AroundYou waitlist to get early access to trusted local services in your city. Sign up as a customer or worker and be the first to experience AroundYou."
         />
+        <meta property="og:title" content="Join the AroundYou Waitlist" />
+        <meta property="og:description" content="Sign up as a customer or worker and be the first to experience AroundYou in your city." />
+        <meta property="og:url" content="https://aroundyou.com.ng/waitlist" />
       </Helmet>
 
     

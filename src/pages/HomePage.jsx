@@ -339,7 +339,7 @@ function HomePage() {
                   background: "linear-gradient(135deg,#0D6B6E,#3EC6C8)",
                 }}
               >
-                <Icon name="download" size={18} color="white" />
+                <Icon name="sparkles" size={18} color="white" />
                 Join our Waitlist
               </Link>
             </div>
