@@ -114,7 +114,7 @@ function AboutPage() {
           <div className="grid grid-cols-2 gap-4">
             {[
               { val: "2026", label: "Founded", color: "#0D6B6E" },
-              { val: "4", label: "Team Members", color: "#3EC6C8" },
+              { val: "5", label: "Team Members", color: "#3EC6C8" },
               { val: "15+", label: "Service Categories", color: "#6EE7A8" },
               { val: "∞", label: "Ambition", color: "#0B1D3A" },
             ].map(({ val, label, color }) => (
@@ -168,7 +168,7 @@ function AboutPage() {
               { name: "Odali Wisdom", role: "Founder/CEO", image: "/team/wisdom.jpeg", linkedin: "https://www.linkedin.com/in/odali-wisdom-92118b3bb/", icon: "linkedin", bio: "Founder and CEO building scalable marketplace solutions with a community-centered approach." },
               { name: "Esi Stephen", role: "COO", image: "/team/stephen.jpeg", linkedin: "https://www.linkedin.com/in/stephen-esi-890486368/", icon: "linkedin", bio: "Operations expert optimizing logistics and team performance across country-wide deployments." },
               { name: "Osadebe Nonso", role: "CTO", image: "/team/nonso.jpeg", linkedin: "https://www.linkedin.com/in/nonso-osadebe-73736936a/", icon: "linkedin", bio: "Technical architect focused on reliability, security, and a smooth user experience." },
-              { name: "Nwadialo Chinedu David", role: "CMO", image: "/team/david.jpeg", linkedin: "https://www.linkedin.com/in/sirdaviddev/", icon: "linkedin", bio: "Brand and growth leader building trust and traction in local markets." },
+              // { name: "Nwadialo Chinedu David", role: "CMO", image: "/team/david.jpeg", linkedin: "https://www.linkedin.com/in/sirdaviddev/", icon: "linkedin", bio: "Brand and growth leader building trust and traction in local markets." },
             ].map(({ name, image, role, linkedin, icon, bio }) => (
               <div key={name} className="bg-white rounded-2xl p-6 text-center shadow-sm hover:shadow-lg transition-shadow">
                 <img src={image} alt={name} className="mx-auto w-32 h-32 rounded-full object-cover mb-4" />
