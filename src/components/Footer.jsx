@@ -9,7 +9,7 @@ function Footer() {
           <div>
             <h3 className="text-xl font-bold text-white mb-3">AROUND<span className="text-teal">YOU</span></h3>
             <p className="text-sm text-gray-400 leading-relaxed">
-              Connecting you instantly with trusted local professionals. One app for everything around you.
+              Connect instantly with verified and trusted professionals. One app for everything around you.
             </p>
             <div className="flex gap-3 mt-5">
               {[
