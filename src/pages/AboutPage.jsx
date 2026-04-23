@@ -76,7 +76,7 @@ function AboutPage() {
           <span className="inline-block px-4 py-1.5 rounded-full text-xs font-semibold mb-4" style={{ background: "rgba(62,198,200,0.1)", color: "#0D6B6E" }}>About Us</span>
           <h2 className="text-3xl font-bold text-[#0B1D3A]" style={{ fontFamily: "'Sora', sans-serif" }}>Our story, mission, and vision</h2>
           <p className="mt-5 text-gray-500 max-w-3xl mx-auto leading-relaxed">
-            At AroundYou, we started with the belief that local talent should not be hidden. Our story is rooted in community, our mission is to connect people with trusted service providers, and our vision is an Africa where every person can access the services they need, right around the corner.
+            At AroundYou, we started with the belief that talents around us should not be hidden. Our story is rooted in community, our mission is to connect people with trusted service providers, and our vision is an Africa where every person can access the services they need, right around the corner.
           </p>
           <div className="mt-10 grid md:grid-cols-3 gap-6">
             <div className="bg-white rounded-2xl p-6 text-center shadow-sm hover:shadow-lg transition-shadow" style={{ border: "1px solid #e8f3f4" }}>
@@ -168,7 +168,8 @@ function AboutPage() {
               { name: "Odali Wisdom", role: "Founder/CEO", image: "/team/wisdom.jpeg", linkedin: "https://www.linkedin.com/in/odali-wisdom-92118b3bb/", icon: "linkedin", bio: "Founder and CEO building scalable marketplace solutions with a community-centered approach." },
               { name: "Esi Stephen", role: "COO", image: "/team/stephen.jpeg", linkedin: "https://www.linkedin.com/in/stephen-esi-890486368/", icon: "linkedin", bio: "Operations expert optimizing logistics and team performance across country-wide deployments." },
               { name: "Osadebe Nonso", role: "CTO", image: "/team/nonso.jpeg", linkedin: "https://www.linkedin.com/in/nonso-osadebe-73736936a/", icon: "linkedin", bio: "Technical architect focused on reliability, security, and a smooth user experience." },
-              // { name: "Nwadialo Chinedu David", role: "CMO", image: "/team/david.jpeg", linkedin: "https://www.linkedin.com/in/sirdaviddev/", icon: "linkedin", bio: "Brand and growth leader building trust and traction in local markets." },
+              { name: "Casmir Omizu Ogogoroh", role: "CMO", image: "/team/casmir.jpeg", linkedin: "https://www.linkedin.com/in/casmir-ogogoroh-8a061a391/", icon: "linkedin", bio: "Brand and growth leader building trust and traction in local markets." },
+              { name: "Ilome Uchechukwudili Frank", role: "CRO", image: "/team/uche.jpeg", linkedin: "https://www.linkedin.com/in/ilome-uche-9b02923a0/", icon: "linkedin", bio: "Revenue growth expert driving strategic initiatives and partnerships." },
             ].map(({ name, image, role, linkedin, icon, bio }) => (
               <div key={name} className="bg-white rounded-2xl p-6 text-center shadow-sm hover:shadow-lg transition-shadow">
                 <img src={image} alt={name} className="mx-auto w-32 h-32 rounded-full object-cover mb-4" />

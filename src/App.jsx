@@ -2,7 +2,6 @@ import { lazy, Suspense } from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
-import CookieConsentBanner from './components/CookieConsentBanner'
 import ErrorBoundary from './components/ErrorBoundary'
 import ScrollToTop from './components/ScrollToTop'
 import Icon from './components/Icon'
@@ -47,8 +46,7 @@ function App() {
           </Suspense>
         </main>
         <Footer />
-        <CookieConsentBanner />
-        <ScrollToTop />
+<ScrollToTop />
       </ErrorBoundary>
     </BrowserRouter>
   )

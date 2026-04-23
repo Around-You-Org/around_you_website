@@ -52,7 +52,7 @@ function HelpCenterPage() {
     {
       question: "What is AroundYou?",
       answer:
-        "AroundYou is a platform that connects people with trusted local professionals such as artisans, cleaners, and drivers. We are currently in our early launch phase.",
+        "AroundYou is a platform that connects people with trusted professionals such as artisans, cleaners, and drivers. We are currently in our early launch phase.",
     },
     {
       question: "Is AroundYou available now?",

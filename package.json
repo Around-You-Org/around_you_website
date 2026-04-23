@@ -11,7 +11,6 @@
     "waitlist:retry-brevo": "node scripts/retry-brevo-sync.mjs"
   },
   "dependencies": {
-    "@sentry/react": "^10.48.0",
     "@tailwindcss/vite": "^4.2.2",
     "lucide-react": "^1.7.0",
     "react": "^19.2.4",

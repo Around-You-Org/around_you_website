@@ -267,19 +267,19 @@ function HomePage() {
   return (
     <>
       <Helmet>
-        <title>Around You - Connect with Trusted Local Pros Instantly</title>
+        <title>Around You - Connect with Trusted Professionals Instantly</title>
         <meta
           name="description"
-          content="Around You is your go-to platform for instantly connecting with trusted local professionals. Whether you need a handyman, cleaner, driver, or artisan, we've got you covered. Our GPS-matching technology ensures you find the right help, right around you."
+          content="Around You is your go-to platform for instantly connecting with trusted professionals. Whether you need a handyman, cleaner, driver, or artisan, we've got you covered. Our GPS-matching technology ensures you find the right help, right around you."
         />
         <meta
           name="keywords"
           content="local services, trusted professionals, GPS matching, handyman, cleaner, driver, artisan, on-demand help"
         />
-        <meta property="og:title" content="AroundYou – Connect with Trusted Local Pros Instantly" />
+        <meta property="og:title" content="AroundYou – Connect with Trusted Professionals Instantly" />
         <meta property="og:description" content="Instantly connect with trusted artisans, drivers, cleaners, handymen, and more. All GPS-matched and ready to help." />
         <meta property="og:url" content="https://aroundyou.com.ng/" />
-        <meta name="twitter:title" content="AroundYou – Connect with Trusted Local Pros Instantly" />
+        <meta name="twitter:title" content="AroundYou – Connect with Trusted Professionals Instantly" />
         <meta name="twitter:description" content="Instantly connect with trusted artisans, drivers, cleaners, handymen, and more. All GPS-matched and ready to help." />
       </Helmet>
       {/* HERO SECTION */}
