@@ -163,17 +163,28 @@ function AboutPage() {
             <h2 className="text-3xl font-bold text-[#0B1D3A]" style={{ fontFamily: "'Sora', sans-serif" }}>Meet the team driving AroundYou</h2>
             <p className="mt-3 text-gray-500 max-w-2xl mx-auto">Our core team brings product, operations, and technology experience built to scale across cities.</p>
           </div>
-          <div className="grid lg:grid-cols-4 md:grid-cols-2 gap-6">
+          <div className="grid lg:grid-cols-3 md:grid-cols-2 gap-6">
             {[
-              { name: "Odali Wisdom", role: "Founder/CEO", image: "/team/wisdom.jpeg", linkedin: "https://www.linkedin.com/in/odali-wisdom-92118b3bb/", icon: "linkedin", bio: "Founder and CEO building scalable marketplace solutions with a community-centered approach." },
-              { name: "Esi Stephen", role: "COO", image: "/team/stephen.jpeg", linkedin: "https://www.linkedin.com/in/stephen-esi-890486368/", icon: "linkedin", bio: "Operations expert optimizing logistics and team performance across country-wide deployments." },
-              { name: "Osadebe Nonso", role: "CTO", image: "/team/nonso.jpeg", linkedin: "https://www.linkedin.com/in/nonso-osadebe-73736936a/", icon: "linkedin", bio: "Technical architect focused on reliability, security, and a smooth user experience." },
+              { name: "Odali Wisdom", role: "CEO", badge: "founder", image: "/team/wisdom.jpeg", linkedin: "https://www.linkedin.com/in/odali-wisdom-92118b3bb/", icon: "linkedin", bio: "Founder and CEO building scalable marketplace solutions with a community-centered approach." },
+              { name: "Esi Stephen", role: "COO", badge: "cofounder", image: "/team/stephen.jpeg", linkedin: "https://www.linkedin.com/in/stephen-esi-890486368/", icon: "linkedin", bio: "Operations expert optimizing logistics and team performance across country-wide deployments." },
+              { name: "Osadebe Nonso", role: "CTO", badge: "cofounder", image: "/team/nonso.jpeg", linkedin: "https://www.linkedin.com/in/nonso-osadebe-73736936a/", icon: "linkedin", bio: "Technical architect focused on reliability, security, and a smooth user experience." },
               { name: "Casmir Omizu Ogogoroh", role: "CMO", image: "/team/casmir.jpeg", linkedin: "https://www.linkedin.com/in/casmir-ogogoroh-8a061a391/", icon: "linkedin", bio: "Brand and growth leader building trust and traction in local markets." },
               { name: "Ilome Uchechukwudili Frank", role: "CRO", image: "/team/uche.jpeg", linkedin: "https://www.linkedin.com/in/ilome-uche-9b02923a0/", icon: "linkedin", bio: "Revenue growth expert driving strategic initiatives and partnerships." },
-            ].map(({ name, image, role, linkedin, icon, bio }) => (
+              { name: "Richard Ejidje", role: "Creative Lead", image: "/team/richard.jpeg", linkedin: "https://www.linkedin.com/in/richard-ejidje-9b02923a0/", icon: "linkedin", bio: "Creative strategist driving brand awareness and customer engagement." },
+            ].map(({ name, image, role, badge, linkedin, icon, bio }) => (
               <div key={name} className="bg-white rounded-2xl p-6 text-center shadow-sm hover:shadow-lg transition-shadow">
                 <img src={image} alt={name} className="mx-auto w-32 h-32 rounded-full object-cover mb-4" />
                 <h3 className="font-semibold text-[#0B1D3A]">{name}</h3>
+                {badge && (
+                  <span
+                    className="inline-block mt-1 mb-1 px-3 py-0.5 rounded-full text-[10px] font-bold tracking-widest uppercase"
+                    style={badge === "founder"
+                      ? { background: "linear-gradient(90deg,#f59e0b,#fbbf24)", color: "#0B1D3A" }
+                      : { background: "linear-gradient(90deg,#0D6B6E,#3EC6C8)", color: "#fff" }}
+                  >
+                    {badge === "founder" ? "Founder" : "Co-Founder"}
+                  </span>
+                )}
                 <p className="text-sm text-gray-500">{role}</p>
                 <p className="text-xs text-gray-500 mt-2">{bio}</p>
                 <a href={linkedin} className="mt-3 flex justify-center"><Icon name={icon} size={14} color="#3EC6C8" /></a>

@@ -262,7 +262,7 @@ function WaitlistPage() {
               {
                 icon: 'shield-check',
                 title: 'Private and secure',
-                text: 'Your signup is stored in Supabase and synced securely to Brevo for launch emails.',
+                text: 'Your signup is stored and synced securely for launch emails.',
               },
               {
                 icon: 'map-pin',
