@@ -170,7 +170,7 @@ function AboutPage() {
               { name: "Osadebe Nonso", role: "CTO", badge: "cofounder", image: "/team/nonso.jpeg", linkedin: "https://www.linkedin.com/in/nonso-osadebe-73736936a/", icon: "linkedin", bio: "Technical architect focused on reliability, security, and a smooth user experience." },
               { name: "Casmir Omizu Ogogoroh", role: "CMO", image: "/team/casmir.jpeg", linkedin: "https://www.linkedin.com/in/casmir-ogogoroh-8a061a391/", icon: "linkedin", bio: "Brand and growth leader building trust and traction in local markets." },
               { name: "Ilome Uchechukwudili Frank", role: "CRO", image: "/team/uche.jpeg", linkedin: "https://www.linkedin.com/in/ilome-uche-9b02923a0/", icon: "linkedin", bio: "Revenue growth expert driving strategic initiatives and partnerships." },
-              { name: "Richard Ejidje", role: "Creative Lead", image: "/team/richard.jpeg", linkedin: "https://www.linkedin.com/in/richard-ejidje-9b02923a0/", icon: "linkedin", bio: "Creative strategist driving brand awareness and customer engagement." },
+              { name: "Richard Ejidje", role: "Creative Lead", image: "/team/richard.jpeg", linkedin: "https://www.linkedin.com/in/richard-ejidje-2037b2405/", icon: "linkedin", bio: "Creative strategist driving brand awareness and customer engagement." },
             ].map(({ name, image, role, badge, linkedin, icon, bio }) => (
               <div key={name} className="bg-white rounded-2xl p-6 text-center shadow-sm hover:shadow-lg transition-shadow">
                 <img src={image} alt={name} className="mx-auto w-32 h-32 rounded-full object-cover mb-4" />
