@@ -114,7 +114,7 @@ function AboutPage() {
           <div className="grid grid-cols-2 gap-4">
             {[
               { val: "2026", label: "Founded", color: "#0D6B6E" },
-              { val: "5", label: "Team Members", color: "#3EC6C8" },
+              { val: "6", label: "Team Members", color: "#3EC6C8" },
               { val: "15+", label: "Service Categories", color: "#6EE7A8" },
               { val: "∞", label: "Ambition", color: "#0B1D3A" },
             ].map(({ val, label, color }) => (

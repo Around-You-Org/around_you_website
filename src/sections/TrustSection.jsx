@@ -10,7 +10,7 @@ function TrustSection() {
     { val: "15+", color: "#0D6B6E", label: "Service Categories", g: "linear-gradient(135deg,rgba(13,107,110,0.08),rgba(62,198,200,0.08))" },
     { val: "GPS", color: "#3EC6C8", label: "Proximity Matching", g: "linear-gradient(135deg,rgba(62,198,200,0.08),rgba(110,231,168,0.08))" },
     { val: "24/7", color: "#6EE7A8", label: "Planned Availability", g: "linear-gradient(135deg,rgba(110,231,168,0.08),rgba(13,107,110,0.08))" },
-    { val: "4", color: "#0B1D3A", label: "Founding Team", g: "linear-gradient(135deg,rgba(11,29,58,0.06),rgba(13,107,110,0.08))" },
+    { val: "3", color: "#0B1D3A", label: "Founding Team", g: "linear-gradient(135deg,rgba(11,29,58,0.06),rgba(13,107,110,0.08))" },
   ];
   return (
     <section className="py-20 px-6 bg-white scroll-reveal opacity-0 translate-y-8 transition-all duration-700">
