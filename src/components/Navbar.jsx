@@ -29,7 +29,7 @@ function NavBar(){
       <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
 
         <Link to="/" className="flex items-center gap-2">
-          <img src="/logo.png" alt="AroundYou logo" width="40" height="24" />
+          <img src="/IMG_5222.JPG" alt="AroundYou logo" width="40" height="24" />
           <span className="font-heading font-bold text-xl text-navy">AROUND<span className="text-teal-800">YOU</span></span>
         </Link>
 
