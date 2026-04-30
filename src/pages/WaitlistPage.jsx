@@ -197,9 +197,8 @@ function WaitlistPage() {
   }
 
   const showSuccessPanel =
-    feedback.status === 'success' || 
-    feedback.status === 'already_joined' ||
-    feedback.status === 'verification_required'
+    feedback.status === 'success' ||
+    feedback.status === 'already_joined'
 
   return (
     <section
@@ -331,7 +330,7 @@ function WaitlistPage() {
           {showSuccessPanel && (
             <div
               className={`mt-8 rounded-3xl border p-6 ${
-                feedback.status === 'success' || feedback.status === 'verification_required'
+                feedback.status === 'success'
                   ? 'border-emerald-200 bg-emerald-50'
                   : 'border-cyan-200 bg-cyan-50'
               }`}
@@ -339,54 +338,40 @@ function WaitlistPage() {
               <div className="flex items-start gap-4">
                 <div
                   className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl ${
-                    feedback.status === 'success' || feedback.status === 'verification_required'
-                      ? 'bg-emerald-100'
-                      : 'bg-cyan-100'
+                    feedback.status === 'success' ? 'bg-emerald-100' : 'bg-cyan-100'
                   }`}
                 >
                   <Icon
-                    name={
-                      feedback.status === 'success' || feedback.status === 'verification_required'
-                        ? 'check-circle'
-                        : 'clock-3'
-                    }
+                    name={feedback.status === 'success' ? 'check-circle' : 'clock-3'}
                     size={22}
-                    color={
-                      feedback.status === 'success' || feedback.status === 'verification_required' ? '#059669' : '#0E7490'
-                    }
+                    color={feedback.status === 'success' ? '#059669' : '#0E7490'}
                   />
                 </div>
                 <div>
                   <p className="text-lg font-semibold text-[#0B1D3A]">
                     {feedback.status === 'success'
                       ? "You're officially on the waitlist!"
-                      : feedback.status === 'verification_required'
-                      ? 'Check your email to verify your spot'
                       : 'You are already on the waitlist'}
                   </p>
                   <p className="mt-2 text-sm leading-6 text-gray-600">
                     {feedback.message}
                   </p>
-                  {feedback.status !== 'verification_required' && (
-                    <>
-                      <p className="mt-3 text-sm leading-6 text-gray-600">
-                        Want faster momentum? Share AroundYou with a friend,
-                        teammate, or service provider in your city.
-                      </p>
-                      <button
-                        type="button"
-                        onClick={shareWaitlist}
-                        className="mt-4 inline-flex items-center gap-2 rounded-full bg-[#0D6B6E] px-6 py-3 text-sm font-semibold text-white transition-all hover:-translate-y-0.5 hover:shadow-lg"
-                      >
-                        <Icon name="share-2" size={16} color="white" />
-                        Share waitlist link
-                      </button>
-                      {shareMessage && (
-                        <p className="mt-3 text-xs font-medium text-gray-600">
-                          {shareMessage}
-                        </p>
-                      )}
-                    </>
+                  <p className="mt-3 text-sm leading-6 text-gray-600">
+                    Want faster momentum? Share AroundYou with a friend,
+                    teammate, or service provider in your city.
+                  </p>
+                  <button
+                    type="button"
+                    onClick={shareWaitlist}
+                    className="mt-4 inline-flex items-center gap-2 rounded-full bg-[#0D6B6E] px-6 py-3 text-sm font-semibold text-white transition-all hover:-translate-y-0.5 hover:shadow-lg"
+                  >
+                    <Icon name="share-2" size={16} color="white" />
+                    Share waitlist link
+                  </button>
+                  {shareMessage && (
+                    <p className="mt-3 text-xs font-medium text-gray-600">
+                      {shareMessage}
+                    </p>
                   )}
                 </div>
               </div>
