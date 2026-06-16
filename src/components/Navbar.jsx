@@ -2,7 +2,7 @@ import { useState } from "react"
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { Menu, X } from 'lucide-react'
 
-function NavBar(){
+function NavBar() {
   const location = useLocation()
   const navigate = useNavigate()
   const [open, setOpen] = useState(false)
@@ -67,6 +67,7 @@ function NavBar(){
           <div className="flex flex-col gap-3 pt-2">
             <Link to="/" onClick={() => setOpen(false)} className="py-2 text-sm font-medium text-navy">Home</Link>
             <Link to="/about" onClick={() => setOpen(false)} className="py-2 text-sm font-medium text-navy">About Us</Link>
+            <Link to="/blog" onClick={() => setOpen(false)} className="py-2 text-sm font-medium text-navy">Blog</Link>
             <button type="button" onClick={() => scrollAndNavigate('services-section')} className="py-2 text-sm font-medium text-navy text-left">Services</button>
             <button type="button" onClick={() => scrollAndNavigate('contact-section')} className="py-2 text-sm font-medium text-navy text-left">Contact</button>
             <Link
