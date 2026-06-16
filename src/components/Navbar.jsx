@@ -36,6 +36,7 @@ function NavBar(){
         <div className="hidden md:flex items-center gap-8">
           <Link to="/" className={linkClass('/')}>Home</Link>
           <Link to="/about" className={linkClass('/about')}>About Us</Link>
+          <Link to="/blog" className={linkClass('/blog')}>Blog</Link>
           <button type="button" onClick={() => scrollAndNavigate('services-section')} className="nav-link text-sm font-medium text-navy hover:text-aqua">Services</button>
           <button type="button" onClick={() => scrollAndNavigate('contact-section')} className="nav-link text-sm font-medium text-navy hover:text-aqua">Contact</button>
         </div>

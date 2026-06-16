@@ -14,6 +14,8 @@ const VerifyWaitlistPage = lazy(() => import('./pages/VerifyWaitlistPage'))
 const HelpCenterPage = lazy(() => import('./pages/HelpCenterPage'))
 const PrivacyPolicyPage = lazy(() => import('./pages/PrivacyPolicyPage'))
 const TermsOfServicePage = lazy(() => import('./pages/TermsOfServicePage'))
+const BlogPage = lazy(() => import('./pages/BlogPage'))
+const BlogDetailPage = lazy(() => import('./pages/BlogDetailPage'))
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage'))
 
 function LoadingSpinner() {
@@ -41,6 +43,8 @@ function App() {
               <Route path="/help-center" element={<HelpCenterPage />} />
               <Route path= "/privacy-policy" element={<PrivacyPolicyPage />} />
               <Route path="/terms-of-service" element={<TermsOfServicePage />} />
+              <Route path="/blog" element={<BlogPage />} />
+              <Route path="/blog/:slug" element={<BlogDetailPage />} />
               <Route path="*" element={<NotFoundPage />} />
             </Routes>
           </Suspense>
