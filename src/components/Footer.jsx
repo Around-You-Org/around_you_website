@@ -62,6 +62,11 @@ function Footer() {
                 </Link>
               </li>
               <li>
+                <Link to="/app-privacy-policy" className="text-sm text-gray-400 hover:text-white transition-colors">
+                  App Privacy Policy
+                </Link>
+              </li>
+              <li>
                 <Link to="/terms-of-service" className="text-sm text-gray-400 hover:text-white transition-colors">
                   Terms of Service
                 </Link>

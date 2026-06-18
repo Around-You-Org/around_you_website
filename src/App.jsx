@@ -13,6 +13,7 @@ const WaitlistPage = lazy(() => import('./pages/WaitlistPage'))
 const VerifyWaitlistPage = lazy(() => import('./pages/VerifyWaitlistPage'))
 const HelpCenterPage = lazy(() => import('./pages/HelpCenterPage'))
 const PrivacyPolicyPage = lazy(() => import('./pages/PrivacyPolicyPage'))
+const AppPrivacyPolicyPage = lazy(() => import('./pages/AppPrivacyPolicyPage'))
 const TermsOfServicePage = lazy(() => import('./pages/TermsOfServicePage'))
 const BlogPage = lazy(() => import('./pages/BlogPage'))
 const BlogDetailPage = lazy(() => import('./pages/BlogDetailPage'))
@@ -42,6 +43,7 @@ function App() {
               <Route path="/verify-waitlist" element={<VerifyWaitlistPage />} />
               <Route path="/help-center" element={<HelpCenterPage />} />
               <Route path= "/privacy-policy" element={<PrivacyPolicyPage />} />
+              <Route path="/app-privacy-policy" element={<AppPrivacyPolicyPage />} />
               <Route path="/terms-of-service" element={<TermsOfServicePage />} />
               <Route path="/blog" element={<BlogPage />} />
               <Route path="/blog/:slug" element={<BlogDetailPage />} />
