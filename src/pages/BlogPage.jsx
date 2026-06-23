@@ -42,7 +42,7 @@ function BlogPage() {
   return (
     <div>
       <Helmet>
-        <title>Around You - Blog</title>
+        <title>AroundYou - Blog</title>
         <meta name="description" content="Tips, stories and updates from AroundYou — local services and trusted professionals near you." />
         <meta property="og:title" content="Blog | AroundYou" />
         <meta property="og:description" content="Insights on local services, trusted workers, and getting things done right around you." />

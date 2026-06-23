@@ -5,7 +5,7 @@ const MobiledashboardHTML = `
 <head>
   <meta charset="utf-8" />
   <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
-  <title>Saved Professionals - Around You</title>
+  <title>Saved Professionals - AroundYou</title>
   <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
@@ -109,7 +109,7 @@ const MobiledashboardHTML = `
   <header class="sticky top-0 z-40 bg-white/90 backdrop-blur-xl border-b border-slate-100 px-4 py-3">
     <div class="flex items-center justify-between mb-3">
       <div>
-        <p class="text-[10px] font-bold tracking-widest text-secondary uppercase">Around You</p>
+        <p class="text-[10px] font-bold tracking-widest text-secondary uppercase">AroundYou</p>
         <h1 class="text-lg font-extrabold text-primary-container leading-tight" style="font-family:'Manrope',sans-serif;">Saved Pros</h1>
       </div>
       <div class="flex items-center gap-3">
@@ -383,7 +383,7 @@ const DesktopdashboardHTML = `
 <head>
   <meta charset="utf-8" />
   <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-  <title>Saved Professionals - Around You</title>
+  <title>Saved Professionals - AroundYou</title>
   <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
   <link
     href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap"

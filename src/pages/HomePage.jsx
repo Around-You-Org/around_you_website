@@ -78,7 +78,7 @@ function DeviceMockup() {
             >
               <iframe
                 srcDoc={DesktopdashboardHTML}
-                title="Around You Dashboard"
+                title="AroundYou Dashboard"
                 className="w-full h-full border-none"
                 style={{
                   transform: "scale(0.6)",
@@ -192,7 +192,7 @@ function DeviceMockup() {
             >
               <iframe
                 srcDoc={MobiledashboardHTML}
-                title="Around You Dashboard Mobile"
+                title="AroundYou Dashboard Mobile"
                 className="border-none"
                 style={{
                   width: "400px",
@@ -267,10 +267,10 @@ function HomePage() {
   return (
     <>
       <Helmet>
-        <title>Around You - Connect with Trusted Professionals Instantly</title>
+        <title>AroundYou - Connect with Trusted Professionals Instantly</title>
         <meta
           name="description"
-          content="Around You is your go-to platform for instantly connecting with trusted professionals. Whether you need a handyman, cleaner, driver, or artisan, we've got you covered. Our GPS-matching technology ensures you find the right help, right around you."
+          content="AroundYou is your go-to platform for instantly connecting with trusted professionals. Whether you need a handyman, cleaner, driver, or artisan, we've got you covered. Our GPS-matching technology ensures you find the right help, right around you."
         />
         <meta
           name="keywords"
@@ -324,7 +324,7 @@ function HomePage() {
             >
               Everything You Need,
               <br />
-              <span style={{ color: "#3EC6C8" }}>Right Around You</span>
+              <span style={{ color: "#3EC6C8" }}>Right AroundYou</span>
             </h1>
             <p className="mt-6 text-lg md:text-xl text-gray-300 max-w-xl mx-auto lg:mx-0">
               Instantly connect with trusted artisans, drivers, cleaners,

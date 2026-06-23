@@ -94,7 +94,7 @@ function HelpCenterPage() {
   return (
     <div className="min-h-screen bg-white">
       <Helmet>
-        <title>Around You - Help Center</title>
+        <title>AroundYou - Help Center</title>
         <meta name="description" content="Find answers to common questions and get support for AroundYou services." />
         <meta property="og:title" content="Help Center | AroundYou" />
         <meta property="og:description" content="Find answers to common questions and get support." />

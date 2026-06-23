@@ -46,7 +46,7 @@ function AboutPage() {
   return (
     <div>
       <Helmet>
-        <title>Around You - About Us</title>
+        <title>AroundYou - About Us</title>
         <meta name="description" content="Learn more about AroundYou, our mission, and our team." />
         <meta property="og:title" content="About Us | AroundYou" />
         <meta property="og:description" content="Learn about the team and mission behind AroundYou." />

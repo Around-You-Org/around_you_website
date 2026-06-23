@@ -12,7 +12,7 @@ function CTASection() {
           style={{ background: "#6EE7A8", filter: "blur(50px)" }} />
         <div className="relative z-10 p-10 md:p-14 text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-white" style={{ fontFamily: "'Sora', sans-serif" }}>
-            Ready to Find Help<br /><span style={{ color: "#3EC6C8" }}>Around You?</span>
+            Ready to Find Help<br /><span style={{ color: "#3EC6C8" }}>AroundYou?</span>
           </h2>
           <p className="mt-4 text-gray-300 max-w-lg mx-auto">
             Be among the first Nigerians to experience AroundYou — get things done faster, safer, and smarter.
