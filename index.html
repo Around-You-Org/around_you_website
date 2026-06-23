@@ -3,34 +3,10 @@
   <head>
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-TWXNPNQVYM"></script>
-    <script>
-      const aroundYouConsentKey = 'aroundyou_cookie_consent';
-      let aroundYouStoredConsent = 'pending';
-      try {
-        aroundYouStoredConsent = localStorage.getItem(aroundYouConsentKey) || 'pending';
-      } catch (error) {
-        aroundYouStoredConsent = 'pending';
-      }
-
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('consent', 'default', {
-        ad_storage: 'denied',
-        ad_user_data: 'denied',
-        ad_personalization: 'denied',
-        analytics_storage:
-          aroundYouStoredConsent === 'accepted' ? 'granted' : 'denied',
-        functionality_storage: 'granted',
-        personalization_storage: 'denied',
-        security_storage: 'granted',
-        wait_for_update: aroundYouStoredConsent === 'pending' ? 500 : 0,
-      });
-      gtag('js', new Date());
-      gtag('config', 'G-TWXNPNQVYM', { anonymize_ip: true });
-    </script>
+    
 
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/IMG_5222.JPG" />
+    <link rel="icon" type="image/svg+xml" href="/logo.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>AroundYou</title>
 
@@ -52,7 +28,7 @@
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="AroundYou - Connect with Trusted Pros Instantly" />
     <meta name="twitter:description" content="Instantly connect with trusted artisans, drivers, cleaners, handymen, and more. All GPS-matched and ready to help." />
-    <meta name="twitter:image" content="https://aroundyou.com.ng/logo.png" />
+    <meta name="twitter:image" content="https://aroundyou.com.ng/logo.svg" />
 
   </head>
   <body>
