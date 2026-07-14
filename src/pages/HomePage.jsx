@@ -1,5 +1,4 @@
 import { useEffect } from "react";
-import { Link } from "react-router-dom";
 import { Helmet } from 'react-helmet-async';
 import Icon from "../components/Icon";
 import useScrollReveal from "../hooks/useScrollReveal";
@@ -8,6 +7,7 @@ import ContactSection from "../sections/ContactSection";
 import ServicesSection from "../sections/ServicesSection";
 import TrustSection from "../sections/TrustSection";
 import { MobiledashboardHTML, DesktopdashboardHTML } from "../components/mockup";
+import StoreBadges from "../components/StoreBadges";
 
 
 const steps = [
@@ -314,7 +314,7 @@ function HomePage() {
             >
               <div className="w-3 h-3 rounded-full bg-[#6EE7A8]" />
               <span className="text-base font-semibold text-white/90">
-                Coming soon....
+                Now live on Google Play
               </span>
             </div>
 
@@ -331,52 +331,7 @@ function HomePage() {
               handymen, and more. All GPS-matched and ready to help.
             </p>
 
-            <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-              <Link
-                to="/waitlist?role=customer"
-                className="px-8 py-3.5 rounded-full text-base font-semibold text-white flex items-center justify-center gap-2 transition-all hover:-translate-y-0.5 hover:shadow-xl"
-                style={{
-                  background: "linear-gradient(135deg,#0D6B6E,#3EC6C8)",
-                }}
-              >
-                <Icon name="sparkles" size={18} color="white" />
-                Join our Waitlist
-              </Link>
-            </div>
-
-            {/* Development status */}
-            <div className="mt-10 grid grid-cols-1 sm:grid-cols-3 gap-4 justify-items-center lg:justify-items-start">
-              {[
-                {
-                  title: "Alpha Stage",
-                  text: "Core functionality is being built and tested.",
-                  icon: "wrench",
-                },
-                {
-                  title: "Beta Launch",
-                  text: "Early testers will help refine user flow.",
-                  icon: "user-check",
-                },
-                {
-                  title: "Production Ready",
-                  text: "Full platform rollout expected soon.",
-                  icon: "rocket",
-                },
-              ].map(({ title, text, icon }) => (
-                <div
-                  key={title}
-                  className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl px-5 py-5 w-full max-w-xs"
-                >
-                  <div className="flex items-center justify-center gap-2 mb-3">
-                    <Icon name={icon} size={16} color="#6EE7A8" />
-                    <p className="text-xs text-white/80 uppercase tracking-wider">
-                      {title}
-                    </p>
-                  </div>
-                  <p className="text-sm md:text-base text-gray-200">{text}</p>
-                </div>
-              ))}
-            </div>
+            <StoreBadges className="mt-8 justify-center lg:justify-start" />
           </div>
 
           {/* Device Mockup */}

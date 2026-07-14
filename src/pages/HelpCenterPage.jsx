@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { Helmet } from 'react-helmet-async';
-import { Link } from 'react-router-dom';
 import Icon from "../components/Icon";
 import useScrollReveal from "../hooks/useScrollReveal";
+import { PLAY_STORE_URL } from "../lib/links";
 
 function FAQItem({ question, answer }) {
   const [open, setOpen] = useState(false);
@@ -52,32 +52,32 @@ function HelpCenterPage() {
     {
       question: "What is AroundYou?",
       answer:
-        "AroundYou is a platform that connects people with trusted professionals such as artisans, cleaners, and drivers. We are currently in our early launch phase.",
+        "AroundYou is a platform that connects people with trusted professionals such as artisans, cleaners, and drivers, right around you.",
     },
     {
       question: "Is AroundYou available now?",
       answer:
-        "AroundYou is currently in its pre-launch phase. You can join the waitlist to be notified when we go live in your area.",
+        "Yes. AroundYou is live on the Google Play Store. Download the app to get started.",
     },
     {
-      question: "How do I join the waitlist?",
+      question: "How do I get started?",
       answer:
-        "Go to the Waitlist page, fill in your details, choose whether you're joining as a customer or worker, and verify your email to confirm your spot.",
+        "Download the AroundYou app from the Google Play Store, create your account, and share your location to find verified professionals near you.",
     },
     {
-      question: "What happens after I join the waitlist?",
+      question: "How does AroundYou find professionals near me?",
       answer:
-        "We will notify you by email when AroundYou launches in your area and provide early access where available.",
+        "Open the app and share your location. AroundYou uses GPS to match you with verified professionals in your area in real time.",
     },
     {
       question: "Can I sign up as a worker?",
       answer:
-        "Yes, you can join the waitlist as a worker by selecting your services during registration. We will contact you when onboarding begins.",
+        "Yes. You can register as a service provider in the app and select the services you offer. Providers go through verification before being approved.",
     },
     {
       question: "How are workers verified?",
       answer:
-        "Workers will go through a verification process before being approved on the platform. Full details will be shared during onboarding.",
+        "Workers go through a verification process before being approved on the platform to help keep the community safe and trusted.",
     },
     {
       question: "How can I contact support?",
@@ -85,9 +85,9 @@ function HelpCenterPage() {
         "You can reach our support team anytime via email at support@aroundyou.com.ng or through the contact options on this page.",
     },
     {
-      question: "Is AroundYou free to join?",
+      question: "Is AroundYou free to use?",
       answer:
-        "Yes, joining the waitlist is completely free. You will only be notified when the platform becomes available.",
+        "Yes, downloading the app and creating an account is completely free.",
     },
   ];
 
@@ -186,7 +186,7 @@ function HelpCenterPage() {
               Email Support
             </a>
             <a
-              href="tel:+2349071037946"
+              href="tel:+2347066063380"
               className="inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-full text-sm font-semibold transition-all hover:-translate-y-0.5"
               style={{
                 background: "rgba(13,107,110,0.08)",
@@ -195,16 +195,18 @@ function HelpCenterPage() {
               }}
             >
               <Icon name="phone" size={18} color="#0D6B6E" />
-              +234 907 103 7946
+              +234 706 606 3380
             </a>
-            <Link
-              to="/waitlist"
+            <a
+              href={PLAY_STORE_URL}
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-full text-sm font-semibold text-white transition-all hover:-translate-y-0.5 hover:shadow-lg"
               style={{ background: "#0D6B6E" }}
             >
-              <Icon name="user-plus" size={18} color="white" />
-              Join Waitlist
-            </Link>
+              <Icon name="download" size={18} color="white" />
+              Download on Google Play
+            </a>
           </div>
         </div>
       </section>

@@ -46,7 +46,7 @@ function ContactSection() {
         <div className="grid md:grid-cols-3 gap-6 mb-10">
           {[
             { icon: "mail", color: "#0D6B6E", bg: "rgba(13,107,110,0.1)", title: "Email", val: "contact@aroundyou.com.ng", url: "mailto:contact@aroundyou.com.ng" },
-            { icon: "phone", color: "#3EC6C8", bg: "rgba(62,198,200,0.1)", title: "Phone", val: "+234 907 1037 946", url: "tel:+2349071037946" },
+            { icon: "phone", color: "#3EC6C8", bg: "rgba(62,198,200,0.1)", title: "Phone", val: "+234 706 606 3380", url: "tel:+2347066063380" },
             { icon: "map-pin", color: "#6EE7A8", bg: "rgba(110,231,168,0.1)", title: "Office", val: "Asaba, Nigeria" },
           ].map(({ icon, color, bg, title, val, url }) => (
             <a key={title} href={url || "#"} className="block">

@@ -13,7 +13,7 @@ export default function PrivacyPolicyPage() {
         <title>Privacy Policy | AroundYou</title>
         <meta
           name="description"
-          content="Privacy Policy for the AroundYou website and waitlist. Learn how we collect, use, and protect information submitted through our website, waitlist, contact forms, and chat."
+          content="Privacy Policy for the AroundYou website. Learn how we collect, use, and protect information submitted through our website contact forms and chat."
         />
         <meta property="og:title" content="Privacy Policy | AroundYou" />
         <meta property="og:description" content="Learn how AroundYou collects, uses, and protects your information." />
@@ -25,9 +25,9 @@ export default function PrivacyPolicyPage() {
         <div className="bg-linear-to-r from-[#0D6B6E] to-[#3EC6C8] py-12 px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto">
             <h1 className="text-4xl font-bold text-white mb-4">
-              Website and Waitlist Privacy Policy
+              Website Privacy Policy
             </h1>
-            <p className="text-lg text-gray-100">Last Updated: April 13, 2026</p>
+            <p className="text-lg text-gray-100">Last Updated: July 15, 2026</p>
           </div>
         </div>
 
@@ -38,16 +38,15 @@ export default function PrivacyPolicyPage() {
               AroundYou ("we," "us," or "our") is committed to protecting your
               privacy. This Privacy Policy explains how we collect, use,
               disclose, and protect personal information in connection with the
-              AroundYou website at aroundyou.com.ng, our waitlist, our website
-              contact and partnership forms, and our website chat tools.
+              AroundYou website at aroundyou.com.ng, our website contact and
+              partnership forms, and our website chat tools.
             </p>
             <p className="text-gray-700">
-              This Privacy Policy applies only to our current website and
-              waitlist. We only collect the information reasonably necessary for
-              the website, waitlist, communications, and support. We do not
-              sell or rent your personal data to third parties. It does not
-              describe future products or features unless and until they are
-              launched and covered by an updated policy.
+              This Privacy Policy applies only to our website. We only collect
+              the information reasonably necessary for the website,
+              communications, and support. We do not sell or rent your personal
+              data to third parties. Use of the AroundYou mobile app is covered
+              by our separate App Privacy Policy.
             </p>
           </section>
 
@@ -59,44 +58,7 @@ export default function PrivacyPolicyPage() {
             <div className="space-y-6">
               <div>
                 <h3 className="text-xl font-semibold text-gray-800 mb-2">
-                  1.1 Waitlist Information
-                </h3>
-                <p className="text-gray-700 mb-3">
-                  When you join our waitlist, we may collect:
-                </p>
-                <ul className="list-disc list-inside text-gray-700 space-y-2">
-                  <li>
-                    <strong>Name:</strong> your full name
-                  </li>
-                  <li>
-                    <strong>Email Address:</strong> your email address for
-                    waitlist registration, email verification, and updates
-                  </li>
-                  <li>
-                    <strong>Phone Number:</strong> your phone number for
-                    waitlist administration, contact, and duplicate prevention
-                  </li>
-                  <li>
-                    <strong>Role:</strong> whether you are joining as a
-                    customer or worker
-                  </li>
-                  <li>
-                    <strong>Location:</strong> your city or service area
-                  </li>
-                  <li>
-                    <strong>Services:</strong> the services you are interested
-                    in or offer, especially if you join as a worker
-                  </li>
-                  <li>
-                    <strong>Referral Source:</strong> how you heard about
-                    AroundYou
-                  </li>
-                </ul>
-              </div>
-
-              <div>
-                <h3 className="text-xl font-semibold text-gray-800 mb-2">
-                  1.2 Contact and Partnership Form Information
+                  1.1 Contact and Partnership Form Information
                 </h3>
                 <p className="text-gray-700 mb-3">
                   If you contact us through the website or submit a partnership
@@ -114,7 +76,7 @@ export default function PrivacyPolicyPage() {
 
               <div>
                 <h3 className="text-xl font-semibold text-gray-800 mb-2">
-                  1.3 Chat and Support Information
+                  1.2 Chat and Support Information
                 </h3>
                 <p className="text-gray-700">
                   If you use our website chat widget powered by Brevo (chat and
@@ -126,7 +88,7 @@ export default function PrivacyPolicyPage() {
 
               <div>
                 <h3 className="text-xl font-semibold text-gray-800 mb-2">
-                  1.4 Automatically Collected Technical Information
+                  1.3 Automatically Collected Technical Information
                 </h3>
                 <p className="text-gray-700 mb-3">
                   When you visit or interact with our website, we and our
@@ -141,7 +103,7 @@ export default function PrivacyPolicyPage() {
                   <li>Timestamps and basic request metadata</li>
                   <li>
                     Security and anti-abuse information used to protect the
-                    website and waitlist
+                    website
                   </li>
                 </ul>
               </div>
@@ -157,13 +119,13 @@ export default function PrivacyPolicyPage() {
             </p>
             <ul className="list-disc list-inside text-gray-700 space-y-2">
               <li>
-                <strong>Consent:</strong> when you submit forms, join the
-                waitlist, contact us, or otherwise provide information.
+                <strong>Consent:</strong> when you submit forms, contact us, or
+                otherwise provide information.
               </li>
               <li>
                 <strong>Legitimate Interests:</strong> when we need to operate,
-                secure, maintain, and improve the website and waitlist, respond
-                to inquiries, prevent abuse, and support business operations.
+                secure, maintain, and improve the website, respond to inquiries,
+                prevent abuse, and support business operations.
               </li>
             </ul>
           </section>
@@ -177,18 +139,6 @@ export default function PrivacyPolicyPage() {
             </p>
             <ul className="list-disc list-inside text-gray-700 space-y-2">
               <li>Operating, maintaining, and securing the website</li>
-              <li>
-                Processing waitlist registrations and sending email
-                verification messages
-              </li>
-              <li>
-                Sending service-related emails such as waitlist confirmation,
-                email verification, waitlist updates, and launch notifications
-              </li>
-              <li>
-                Understanding interest by city, role, and service category so we
-                can plan rollout priorities
-              </li>
               <li>Responding to contact, support, and partnership inquiries</li>
               <li>
                 Operating our website chat and customer communication tools
@@ -218,29 +168,17 @@ export default function PrivacyPolicyPage() {
             <div className="space-y-4">
               <div>
                 <h3 className="text-lg font-semibold text-gray-800 mb-2">
-                  4.1 Supabase
+                  4.1 Brevo
                 </h3>
                 <p className="text-gray-700">
-                  We use Supabase to help store waitlist information and operate
-                  backend functions related to waitlist processing, email
-                  verification, and anti-abuse controls.
+                  We use Brevo to provide website chat functionality through
+                  Brevo Conversations.
                 </p>
               </div>
 
               <div>
                 <h3 className="text-lg font-semibold text-gray-800 mb-2">
-                  4.2 Brevo
-                </h3>
-                <p className="text-gray-700">
-                  We use Brevo to send waitlist email verification messages and
-                  other waitlist emails, and to provide website chat
-                  functionality through Brevo Conversations.
-                </p>
-              </div>
-
-              <div>
-                <h3 className="text-lg font-semibold text-gray-800 mb-2">
-                  4.3 Formspree
+                  4.2 Formspree
                 </h3>
                 <p className="text-gray-700">
                   We use Formspree to process contact form and partnership
@@ -249,14 +187,14 @@ export default function PrivacyPolicyPage() {
               </div>
 
               <p className="text-gray-700">
-                Supabase, Brevo, and Formspree process personal data on our
-                behalf to help operate the website and services. We do not sell
-                or rent your personal data to third parties.
+                Brevo and Formspree process personal data on our behalf to help
+                operate the website and services. We do not sell or rent your
+                personal data to third parties.
               </p>
 
               <div>
                 <h3 className="text-lg font-semibold text-gray-800 mb-2">
-                  4.5 Hosting and Infrastructure Providers
+                  4.3 Hosting and Infrastructure Providers
                 </h3>
                 <p className="text-gray-700">
                   Our hosting, delivery, and infrastructure providers may
@@ -268,7 +206,7 @@ export default function PrivacyPolicyPage() {
 
               <div>
                 <h3 className="text-lg font-semibold text-gray-800 mb-2">
-                  4.6 Legal or Business Reasons
+                  4.4 Legal or Business Reasons
                 </h3>
                 <p className="text-gray-700">
                   We may disclose information if required by law, to respond to
@@ -286,8 +224,8 @@ export default function PrivacyPolicyPage() {
               We use reasonable administrative, technical, and organizational
               measures to help protect the information we process. Depending on
               the context, these measures may include encrypted website
-              connections, access controls, email verification messages for
-              waitlist signups, and anti-spam or rate-limiting protections.
+              connections, access controls, and anti-spam or rate-limiting
+              protections.
             </p>
             <p className="text-gray-700">
               However, no method of transmission or storage is completely
@@ -301,8 +239,8 @@ export default function PrivacyPolicyPage() {
             </h2>
             <p className="text-gray-700">
               We keep personal information only for as long as reasonably
-              necessary to operate the website and waitlist, communicate with
-              you, respond to inquiries, maintain security, comply with legal
+              necessary to operate the website, communicate with you, respond to
+              inquiries, maintain security, comply with legal
               obligations, and resolve disputes. If you request deletion, we may
               retain limited information where necessary for security, fraud
               prevention, recordkeeping, or legal compliance.
@@ -403,8 +341,8 @@ export default function PrivacyPolicyPage() {
             </h2>
             <p className="text-gray-700">
               We may update this Privacy Policy from time to time to reflect
-              changes in our website, waitlist process, service providers, legal
-              requirements, or business operations. When we do, we will update
+              changes in our website, service providers, legal requirements, or
+              business operations. When we do, we will update
               the "Last Updated" date at the top of this page.
             </p>
           </section>

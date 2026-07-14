@@ -1,5 +1,6 @@
 import Icon from "./Icon";
 import { Link } from "react-router-dom";
+import { PLAY_STORE_URL } from "../lib/links";
 
 function Footer() {
   return (
@@ -32,7 +33,7 @@ function Footer() {
                 <Link to="/about" className="text-sm text-gray-400 hover:text-white transition-colors">About Us</Link>
               </li>
               <li>
-                <Link to="/waitlist?role=worker" className="text-sm text-gray-400 hover:text-white transition-colors">Become a Provider</Link>
+                <a href="/#contact-section" className="text-sm text-gray-400 hover:text-white transition-colors">Become a Provider</a>
               </li>
             </ul>
           </div>
@@ -42,7 +43,7 @@ function Footer() {
             <ul className="space-y-2.5">
               {['Rides & Drivers', 'Artisans', 'Cleaning', 'Delivery'].map((label) => (
                 <li key={label}>
-                  <Link to="/waitlist?role=customer" className="text-sm text-gray-400 hover:text-white transition-colors">{label}</Link>
+                  <a href={PLAY_STORE_URL} target="_blank" rel="noopener noreferrer" className="text-sm text-gray-400 hover:text-white transition-colors">{label}</a>
                 </li>
               ))}
             </ul>

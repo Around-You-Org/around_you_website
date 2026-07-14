@@ -9,8 +9,6 @@ import Icon from './components/Icon'
 
 const HomePage = lazy(() => import('./pages/HomePage'))
 const AboutPage = lazy(() => import('./pages/AboutPage'))
-const WaitlistPage = lazy(() => import('./pages/WaitlistPage'))
-const VerifyWaitlistPage = lazy(() => import('./pages/VerifyWaitlistPage'))
 const HelpCenterPage = lazy(() => import('./pages/HelpCenterPage'))
 const PrivacyPolicyPage = lazy(() => import('./pages/PrivacyPolicyPage'))
 const AppPrivacyPolicyPage = lazy(() => import('./pages/AppPrivacyPolicyPage'))
@@ -39,8 +37,6 @@ function App() {
             <Routes>
               <Route path="/" element={<HomePage />} />
               <Route path="/about" element={<AboutPage />} />
-              <Route path="/waitlist" element={<WaitlistPage />} />
-              <Route path="/verify-waitlist" element={<VerifyWaitlistPage />} />
               <Route path="/help-center" element={<HelpCenterPage />} />
               <Route path= "/privacy-policy" element={<PrivacyPolicyPage />} />
               <Route path="/app-privacy-policy" element={<AppPrivacyPolicyPage />} />

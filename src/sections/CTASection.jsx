@@ -1,5 +1,4 @@
-import Icon from "../components/Icon";
-import { Link } from "react-router-dom";
+import StoreBadges from "../components/StoreBadges";
 
 function CTASection() {
   return (
@@ -15,24 +14,16 @@ function CTASection() {
             Ready to Find Help<br /><span style={{ color: "#3EC6C8" }}>AroundYou?</span>
           </h2>
           <p className="mt-4 text-gray-300 max-w-lg mx-auto">
-            Be among the first Nigerians to experience AroundYou — get things done faster, safer, and smarter.
+            Download AroundYou and get things done faster, safer, and smarter.
           </p>
-          <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
-            <Link
-              to="/waitlist?role=customer"
-              className="px-8 py-3.5 rounded-full text-base font-semibold text-white flex items-center justify-center gap-2 transition-all hover:-translate-y-0.5 hover:shadow-lg"
-              style={{ background: "#3EC6C8" }}>
-              <Icon name="smartphone" size={18} color="white" />
-              Join our Waitlist
-            </Link>
-            
-            <Link
-              to="/waitlist?role=worker"
-              className="px-8 py-3.5 rounded-full text-base font-semibold text-white flex items-center justify-center gap-2 transition-all hover:bg-white/10"
-              style={{ background: "rgba(255,255,255,0.08)", border: "1px solid rgba(255,255,255,0.12)" }}>
+          <div className="mt-8 flex flex-col items-center gap-5">
+            <StoreBadges className="justify-center" />
+
+            <a
+              href="#contact-section"
+              className="text-sm font-semibold text-white/90 underline underline-offset-4 transition-colors hover:text-white">
               Become a Provider
-            </Link>
-            
+            </a>
           </div>
         </div>
       </div>

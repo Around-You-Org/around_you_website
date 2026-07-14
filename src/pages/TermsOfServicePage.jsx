@@ -13,12 +13,12 @@ export default function TermsOfServicePage() {
         <title>Terms of Service | AroundYou</title>
         <meta
           name="description"
-          content="Terms of Service for the AroundYou website and waitlist. Read our terms and conditions before using our services."
+          content="Terms of Service for the AroundYou website. Read our terms and conditions before using our services."
         />
         <meta property="og:title" content="Terms of Service | AroundYou" />
         <meta
           property="og:description"
-          content="Read the terms that govern your use of the AroundYou website and waitlist."
+          content="Read the terms that govern your use of the AroundYou website."
         />
         <meta property="og:url" content="https://aroundyou.com.ng/terms-of-service" />
         <meta name="robots" content="index, follow" />
@@ -30,7 +30,7 @@ export default function TermsOfServicePage() {
             <h1 className="text-4xl font-bold text-white mb-4">
               Terms of Service
             </h1>
-            <p className="text-lg text-gray-100">Last Updated: April 13, 2026</p>
+            <p className="text-lg text-gray-100">Last Updated: July 15, 2026</p>
           </div>
         </div>
 
@@ -40,20 +40,15 @@ export default function TermsOfServicePage() {
             <p className="text-gray-700 mb-4">
               Welcome to AroundYou ("we," "us," or "our"). These Terms of Service
               ("Terms") govern your access to and use of the AroundYou website at
-              aroundyou.com.ng, our waitlist, and related services (collectively, the
+              aroundyou.com.ng and related website services (collectively, the
               "Services"). By accessing or using our Services, you agree to be bound
               by these Terms. If you do not agree to these Terms, please do not
               use our Services.
             </p>
-            <p className="text-gray-700 mb-4">
-              These Terms apply only to our current website and waitlist. They
-              do not describe terms for future products or features unless and
-              until those features are launched and covered by updated terms.
-            </p>
             <p className="text-gray-700">
-              These Terms do not govern future marketplace or service interactions
-              between users unless and until those features are launched and
-              covered by updated terms.
+              These Terms apply to our website. Your use of the AroundYou mobile
+              app may be governed by additional or separate terms presented in
+              connection with the app.
             </p>
           </section>
 
@@ -70,54 +65,13 @@ export default function TermsOfServicePage() {
 
           <section className="mb-12">
             <h2 className="text-2xl font-bold text-gray-900 mb-4">
-              2. Waitlist Registration
-            </h2>
-            <div className="space-y-4">
-              <div>
-                <h3 className="text-lg font-semibold text-gray-800 mb-2">
-                  2.1 Accurate Information
-                </h3>
-                <p className="text-gray-700">
-                  When joining our waitlist, you agree to provide accurate,
-                  current, and complete information. You are responsible for
-                  maintaining the accuracy of the information you provide and
-                  for maintaining access to your email address used for
-                  verification.
-                </p>
-              </div>
-              <div>
-                <h3 className="text-lg font-semibold text-gray-800 mb-2">
-                  2.2 Email Verification
-                </h3>
-                <p className="text-gray-700">
-                  Waitlist registration requires email verification. You must
-                  verify your email address using the verification message we
-                  send you to confirm your spot on the waitlist.
-                </p>
-              </div>
-              <div>
-                <h3 className="text-lg font-semibold text-gray-800 mb-2">
-                  2.3 No Guarantee
-                </h3>
-                <p className="text-gray-700">
-                  Joining the waitlist does not guarantee access to future
-                  AroundYou services, any particular launch date, or availability
-                  in your area.
-                </p>
-              </div>
-            </div>
-          </section>
-
-          <section className="mb-12">
-            <h2 className="text-2xl font-bold text-gray-900 mb-4">
-              3. Acceptable Use
+              2. Acceptable Use
             </h2>
             <p className="text-gray-700 mb-4">
               You agree not to:
             </p>
             <ul className="list-disc list-inside text-gray-700 space-y-3">
               <li><strong>False information:</strong> Submit false, misleading, or inaccurate information</li>
-              <li><strong>Multiple registrations:</strong> Register multiple times with different identities</li>
               <li>
                 <strong>Automation:</strong> Use automated tools, bots, or scripts to interact with the
                 Services
@@ -139,7 +93,7 @@ export default function TermsOfServicePage() {
 
           <section className="mb-12">
             <h2 className="text-2xl font-bold text-gray-900 mb-4">
-              4. Intellectual Property
+              3. Intellectual Property
             </h2>
             <p className="text-gray-700 mb-4">
               All content, trademarks, logos, and intellectual property displayed
@@ -151,16 +105,15 @@ export default function TermsOfServicePage() {
 
           <section className="mb-12">
             <h2 className="text-2xl font-bold text-gray-900 mb-4">
-              5. Communications
+              4. Communications
             </h2>
             <p className="text-gray-700 mb-4">
-              By joining our waitlist, you consent to receive service-related
-              communications from us, including:
+              If you contact us or request updates through the website, you consent
+              to receive service-related communications from us, including:
             </p>
             <ul className="list-disc list-inside text-gray-700 space-y-2">
-              <li>Email verification messages</li>
-              <li>Waitlist confirmation and welcome emails</li>
-              <li>Launch notifications and updates</li>
+              <li>Responses to your inquiries and support requests</li>
+              <li>Updates you have requested</li>
               <li>Important service announcements</li>
             </ul>
             <p className="text-gray-700 mt-4">
@@ -171,7 +124,7 @@ export default function TermsOfServicePage() {
 
           <section className="mb-12">
             <h2 className="text-2xl font-bold text-gray-900 mb-4">
-              6. Third-Party Links
+              5. Third-Party Links
             </h2>
             <p className="text-gray-700">
               Our website may contain links to third-party websites or services
@@ -183,7 +136,7 @@ export default function TermsOfServicePage() {
 
           <section className="mb-12">
             <h2 className="text-2xl font-bold text-gray-900 mb-4">
-              7. Disclaimers
+              6. Disclaimers
             </h2>
             <p className="text-gray-700 mb-4">
               The Services are provided "as is" and "as available" without
@@ -193,14 +146,13 @@ export default function TermsOfServicePage() {
             </p>
             <p className="text-gray-700">
               We do not guarantee that the Services will be available at all
-              times or in all locations, or that any future services will be
-              launched.
+              times or in all locations.
             </p>
           </section>
 
           <section className="mb-12">
             <h2 className="text-2xl font-bold text-gray-900 mb-4">
-              8. Limitation of Liability
+              7. Limitation of Liability
             </h2>
             <p className="text-gray-700">
               To the fullest extent permitted by applicable law, AroundYou and its
@@ -213,7 +165,7 @@ export default function TermsOfServicePage() {
 
           <section className="mb-12">
             <h2 className="text-2xl font-bold text-gray-900 mb-4">
-              9. Termination
+              8. Termination
             </h2>
             <p className="text-gray-700">
               We reserve the right to suspend or terminate your access to the
@@ -225,7 +177,7 @@ export default function TermsOfServicePage() {
 
           <section className="mb-12">
             <h2 className="text-2xl font-bold text-gray-900 mb-4">
-              10. Service Changes and Availability
+              9. Service Changes and Availability
             </h2>
             <p className="text-gray-700">
               We may modify, suspend, or discontinue any part of the Services at any time, with or without notice. We are not liable for any such changes, interruptions, or discontinuation.
@@ -234,7 +186,7 @@ export default function TermsOfServicePage() {
 
           <section className="mb-12">
             <h2 className="text-2xl font-bold text-gray-900 mb-4">
-              11. Changes to These Terms
+              10. Changes to These Terms
             </h2>
             <p className="text-gray-700">
               We may update these Terms from time to time. When we do, we will
@@ -246,7 +198,7 @@ export default function TermsOfServicePage() {
 
           <section className="mb-12">
             <h2 className="text-2xl font-bold text-gray-900 mb-4">
-              12. Governing Law
+              11. Governing Law
             </h2>
             <p className="text-gray-700">
               These Terms shall be governed by and construed in accordance with
@@ -257,7 +209,7 @@ export default function TermsOfServicePage() {
 
           <section className="mb-12">
             <h2 className="text-2xl font-bold text-gray-900 mb-4">
-              13. No Relationship Created
+              12. No Relationship Created
             </h2>
             <p className="text-gray-700">
               Nothing in these Terms creates any partnership, employment, or
@@ -267,7 +219,7 @@ export default function TermsOfServicePage() {
 
           <section className="mb-12">
             <h2 className="text-2xl font-bold text-gray-900 mb-4">
-              14. Force Majeure
+              13. Force Majeure
             </h2>
             <p className="text-gray-700">
               We are not liable for delays or failures caused by events beyond
@@ -279,7 +231,7 @@ export default function TermsOfServicePage() {
 
           <section className="mb-12">
             <h2 className="text-2xl font-bold text-gray-900 mb-4">
-              15. Entire Agreement
+              14. Entire Agreement
             </h2>
             <p className="text-gray-700">
               These Terms constitute the entire agreement between you and
@@ -289,7 +241,7 @@ export default function TermsOfServicePage() {
 
           <section className="mb-12">
             <h2 className="text-2xl font-bold text-gray-900 mb-4">
-              16. Contact Us
+              15. Contact Us
             </h2>
             <p className="text-gray-700 mb-4">
               If you have any questions about these Terms, please contact us at:
