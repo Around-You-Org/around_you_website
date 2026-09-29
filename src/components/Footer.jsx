@@ -14,10 +14,10 @@ function Footer() {
             </p>
             <div className="flex gap-3 mt-5">
               {[
-                { name: "twitter", url: "https://x.com/AroundY39229", label: "Follow us on X (Twitter)" },
-                { name: "instagram", url: "https://www.instagram.com/aroundyou26._/", label: "Follow us on Instagram" },
+                { name: "twitter", url: "https://x.com/aroundyou_nig", label: "Follow us on X (Twitter)" },
+                { name: "instagram", url: "https://www.instagram.com/around_you_ig/", label: "Follow us on Instagram" },
                 { name: "linkedin", url: "https://www.linkedin.com/company/around-you26/", label: "Follow us on LinkedIn" },
-                { name: "tiktok", url: "https://www.tiktok.com/@aroundyou26", label: "Follow us on TikTok" }
+                { name: "tiktok", url: "https://www.tiktok.com/@aroundyou_ng", label: "Follow us on TikTok" }
               ].map(({ name, url, label }) => (
                 <a key={name} href={url} target="_blank" rel="noopener noreferrer" aria-label={label} className="w-8 h-8 rounded-full flex items-center justify-center bg-white/10 hover:bg-white/20 transition-colors">
                   <Icon name={name} size={14} color="#3EC6C8" />
