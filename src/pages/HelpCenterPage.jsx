@@ -102,17 +102,10 @@ function HelpCenterPage() {
       </Helmet>
 
       {/* Hero Section */}
-      <section
-        className="relative py-20 overflow-hidden text-white"
-        style={{ background: "linear-gradient(135deg,#0B1D3A 0%,#0D6B6E 100%)" }}
-      >
+      <section className="relative py-24 overflow-hidden text-white bg-[#0B1D3A]">
         <div
-          className="absolute top-10 right-10 w-64 h-64 rounded-full opacity-10 pointer-events-none"
-          style={{ background: "#3EC6C8", filter: "blur(80px)" }}
-        />
-        <div
-          className="absolute bottom-10 left-10 w-48 h-48 rounded-full opacity-10 pointer-events-none"
-          style={{ background: "#6EE7A8", filter: "blur(60px)" }}
+          className="pointer-events-none absolute right-[-120px] top-0 h-[460px] w-[460px] rounded-full"
+          style={{ background: "radial-gradient(circle, rgba(62,198,200,0.16), transparent 70%)" }}
         />
         <div className="max-w-4xl mx-auto px-6 text-center relative z-10">
           <span

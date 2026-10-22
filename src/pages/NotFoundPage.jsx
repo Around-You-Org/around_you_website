@@ -1,61 +1,59 @@
 import { Link } from "react-router-dom";
-import useScrollReveal from "../hooks/useScrollReveal";
 
 function NotFoundPage() {
-  useScrollReveal();
-
   return (
-    <div className="min-h-screen bg-linear-to-br from-[#0B1D3A] to-[#1e3a5f] flex items-center justify-center px-6">
-      <div className="max-w-2xl mx-auto text-center">
-        {/* 404 Number */}
-        <div className="mb-8">
-          <h1 className="text-8xl md:text-9xl font-bold text-white mb-4 opacity-20">
-            404
-          </h1>
+    <div className="relative min-h-screen overflow-hidden bg-[#0B1D3A] flex items-center justify-center px-6">
+      {/* single, static spotlight — consistent with the rest of the site */}
+      <div
+        className="pointer-events-none absolute right-[-120px] top-10 h-[480px] w-[480px] rounded-full"
+        style={{ background: "radial-gradient(circle, rgba(62,198,200,0.16), transparent 70%)" }}
+      />
+
+      <div className="relative z-10 max-w-xl mx-auto text-center">
+        <p
+          className="text-7xl md:text-8xl font-bold text-white/15"
+          style={{ fontFamily: "'Sora', sans-serif" }}
+        >
+          404
+        </p>
+
+        <h1
+          className="mt-2 text-3xl md:text-4xl font-bold text-white"
+          style={{ fontFamily: "'Sora', sans-serif" }}
+        >
+          This page wandered off.
+        </h1>
+        <p className="mt-4 text-lg text-gray-300 leading-relaxed">
+          The page you're looking for doesn't exist or has moved. Let's get you
+          back to finding help around you.
+        </p>
+
+        <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
+          <Link
+            to="/"
+            className="px-8 py-3.5 rounded-full text-base font-semibold text-white"
+            style={{ background: "linear-gradient(135deg,#0D6B6E,#3EC6C8)" }}
+          >
+            Back home
+          </Link>
+          <Link
+            to="/help-center"
+            className="px-8 py-3.5 rounded-full text-base font-semibold text-white transition-colors hover:bg-white/10"
+            style={{ background: "rgba(255,255,255,0.08)", border: "1px solid rgba(255,255,255,0.14)" }}
+          >
+            Help Center
+          </Link>
         </div>
 
-        {/* Content */}
-        <div className="scroll-reveal">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-            Oops! Page Not Found
-          </h2>
-          <p className="text-xl text-gray-300 mb-8 leading-relaxed">
-            The page you're looking for doesn't exist or has been moved.
-            Don't worry, let's get you back on track.
-          </p>
-
-          {/* Action Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
-            <Link
-              to="/"
-              className="bg-[#3EC6C8] text-white px-8 py-4 rounded-lg font-semibold hover:bg-[#2ba8aa] transition-colors text-lg"
-            >
-              Go Home
-            </Link>
-            <Link
-              to="/help-center"
-              className="bg-white/10 border-2 border-white/20 text-white px-8 py-4 rounded-lg font-semibold hover:bg-white/20 transition-colors text-lg"
-            >
-              Help Center
-            </Link>
-          </div>
-
-          {/* Additional Help */}
-          <div className="bg-white/10 rounded-lg p-6 backdrop-blur-sm">
-            <h3 className="text-lg font-semibold text-white mb-4">
-              Need Help?
-            </h3>
-            <p className="text-gray-300 mb-4">
-              If you believe this is an error, please contact our support team.
-            </p>
-            <a
-              href="mailto:support@aroundyou.com.ng"
-              className="text-[#3EC6C8] hover:text-[#2ba8aa] transition-colors font-medium"
-            >
-              support@aroundyou.com.ng
-            </a>
-          </div>
-        </div>
+        <p className="mt-10 text-sm text-gray-400">
+          Think this is a mistake?{" "}
+          <a
+            href="mailto:support@aroundyou.com.ng"
+            className="font-semibold text-[#3EC6C8] underline underline-offset-4 hover:text-white transition-colors"
+          >
+            Contact support
+          </a>
+        </p>
       </div>
     </div>
   );

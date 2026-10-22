@@ -1,35 +1,68 @@
-import Icon from "../components/Icon";
+import PhoneFrame from "../components/PhoneFrame";
+
+const categories = [
+  "Plumbing",
+  "Electrical",
+  "Cleaning",
+  "Carpentry",
+  "AC Repair",
+  "Laundry",
+  "Hair & Beauty",
+  "Painter",
+  "Fumigation",
+  "Generator Repair",
+  "Gardening",
+  "Baker",
+];
 
 function ServicesSection() {
-  const services = [
-    { icon: "car", grad: "linear-gradient(135deg,#0D6B6E,#3EC6C8)", title: "Rides & Drivers", desc: "Private drivers, taxis, and ride-hailing, matched by proximity and rating." },
-    { icon: "wrench", grad: "linear-gradient(135deg,#3EC6C8,#6EE7A8)", title: "Artisans & Handymen", desc: "Plumbers, electricians, carpenters, welders, skilled tradespeople you can trust." },
-    { icon: "sparkles", grad: "linear-gradient(135deg,#6EE7A8,#0D6B6E)", title: "Cleaning & Domestic", desc: "Home cleaners, cooks, laundry services, and domestic assistants on demand." },
-    { icon: "package", grad: "linear-gradient(135deg,#0D6B6E,#0B1D3A)", title: "Delivery & Errands", desc: "Quick deliveries, grocery runs, and errands handled by reliable dispatch riders." },
-    { icon: "palette", grad: "linear-gradient(135deg,#3EC6C8,#0D6B6E)", title: "Beauty & Wellness", desc: "Hairstylists, barbers, makeup artists, and spa therapists at your doorstep." },
-    { icon: "shield", grad: "linear-gradient(135deg,#6EE7A8,#3EC6C8)", title: "Security & Moving", desc: "Security escorts, movers, and logistics help when you need safe hands." },
-  ];
   return (
-    <section id="services-section" className="py-20 px-6 scroll-reveal opacity-0 translate-y-8 transition-all duration-700" style={{ background: "#f8fafb" }}>
+    <section id="services-section" className="py-20 md:py-28 px-6 bg-[#f8fafb]">
       <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-14">
-          <span className="inline-block px-4 py-1.5 rounded-full text-xs font-semibold mb-4"
-            style={{ background: "rgba(62,198,200,0.1)", color: "#0D6B6E" }}>Our Services</span>
-          <h2 className="text-3xl md:text-4xl font-bold text-[#0B1D3A]" style={{ fontFamily: "'Sora', sans-serif" }}>One App, Endless Services</h2>
-          <p className="mt-3 text-gray-500 max-w-lg mx-auto">Whatever you need done, there's a verified professional around you ready to help.</p>
-        </div>
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {services.map(({ icon, grad, title, desc }) => (
-            <div key={title}
-              className="bg-white rounded-2xl p-6 cursor-pointer transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl"
-              style={{ border: "1px solid #f0f0f0" }}>
-              <div className="w-12 h-12 rounded-xl flex items-center justify-center mb-4" style={{ background: grad }}>
-                <Icon name={icon} size={22} color="white" />
-              </div>
-              <h3 className="font-semibold text-[#0B1D3A]" style={{ fontFamily: "'Sora', sans-serif" }}>{title}</h3>
-              <p className="mt-2 text-sm text-gray-500">{desc}</p>
+        <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-16 scroll-reveal opacity-0 translate-y-8 transition-all duration-700">
+          {/* Screenshot */}
+          <div className="flex-1 flex justify-center order-2 lg:order-1">
+            <PhoneFrame
+              src="/screenshots/categories.webp"
+              alt="Browse service categories in the AroundYou app"
+              className="w-[228px] md:w-[250px]"
+            />
+          </div>
+
+          {/* Copy */}
+          <div className="flex-1 order-1 lg:order-2 text-center lg:text-left">
+            <span
+              className="inline-block px-4 py-1.5 rounded-full text-xs font-semibold mb-4"
+              style={{ background: "rgba(62,198,200,0.12)", color: "#0D6B6E" }}
+            >
+              Our services
+            </span>
+            <h2
+              className="text-3xl md:text-4xl font-bold text-[#0B1D3A]"
+              style={{ fontFamily: "'Sora', sans-serif" }}
+            >
+              One app, every service
+            </h2>
+            <p className="mt-3 text-gray-500 max-w-md mx-auto lg:mx-0">
+              From a leaking pipe to a last-minute haircut, book a verified pro for
+              whatever you need — all in one place.
+            </p>
+
+            <div className="mt-6 flex flex-wrap justify-center lg:justify-start gap-2.5">
+              {categories.map((c) => (
+                <span
+                  key={c}
+                  className="px-4 py-2 rounded-full text-sm font-medium text-[#0B1D3A] bg-white border border-[#e8eef0]"
+                >
+                  {c}
+                </span>
+              ))}
             </div>
-          ))}
+
+            <p className="mt-6 text-sm text-gray-400">
+              …and more added as providers join.
+            </p>
+          </div>
         </div>
       </div>
     </section>

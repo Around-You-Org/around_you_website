@@ -53,19 +53,18 @@ function AboutPage() {
         <meta property="og:url" content="https://aroundyou.com.ng/about" />
       </Helmet>
       {/* Hero */}
-      <section className="py-20 px-6 text-white relative overflow-hidden"
-        style={{ background: "linear-gradient(135deg,#0B1D3A,#0D6B6E)" }}>
-        <div className="absolute top-10 right-10 w-64 h-64 rounded-full opacity-10"
-          style={{ background: "#3EC6C8", filter: "blur(80px)" }} />
+      <section className="relative overflow-hidden py-24 md:py-28 px-6 text-white bg-[#0B1D3A]">
+        <div className="pointer-events-none absolute right-[-120px] top-6 h-[480px] w-[480px] rounded-full"
+          style={{ background: "radial-gradient(circle, rgba(62,198,200,0.16), transparent 70%)" }} />
         <div className="max-w-4xl mx-auto text-center relative z-10">
           <span className="inline-block px-4 py-1.5 rounded-full text-xs font-semibold mb-6"
-            style={{ background: "rgba(255,255,255,0.1)", color: "#6EE7A8" }}>Our Story</span>
-          <h1 className="text-4xl md:text-5xl font-bold leading-tight" style={{ fontFamily: "'Sora', sans-serif" }}>
-            We're Building the Future<br />
-            <span style={{ color: "#3EC6C8" }}>of Hyper Local Market Gig Platform</span>
+            style={{ background: "rgba(255,255,255,0.08)", border: "1px solid rgba(255,255,255,0.14)", color: "#6EE7A8" }}>Our story</span>
+          <h1 className="text-4xl md:text-5xl font-bold leading-[1.1]" style={{ fontFamily: "'Sora', sans-serif" }}>
+            Trusted help for everyday life,<br />
+            <span style={{ color: "#3EC6C8" }}>built for Nigeria.</span>
           </h1>
           <p className="mt-6 text-lg text-gray-300 max-w-2xl mx-auto">
-            AroundYou was born from a simple idea: everyone deserves fast, reliable access to skilled professionals nearby. We're making that a reality across Nigeria.
+            AroundYou started from a simple idea: everyone deserves fast, reliable access to skilled professionals nearby. We're making that real, one neighbourhood at a time.
           </p>
         </div>
       </section>
@@ -108,19 +107,18 @@ function AboutPage() {
               We believe skilled professionals deserve better access to customers, and customers deserve better access to quality services. AroundYou bridges that gap with technology built for the African market.
             </p>
             <p className="mt-3 text-gray-500 leading-relaxed">
-              From Asaba to Portharcourt and beyond, we're creating economic opportunity for thousands of Nigerians while making everyday life easier for millions.
+              From Asaba to Port Harcourt and beyond, we're creating economic opportunity for thousands of Nigerians while making everyday life easier for millions.
             </p>
           </div>
           <div className="grid grid-cols-2 gap-4">
             {[
-              { val: "2026", label: "Founded", color: "#0D6B6E" },
-              { val: "6", label: "Team Members", color: "#3EC6C8" },
-              { val: "15+", label: "Service Categories", color: "#6EE7A8" },
-              { val: "∞", label: "Ambition", color: "#0B1D3A" },
-            ].map(({ val, label, color }) => (
-              <div key={label} className="rounded-2xl p-6 text-center transition-transform hover:scale-105"
-                style={{ background: "linear-gradient(135deg,rgba(13,107,110,0.06),rgba(62,198,200,0.06))" }}>
-                <p className="text-3xl font-bold" style={{ fontFamily: "'Sora', sans-serif", color }}>{val}</p>
+              { val: "2026", label: "Founded" },
+              { val: "6", label: "Team members" },
+              { val: "15+", label: "Service categories" },
+              { val: "GPS", label: "Proximity matching" },
+            ].map(({ val, label }) => (
+              <div key={label} className="rounded-2xl p-6 text-center bg-[#f8fafb] border border-[#e8eef0]">
+                <p className="text-3xl font-bold" style={{ fontFamily: "'Sora', sans-serif", color: "#0D6B6E" }}>{val}</p>
                 <p className="text-xs text-gray-500 mt-1">{label}</p>
               </div>
             ))}
@@ -195,9 +193,11 @@ function AboutPage() {
       </section>
 
       {/* Join Us CTA */}
-      <section className="py-20 px-6" style={{ background: "linear-gradient(135deg,#0B1D3A,#0D6B6E)" }}>
-        <div className="max-w-6xl mx-auto text-center text-white">
-          <h2 className="text-3xl md:text-4xl font-bold" style={{ fontFamily: "'Sora', sans-serif" }}>Right now, we are opened for partnership and investors</h2>
+      <section className="relative overflow-hidden py-20 px-6 bg-[#0B1D3A]">
+        <div className="pointer-events-none absolute left-[-120px] bottom-[-80px] h-[420px] w-[420px] rounded-full"
+          style={{ background: "radial-gradient(circle, rgba(62,198,200,0.14), transparent 70%)" }} />
+        <div className="max-w-6xl mx-auto text-center text-white relative z-10">
+          <h2 className="text-3xl md:text-4xl font-bold" style={{ fontFamily: "'Sora', sans-serif" }}>We're open for partnerships and investors</h2>
           <p className="mt-4 text-gray-300 max-w-2xl mx-auto">We're growing fast and inviting talent, partners and service providers to join our marketplace across Nigeria.</p>
           <form
             onSubmit={handleSubmit}

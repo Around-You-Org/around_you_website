@@ -22,12 +22,14 @@ export default function PrivacyPolicyPage() {
       </Helmet>
 
       <div className="min-h-screen bg-white">
-        <div className="bg-linear-to-r from-[#0D6B6E] to-[#3EC6C8] py-12 px-4 sm:px-6 lg:px-8">
-          <div className="max-w-4xl mx-auto">
-            <h1 className="text-4xl font-bold text-white mb-4">
+        <div className="relative overflow-hidden bg-[#0B1D3A] py-16 px-4 sm:px-6 lg:px-8">
+          <div className="pointer-events-none absolute right-[-100px] top-0 h-[360px] w-[360px] rounded-full"
+            style={{ background: "radial-gradient(circle, rgba(62,198,200,0.16), transparent 70%)" }} />
+          <div className="max-w-4xl mx-auto relative z-10">
+            <h1 className="text-4xl font-bold text-white mb-4" style={{ fontFamily: "'Sora', sans-serif" }}>
               Website Privacy Policy
             </h1>
-            <p className="text-lg text-gray-100">Last Updated: July 15, 2026</p>
+            <p className="text-lg text-gray-300">Last Updated: July 15, 2026</p>
           </div>
         </div>
 

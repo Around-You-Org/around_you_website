@@ -50,16 +50,15 @@ function BlogPage() {
       </Helmet>
 
       {/* Hero */}
-      <section className="py-20 px-6 text-white relative overflow-hidden"
-        style={{ background: "linear-gradient(135deg,#0B1D3A,#0D6B6E)" }}>
-        <div className="absolute top-10 right-10 w-64 h-64 rounded-full opacity-10"
-          style={{ background: "#3EC6C8", filter: "blur(80px)" }} />
+      <section className="relative overflow-hidden py-20 md:py-24 px-6 text-white bg-[#0B1D3A]">
+        <div className="pointer-events-none absolute right-[-120px] top-0 h-[460px] w-[460px] rounded-full"
+          style={{ background: "radial-gradient(circle, rgba(62,198,200,0.16), transparent 70%)" }} />
         <div className="max-w-4xl mx-auto text-center relative z-10">
           <span className="inline-block px-4 py-1.5 rounded-full text-xs font-semibold mb-6"
-            style={{ background: "rgba(255,255,255,0.1)", color: "#6EE7A8" }}>AroundYou Blog</span>
+            style={{ background: "rgba(255,255,255,0.08)", border: "1px solid rgba(255,255,255,0.14)", color: "#6EE7A8" }}>AroundYou Blog</span>
           <h1 className="text-4xl md:text-5xl font-bold leading-tight" style={{ fontFamily: "'Sora', sans-serif" }}>
             Tips, stories &amp; updates from<br />
-            <span style={{ color: "#3EC6C8" }}>your neighborhood</span>
+            <span style={{ color: "#3EC6C8" }}>your neighbourhood</span>
           </h1>
           <p className="mt-6 text-lg text-gray-300 max-w-2xl mx-auto">
             Insights on local services, trusted professionals, and getting things done — right around you.
