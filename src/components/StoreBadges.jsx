@@ -1,4 +1,4 @@
-import { PLAY_STORE_URL } from "../lib/links";
+import { PLAY_STORE_URL, APP_STORE_URL } from "../lib/links";
 
 function GooglePlayLogo({ size = 22 }) {
   return (
@@ -45,8 +45,7 @@ function AppleLogo({ size = 22, color = "currentColor" }) {
   );
 }
 
-// A pair of app-store badges. Google Play links to the live listing;
-// the App Store badge is shown as "Coming soon" and is non-interactive.
+// A pair of app-store badges linking to the live Google Play and App Store listings.
 export default function StoreBadges({ className = "" }) {
   return (
     <div className={`flex flex-col sm:flex-row gap-3 ${className}`}>
@@ -64,16 +63,19 @@ export default function StoreBadges({ className = "" }) {
         </span>
       </a>
 
-      <div
-        aria-label="AroundYou on the App Store, coming soon"
-        className="relative inline-flex items-center gap-3 rounded-xl px-5 py-2.5 bg-black/70 text-white/70 border border-white/15 cursor-default select-none"
+      <a
+        href={APP_STORE_URL}
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Download AroundYou on the App Store"
+        className="inline-flex items-center gap-3 rounded-xl px-5 py-2.5 bg-black text-white border border-white/25 transition-all hover:border-white/50 hover:-translate-y-0.5"
       >
-        <AppleLogo color="rgba(255,255,255,0.7)" />
+        <AppleLogo color="#ffffff" />
         <span className="flex flex-col leading-tight text-left">
-          <span className="text-[10px] uppercase tracking-wide text-gray-400">Coming soon</span>
+          <span className="text-[10px] uppercase tracking-wide text-gray-300">Download on the</span>
           <span className="text-lg font-semibold">App Store</span>
         </span>
-      </div>
+      </a>
     </div>
   );
 }

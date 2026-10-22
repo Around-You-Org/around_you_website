@@ -1,7 +1,7 @@
 import { useState } from "react"
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { Menu, X } from 'lucide-react'
-import { PLAY_STORE_URL } from '../lib/links'
+import GetAppButton from './GetAppButton'
 
 function NavBar() {
   const location = useLocation()
@@ -43,17 +43,9 @@ function NavBar() {
         </div>
 
         <div className="flex items-center gap-3">
-          <a
-            href={PLAY_STORE_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hidden md:inline-flex cta-btn px-5 py-2.5 rounded-full text-sm font-semibold text-white"
-            style={{
-              background: "linear-gradient(135deg,#0D6B6E,#3EC6C8)",
-            }}
-          >
-            Get the App
-          </a>
+          <div className="hidden md:block">
+            <GetAppButton />
+          </div>
           <button
             type="button"
             className="md:hidden p-2"
@@ -73,18 +65,7 @@ function NavBar() {
             <Link to="/blog" onClick={() => setOpen(false)} className="py-2 text-sm font-medium text-navy">Blog</Link>
             <button type="button" onClick={() => scrollAndNavigate('services-section')} className="py-2 text-sm font-medium text-navy text-left">Services</button>
             <button type="button" onClick={() => scrollAndNavigate('contact-section')} className="py-2 text-sm font-medium text-navy text-left">Contact</button>
-            <a
-              href={PLAY_STORE_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              onClick={() => setOpen(false)}
-              className="cta-btn px-5 py-2.5 rounded-full text-sm font-semibold text-white w-full text-center"
-              style={{
-                background: "linear-gradient(135deg,#0D6B6E,#3EC6C8)",
-              }}
-            >
-              Get the App
-            </a>
+            <GetAppButton fullWidth onNavigate={() => setOpen(false)} />
           </div>
         </div>
       )}
