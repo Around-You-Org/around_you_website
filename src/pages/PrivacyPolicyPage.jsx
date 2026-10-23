@@ -29,7 +29,7 @@ export default function PrivacyPolicyPage() {
             <h1 className="text-4xl font-bold text-white mb-4" style={{ fontFamily: "'Sora', sans-serif" }}>
               Website Privacy Policy
             </h1>
-            <p className="text-lg text-gray-300">Last Updated: July 15, 2026</p>
+            <p className="text-lg text-gray-300">Last Updated: October 23, 2026</p>
           </div>
         </div>
 
@@ -37,7 +37,8 @@ export default function PrivacyPolicyPage() {
           <section className="mb-12">
             <h2 className="text-2xl font-bold text-gray-900 mb-4">Introduction</h2>
             <p className="text-gray-700 mb-4">
-              AroundYou ("we," "us," or "our") is committed to protecting your
+              Around You Technologies LTD (RC: 9547830), trading as AroundYou
+              ("AroundYou," "we," "us," or "our"), is committed to protecting your
               privacy. This Privacy Policy explains how we collect, use,
               disclose, and protect personal information in connection with the
               AroundYou website at aroundyou.com.ng, our website contact and
@@ -328,6 +329,8 @@ export default function PrivacyPolicyPage() {
               We will respond within a reasonable timeframe.
             </p>
             <div className="bg-gray-50 p-6 rounded-lg">
+              <p className="text-gray-700 font-semibold mb-1">Around You Technologies LTD</p>
+              <p className="text-gray-700 mb-3">RC: 9547830 · 15 Myles Dion Street, Asaba, Delta State, Nigeria</p>
               <p className="text-gray-700 mb-2">
                 <strong>Email:</strong> support@aroundyou.com.ng
               </p>

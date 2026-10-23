@@ -26,7 +26,7 @@ export default function AppPrivacyPolicyPage() {
         <title>App Privacy Policy | AroundYou</title>
         <meta
           name="description"
-          content="Privacy Policy for the AroundYou mobile application. Learn how AROUND YOU TECHNOLOGIES LTD collects, uses, shares, and protects your personal information in the app."
+          content="Privacy Policy for the AroundYou mobile application. Learn how Around You Technologies LTD collects, uses, shares, and protects your personal information in the app."
         />
         <meta property="og:title" content="App Privacy Policy | AroundYou" />
         <meta property="og:description" content="How the AroundYou mobile app collects, uses, and protects your information." />
@@ -43,7 +43,7 @@ export default function AppPrivacyPolicyPage() {
             <h1 className="text-4xl font-bold text-white mb-4" style={{ fontFamily: "'Sora', sans-serif" }}>
               Mobile App Privacy Policy
             </h1>
-            <p className="text-lg text-gray-300">Last Updated: June 03, 2026</p>
+            <p className="text-lg text-gray-300">Last Updated: October 23, 2026</p>
           </div>
         </div>
 
@@ -51,14 +51,14 @@ export default function AppPrivacyPolicyPage() {
           {/* Intro */}
           <section className="mb-12">
             <p className="text-gray-700 mb-4">
-              This Privacy Notice for <strong>AROUND YOU TECHNOLOGIES LTD</strong> ("we," "us," or
-              "our") describes how and why we might access, collect, store, use, and/or share
+              This Privacy Notice for <strong>Around You Technologies LTD</strong> (RC: 9547830),
+              trading as AroundYou ("we," "us," or "our"), describes how and why we might access, collect, store, use, and/or share
               ("process") your personal information when you use our services ("Services"), including
               when you:
             </p>
             <ul className="list-disc list-inside text-gray-700 space-y-2 mb-4">
               <li>
-                Download and use our mobile application (AROUND YOU), or any other application of
+                Download and use our mobile application (AroundYou), or any other application of
                 ours that links to this Privacy Notice
               </li>
               <li>
@@ -125,7 +125,7 @@ export default function AppPrivacyPolicyPage() {
             <ul className="list-disc list-inside text-gray-700 space-y-2">
               <li><strong>What personal information do we process?</strong> We may process personal information depending on how you interact with us and the Services, the choices you make, and the products and features you use.</li>
               <li><strong>Do we process sensitive personal information?</strong> We may process sensitive information when necessary with your consent or as otherwise permitted by applicable law.</li>
-              <li><strong>Do we collect information from third parties?</strong> We do not collect any information from third parties.</li>
+              <li><strong>Do we collect information from third parties?</strong> Only if you choose to sign in with Google or Apple: that provider then sends us your name, email address and an account identifier.</li>
               <li><strong>How do we process your information?</strong> To provide, improve, and administer our Services, communicate with you, for security and fraud prevention, and to comply with law.</li>
               <li><strong>When and with whom do we share information?</strong> We may share information in specific situations and with specific categories of third parties.</li>
               <li><strong>How do we keep your information safe?</strong> We use organisational and technical measures, though no system can be guaranteed 100% secure.</li>
@@ -185,6 +185,38 @@ export default function AppPrivacyPolicyPage() {
               <li><strong>Push Notifications.</strong> We may request to send push notifications regarding your account or app features. You can opt out in your device's settings.</li>
             </ul>
 
+            <h3 className="text-xl font-semibold text-gray-800 mb-2">Information from Google or Apple sign-in</h3>
+            <InShort>If you sign in with Google or Apple, we receive your name, email address and an account identifier from them. We never receive your Google or Apple password.</InShort>
+            <p className="text-gray-700 mb-3">
+              You can create an account or log in with your email address, or with your Google or
+              Apple account. If you choose Google or Apple, that provider confirms who you are and
+              sends us:
+            </p>
+            <ul className="list-disc list-inside text-gray-700 space-y-1 mb-4">
+              <li>your name (Apple shares it only the first time you sign in);</li>
+              <li>your email address, and whether the provider has verified it;</li>
+              <li>an identifier that the provider uses for you in our app.</li>
+            </ul>
+            <p className="text-gray-700 mb-3">
+              If you sign in with Apple and choose "Hide My Email", Apple gives us a private relay
+              address that forwards our emails to your real inbox; we do not see your real address. If
+              an AroundYou account already exists with the same verified email address, we link your
+              Google or Apple sign-in to that account. Google and Apple do not give us your phone
+              number, so we ask for it separately when you set up your profile.
+            </p>
+            <p className="text-gray-700 mb-6">
+              We use this information only to create, identify and secure your account. Google and
+              Apple handle your data under their own privacy policies: 
+              <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer" className="text-[#0D6B6E] hover:underline">
+                Google Privacy Policy
+              </a> 
+              and 
+              <a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener noreferrer" className="text-[#0D6B6E] hover:underline">
+                Apple Privacy Policy
+              </a>
+              .
+            </p>
+
             <h3 className="text-xl font-semibold text-gray-800 mb-2">Information automatically collected</h3>
             <InShort>Some information — such as your IP address and/or browser and device characteristics — is collected automatically when you use our Services.</InShort>
             <p className="text-gray-700 mb-3">
@@ -237,12 +269,19 @@ export default function AppPrivacyPolicyPage() {
               <li>Performance Monitoring Tools</li>
               <li>Government Entities</li>
             </ul>
-            <p className="text-gray-700">
-              We may also need to share your information in the following situations:{' '}
-              <strong>Business Transfers</strong> — in connection with, or during negotiations of, any
-              merger, sale of company assets, financing, or acquisition of all or a portion of our
-              business to another company.
-            </p>
+            <p className="text-gray-700 mb-2">We may also need to share your information in the following situations:</p>
+            <ul className="list-disc list-inside text-gray-700 space-y-2">
+              <li>
+                <strong>Sign-in Providers</strong> — if you sign in with Google or Apple, we exchange
+                information with that provider to confirm your identity. When you delete your account,
+                we ask Apple to end your Sign in with Apple connection with our app.
+              </li>
+              <li>
+                <strong>Business Transfers</strong> — in connection with, or during negotiations of, any
+                merger, sale of company assets, financing, or acquisition of all or a portion of our
+                business to another company.
+              </li>
+            </ul>
           </section>
 
           {/* 4 */}
@@ -338,12 +377,18 @@ export default function AppPrivacyPolicyPage() {
             <ul className="list-disc list-inside text-gray-700 space-y-1 mb-4">
               <li>Contact us using the contact information provided.</li>
               <li>Log in to your account settings and update your user account.</li>
+              <li>Delete your account in the app, under Settings → Delete Account.</li>
             </ul>
-            <p className="text-gray-700">
+            <p className="text-gray-700 mb-4">
               Upon your request to terminate your account, we will deactivate or delete your account
               and information from our active databases, though we may retain some information to
               prevent fraud, troubleshoot problems, assist investigations, enforce our legal terms,
               and/or comply with legal requirements.
+            </p>
+            <p className="text-gray-700">
+              Deleting your account also removes any Google or Apple sign-in linked to it and ends the
+              Sign in with Apple connection with our app. You can also remove our app's access at any
+              time from your Google Account settings or your Apple ID settings.
             </p>
           </section>
 
@@ -387,7 +432,8 @@ export default function AppPrivacyPolicyPage() {
               or contact us by post at:
             </p>
             <div className="bg-gray-50 p-6 rounded-lg">
-              <p className="text-gray-700 font-semibold mb-1">AROUND YOU TECHNOLOGIES LTD</p>
+              <p className="text-gray-700 font-semibold mb-1">Around You Technologies LTD</p>
+              <p className="text-gray-700">RC: 9547830</p>
               <p className="text-gray-700">15 Myles Dion Street</p>
               <p className="text-gray-700">Asaba, Delta State</p>
               <p className="text-gray-700">Nigeria</p>

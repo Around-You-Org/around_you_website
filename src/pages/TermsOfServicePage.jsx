@@ -32,7 +32,7 @@ export default function TermsOfServicePage() {
             <h1 className="text-4xl font-bold text-white mb-4" style={{ fontFamily: "'Sora', sans-serif" }}>
               Terms of Service
             </h1>
-            <p className="text-lg text-gray-300">Last Updated: July 15, 2026</p>
+            <p className="text-lg text-gray-300">Last Updated: October 23, 2026</p>
           </div>
         </div>
 
@@ -40,7 +40,9 @@ export default function TermsOfServicePage() {
           <section className="mb-12">
             <h2 className="text-2xl font-bold text-gray-900 mb-4">Introduction</h2>
             <p className="text-gray-700 mb-4">
-              Welcome to AroundYou ("we," "us," or "our"). These Terms of Service
+              Welcome to AroundYou. AroundYou is operated by Around You
+              Technologies LTD (RC: 9547830), a company registered in Nigeria
+              ("AroundYou," "we," "us," or "our"). These Terms of Service
               ("Terms") govern your access to and use of the AroundYou website at
               aroundyou.com.ng and related website services (collectively, the
               "Services"). By accessing or using our Services, you agree to be bound
@@ -249,6 +251,8 @@ export default function TermsOfServicePage() {
               If you have any questions about these Terms, please contact us at:
             </p>
             <div className="bg-gray-50 p-6 rounded-lg">
+              <p className="text-gray-700 font-semibold mb-1">Around You Technologies LTD</p>
+              <p className="text-gray-700 mb-3">RC: 9547830 · 15 Myles Dion Street, Asaba, Delta State, Nigeria</p>
               <p className="text-gray-700 mb-2">
                 <strong>Email:</strong> support@aroundyou.com.ng
               </p>
